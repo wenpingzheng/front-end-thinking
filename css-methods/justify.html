@@ -15,9 +15,19 @@
     margin-top:15px;
     background-color:black;
   }
+
   .justify{
     text-align: justify;
+    /* text-align-last:justify */
   }
+
+  .justify:after{
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: 100%;
+  }
+
   .justify i{
     width:34px;
     text-align:center;
@@ -27,7 +37,9 @@
     font-style:normal;
     margin-bottom:5px;
   }
+
 </style>
+
   <div class="container">
     <div class="justify">
       <i>一</i>
@@ -36,5 +48,6 @@
       <i>四</i>
     </ul>
   </div>
+
 </body>
 </html>
