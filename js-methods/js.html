@@ -1,0 +1,60 @@
+<html>
+
+<head>
+  <title>js常用编程技巧</title>
+  <meta charset="utf8">
+</head>
+
+<body>
+  <h2>js常用的编程技巧</h2>
+  <script type="text/javascript">
+
+    var arrays = [1, 2, 3, 4];
+    var arrayItem = arrays[Math.floor(Math.random() * arrays.length)]
+    console.log(arrayItem) // 3
+
+    var x = Math.floor(Math.random()*Max-Min+1) + min;
+
+    function str(stringLength) {
+      var x = "";
+      for (; x.length < stringLength; x += Math.random().toString(36).substr(2));
+      return x.substr(0, stringLength)
+    }
+    console.log(str(10)) // fpjxhv5s99
+
+
+    var arrays = [], max = 10;
+    for (var i = 0; arrays.push(i++) < max;);
+    console.log(arrays)
+
+
+    function checkNumber(n) {
+      return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+    console.log(checkNumber(22))
+
+    var arrays = [1,3,5,20];
+    var maxN = Math.max.apply(Math,arrays);
+    var minN = Math.min.apply(Math,arrays);
+    console.log(maxN)// 20
+
+    var arrays = [3,2,2,4];
+    arrays.length = 2;
+    console.log(arrays) // [3,2]
+    arrays.length = 5;// [3,2,2,4,undefined]
+
+    var arrays1 = [1,2,3]
+    var arrays2 = [4,5]
+    Array.prototype.push.apply(arrays1,arrays2)
+    //[1,2,3,4,5]
+
+    function isArray(obj) {
+      return Object.prototype.toString.call(obj) === "[object Array]"
+    }
+
+
+
+  </script>
+</body>
+
+</html>
