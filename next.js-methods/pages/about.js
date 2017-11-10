@@ -1,10 +1,11 @@
 
+import Layout from '../component/MyLayout.js'
 
 const About = () => {
   return(
-    <div>
+    <Layout>
       <p>About Page</p>
-    </div>
+    </Layout>
   )
 }
 
