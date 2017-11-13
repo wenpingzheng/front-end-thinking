@@ -21,33 +21,64 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _jsxFileName = 'D:\\example\\www\\front-end-thinking\\next.js-methods\\pages\\index.js?entry';
 
 
-var Index = function Index() {
-  return _react2.default.createElement('div', {
+var PostLink = function PostLink(props) {
+  return _react2.default.createElement('li', {
     __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    }
+  }, _react2.default.createElement(_link2.default, { href: '/post?title=' + props.title, __source: {
       fileName: _jsxFileName,
       lineNumber: 9
     }
-  }, _react2.default.createElement(_Header2.default, {
+  }, _react2.default.createElement('a', {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     }
+  }, props.title)));
+};
+
+var Index = function Index() {
+  return _react2.default.createElement('div', {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    }
+  }, _react2.default.createElement(_Header2.default, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    }
   }), _react2.default.createElement(_link2.default, { href: '/about', __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 20
     }
   }, _react2.default.createElement('button', {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 21
     }
   }, 'Go to About Page')), _react2.default.createElement('p', {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 23
     }
-  }, 'Hello Next.js'));
+  }, 'Hello Next.js'), _react2.default.createElement('ul', {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    }
+  }, _react2.default.createElement(PostLink, { title: 'Hello Next', __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    }
+  }), _react2.default.createElement(PostLink, { title: 'apps Next', __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    }
+  })));
 };
 
 exports.default = Index;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzXFxpbmRleC5qcyJdLCJuYW1lcyI6WyJMaW5rIiwiSGVhZGVyIiwiSW5kZXgiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFDQSxBQUFPOzs7O0FBRVAsQUFBTyxBQUFZOzs7Ozs7Ozs7QUFHbkIsSUFBTSxRQUFRLFNBQVIsQUFBUSxRQUFNLEFBQ2xCO3lCQUNFLGNBQUE7O2dCQUFBO2tCQUFBLEFBQ0U7QUFERjtBQUFBLEdBQUEsa0JBQ0UsQUFBQzs7Z0JBQUQ7a0JBREYsQUFDRSxBQUNBO0FBREE7QUFBQSxzQkFDQSxBQUFDLGdDQUFLLE1BQU4sQUFBVztnQkFBWDtrQkFBQSxBQUNFO0FBREY7cUJBQ0UsY0FBQTs7Z0JBQUE7a0JBQUE7QUFBQTtBQUFBLEtBSEosQUFFRSxBQUNFLEFBRUYsc0NBQUEsY0FBQTs7Z0JBQUE7a0JBQUE7QUFBQTtBQUFBLEtBTkosQUFDRSxBQUtFLEFBR0w7QUFWRCxBQVlBOztrQkFBQSxBQUFlIiwiZmlsZSI6ImluZGV4LmpzP2VudHJ5Iiwic291cmNlUm9vdCI6IkQ6L2V4YW1wbGUvd3d3L2Zyb250LWVuZC10aGlua2luZy9uZXh0LmpzLW1ldGhvZHMifQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzXFxpbmRleC5qcyJdLCJuYW1lcyI6WyJMaW5rIiwiSGVhZGVyIiwiUG9zdExpbmsiLCJwcm9wcyIsInRpdGxlIiwiSW5kZXgiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFDQSxBQUFPOzs7O0FBRVAsQUFBTyxBQUFZOzs7Ozs7Ozs7QUFFbkIsSUFBTSxXQUFXLFNBQVgsQUFBVyxTQUFBLEFBQUMsT0FBVSxBQUMxQjt5QkFDRSxjQUFBOztnQkFBQTtrQkFBQSxBQUNFO0FBREY7QUFBQSxHQUFBLGtCQUNFLEFBQUMsZ0NBQUssdUJBQXFCLE1BQTNCLEFBQWlDO2dCQUFqQztrQkFBQSxBQUNFO0FBREY7cUJBQ0UsY0FBQTs7Z0JBQUE7a0JBQUEsQUFBSTtBQUFKO0FBQUEsV0FITixBQUNFLEFBQ0UsQUFDRSxBQUFVLEFBSWpCO0FBUkQ7O0FBVUEsSUFBTSxRQUFRLFNBQVIsQUFBUSxRQUFNLEFBQ2xCO3lCQUNFLGNBQUE7O2dCQUFBO2tCQUFBLEFBQ0U7QUFERjtBQUFBLEdBQUEsa0JBQ0UsQUFBQzs7Z0JBQUQ7a0JBREYsQUFDRSxBQUNBO0FBREE7QUFBQSxzQkFDQSxBQUFDLGdDQUFLLE1BQU4sQUFBVztnQkFBWDtrQkFBQSxBQUNFO0FBREY7cUJBQ0UsY0FBQTs7Z0JBQUE7a0JBQUE7QUFBQTtBQUFBLEtBSEosQUFFRSxBQUNFLEFBRUYsc0NBQUEsY0FBQTs7Z0JBQUE7a0JBQUE7QUFBQTtBQUFBLEtBTEYsQUFLRSxBQUNBLGtDQUFBLGNBQUE7O2dCQUFBO2tCQUFBLEFBQ0U7QUFERjtBQUFBLG1DQUNFLEFBQUMsWUFBUyxPQUFWLEFBQWdCO2dCQUFoQjtrQkFERixBQUNFLEFBQ0E7QUFEQTtvQ0FDQSxBQUFDLFlBQVMsT0FBVixBQUFnQjtnQkFBaEI7a0JBVE4sQUFDRSxBQU1FLEFBRUUsQUFJUDtBQUpPOztBQVZSLEFBZ0JBOztrQkFBQSxBQUFlIiwiZmlsZSI6ImluZGV4LmpzP2VudHJ5Iiwic291cmNlUm9vdCI6IkQ6L2V4YW1wbGUvd3d3L2Zyb250LWVuZC10aGlua2luZy9uZXh0LmpzLW1ldGhvZHMifQ==
