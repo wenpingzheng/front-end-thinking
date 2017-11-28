@@ -1,17 +1,18 @@
 
 import Link from 'next/link'
-
 import Header from '../component/Header'
+
 
 const PostLink = (props) => {
   return (
     <li>
-      <Link href={`/post?title=${props.title}`}>
+      <Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}>
         <a>{props.title}</a>
       </Link>
     </li>
   )
 }
+
 
 const Index = () => {
   return(
@@ -22,8 +23,8 @@ const Index = () => {
       </Link>
       <p>Hello Next.js</p>
       <ul>
-        <PostLink title="Hello Next"/>
-        <PostLink title="apps Next" />
+        <PostLink id="hello-next.js" title="Hello Next"/>
+        <PostLink id="app-next.js" title="apps Next" />
       </ul>
     </div>
   )
