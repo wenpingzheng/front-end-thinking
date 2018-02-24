@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node server.js",
+    "export" : "next build && next export",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,8 +13,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
+    "isomorphic-unfetch": "^2.0.0",
     "next": "^4.1.4",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "react-touch-loader": "^1.1.2"
   }
 }
