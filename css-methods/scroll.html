@@ -1,0 +1,42 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+    <title>原生滚动功能</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+      body,ul{
+        padding:0;
+        margin:0;
+        font-size:14px;
+      }
+      
+      ul{
+        white-space: nowrap;
+        padding:5px 10px;
+        display:inline-block;
+        overflow-y:hidden;
+        overflow-x:scroll;
+        -webkit-overflow-scrolling:touch;
+        backface-visibility: hidden;
+      }
+
+      li{
+        display:inline-block;
+        text-align:center;
+        list-style:none;
+        width:80px;
+        height:40px;
+        background-color:#ddd;
+        line-height:40px;
+        margin:0 5px;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="wrap" id="wrap">
+        <ul>
+          <li>内容一</li><li>内容二</li><li>内容三</li><li>内容四</li><li>内容五</li><li>内容六</li>
+        </ul>
+      </div>
+  </body>
+</html>
