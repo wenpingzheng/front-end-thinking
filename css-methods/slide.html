@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="gb2312">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta content="yes" name="mobile-web-app-capable">
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <title>滑屏示例</title>
+  <!--页面设计：-- | 页面制作:rukkihuang | 创建时间：2016.2.12 | 更新时间：2016.3.12 | 团队博客：http://tgideas.qq.com/-->
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: Verdana;
+    }
+
+    body,
+    html {
+      height: 100%;
+      background-color: #000000;
+    }
+
+    .wrap {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .wrap2 {
+      width: 100%;
+      height: 1000%;
+      transition: 0.3s linear
+    }
+
+    .page {
+      width: 100%;
+      height: 10%
+    }
+
+    .page {
+      background-color: #fdfdfd;
+      font-size: 100px;
+      line-height: 400px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  
+  <div class="wrap" id="wrap">
+    <div class="wrap2" id="wrap2">
+      <div class="page">1</div>
+      <div class="page" style="background-color:#dddddd;">2</div>
+      <div class="page">3</div>
+      <div class="page" style="background-color:#dddddd;">4</div>
+      <div class="page">5</div>
+      <div class="page" style="background-color:#dddddd;">6</div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+
+    //重要！禁止移动端滑动的默认事件
+    document.body.addEventListener('touchmove', function (event) {
+      event = event ? event : window.event;
+      if (event.preventDefault) {
+        event.preventDefault()
+      } else {
+        event.returnValue = false
+      }
+    }, false)
+
+    var pages = function (obj) {
+      var box = document.getElementById(obj.wrap);
+      var box2 = document.getElementById(obj.wrap2);
+      var len = obj.len;
+      var n = obj.n;
+      var startY, moveY, cliH;
+      //获取屏幕高度
+      var getH = function () {
+        cliH = document.body.clientHeight
+      };
+      getH();
+      window.addEventListener('resize', getH, false);
+      //touchStart
+      var touchstart = function (event) {
+        if (!event.touches.length) { return; }
+        startY = event.touches[0].pageY;
+        moveY = 0;
+      };
+      //touchMove
+      var touchmove = function (event) {
+        if (!event.touches.length) { return; }
+        moveY = event.touches[0].pageY - startY;
+        //根据手指的位置移动页面
+        box2.style.transform = 'translateY(' + (-n * cliH + moveY) + 'px)';
+      };
+      //touchEnd
+      var touchend = function (event) {
+        //位移小于+-50的不翻页
+        if (moveY < -50) n++;
+        if (moveY > 50) n--;
+        //最后&最前页控制
+        if (n < 0) n = 0;
+        if (n > len - 1) n = len - 1;
+        //重定位
+        //根据百分比位置移动页面
+        box2.style.transform = 'translateY(' + (-n * 10) + '%)';
+      };
+      //touch事件绑定
+      box.addEventListener("touchstart", function (event) { 
+        touchstart(event) 
+      }, false);
+      box.addEventListener("touchmove", function (event) { 
+        touchmove(event) 
+      }, false);
+      box.addEventListener("touchend", function (event) { 
+        touchend(event) 
+      }, false);
+    };
+    pages({
+      wrap: 'wrap',//.wrap的id
+      wrap2: 'wrap2',//.wrap2的id
+      len: 6,//一共有几页
+      n: 0//页面一打开默认在第几页？第一页就是0，第二页就是1
+    });
+  </script>
+</body>
+</html>
