@@ -5,6 +5,7 @@
     </head>
     <body>
         <script type="text/javascript">
+        /*
             console.log('')
             console.log(a)
             var a = 10;
@@ -17,8 +18,19 @@
             
             console.log(f2) // undefined
             var f2 = function() {} // 函数表达式
+        */
+        var obj1 = {
+            name:'wp'
+        }
+        var ifObj = (obj) => {
+            for (var i in obj) { // 如果不为空，则会执行到这一步，返回true
+                return true
+            }
+            return false // 如果为空,返回false
+        }
 
-
+        console.log(ifObj(Object.prototype))
+        
         </script>
     </body>
 </html>
