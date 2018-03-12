@@ -1,0 +1,84 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>jsfun</title>
+</head>
+
+<body>
+  <script>
+
+    (function () {
+
+    })();
+
+    function f1() {
+      var N = 0; // N是f1函数的局部变量
+      // f2是f1函数的内部函数，是闭包
+      function f2() {
+        // 内部函数f2中使用了外部函数f1中的变量N
+        N += 1;
+        console.log(N)
+      }
+      return f2;
+    }
+    var result = f1();
+    result() // 1
+    result() // 2
+    result() // 3
+
+    function Product() {
+      var name;
+      this.setName = function (value) {
+        name = value;
+      }
+      this.getName = function () {
+        return name;
+      }
+    }
+    var p = new Product();
+    p.setName('Fundebug');
+    console.log(p.name) // undefined
+    console.log(p.getName()) // Fundebug
+
+    function Rectangle(x, y) {
+      this._length = x;
+      this._breadth = y;
+    }
+    Rectangle.prototype.getDimensions = function () {
+      return {
+        length: this._length,
+        breadth: this._breadth
+      }
+    }
+    var x = new Rectangle(3, 4)
+    var y = new Rectangle(4, 3)
+    //{length:3,breadth:4}
+    console.log(x.getDimensions())
+    //{length:4,breadth:3}
+    console.log(y.getDimensions())
+
+    var module = (function() {
+      var N = 5;
+      function print(x) {
+        console.log("The result is:" + x);
+      }
+      function add(a) {
+        var x = a + N;
+        print(x);
+      }
+      return {
+        description: "This is description",
+        add: add
+      }
+    })()
+    // This is description
+    console.log(module.description)
+    // The result is : 10
+    console.log(module.add(5)) 
+
+    
+  </script>
+</body>
+
+</html>
