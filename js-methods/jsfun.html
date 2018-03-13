@@ -58,7 +58,7 @@
     //{length:4,breadth:3}
     console.log(y.getDimensions())
 
-    var module = (function() {
+    var module = (function () {
       var N = 5;
       function print(x) {
         console.log("The result is:" + x);
@@ -75,9 +75,97 @@
     // This is description
     console.log(module.description)
     // The result is : 10
-    console.log(module.add(5)) 
+    console.log(module.add(5))
 
-    
+
+    console.log(y) // undefined
+    y = 2 // 初始化y
+
+    var y // 声明y
+    console.log(y) // undefined
+    y = 2 // 初始化y
+
+
+    var add = function (x) {
+      return function (y) {
+        return x + y
+      }
+    }
+    console.log(add(1)(1)) // 2
+
+    var add1 = add(1)
+    console.log(add1(1)) // 2
+
+    var add10 = add(10)
+    console.log(add10(1)) // 11
+
+    // call
+    var user = {
+      name: "R M",
+      whatIsYourName: function () {
+        console.log(this.name)
+      }
+    }
+    user.whatIsYourName() // 'R M'
+
+    var user2 = {
+      name: "N S"
+    }
+    user.whatIsYourName.call(user2) // 'N S'
+
+    // apply
+    var user = {
+      greet: 'hello',
+      greetUser: function (userName) {
+        console.log(this.greet + " " + userName)
+      }
+    }
+
+    var greet1 = {
+      greet: 'Hola'
+    }
+    user.greetUser.call(greet1, 'R') // hello R
+    user.greetUser.apply(greet1, ['R']) // hello R
+
+    var user = {
+      greet: 'Hello',
+      greetUser: function (userName) {
+        console.log(this.greet + " " + userName)
+      }
+    }
+    var greetHola = user.greetUser.bind({ greet: "H" })
+    var greetBonjour = user.greetUser.bind({ greet: "B" })
+    greetHola('R') // H R
+    greetBonjour('R') // B R
+
+
+    function memoizeFuntion(func) {
+      var cache = {};
+      return function () {
+        var key = arguments[0];
+        if(cache[key]) {
+          return cache[key];
+        } else {
+          var val = func.apply(this, arguments)
+          cache[key] = val;
+          return val;
+        }
+      }
+    }
+
+    var fibonacci = memoizeFuntion(function(n) {
+      return (n===0 || n===1)?n:fibonacci(n-1) + fibonacci(n-2)
+    })
+    console.log(fibonacci)
+   // console.log(fibonacci(100)) // 354224848179262000000
+    //console.log(fibonacci(100)) // 354224848179262000000
+
+
+
+
+
+
+
   </script>
 </body>
 
