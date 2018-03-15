@@ -1,0 +1,172 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>jsfun</title>
+</head>
+
+<body>
+  <script>
+
+    (function () {
+
+    })();
+
+    function f1() {
+      var N = 0; // N是f1函数的局部变量
+      // f2是f1函数的内部函数，是闭包
+      function f2() {
+        // 内部函数f2中使用了外部函数f1中的变量N
+        N += 1;
+        console.log(N)
+      }
+      return f2;
+    }
+    var result = f1();
+    result() // 1
+    result() // 2
+    result() // 3
+
+    function Product() {
+      var name;
+      this.setName = function (value) {
+        name = value;
+      }
+      this.getName = function () {
+        return name;
+      }
+    }
+    var p = new Product();
+    p.setName('Fundebug');
+    console.log(p.name) // undefined
+    console.log(p.getName()) // Fundebug
+
+    function Rectangle(x, y) {
+      this._length = x;
+      this._breadth = y;
+    }
+    Rectangle.prototype.getDimensions = function () {
+      return {
+        length: this._length,
+        breadth: this._breadth
+      }
+    }
+    var x = new Rectangle(3, 4)
+    var y = new Rectangle(4, 3)
+    //{length:3,breadth:4}
+    console.log(x.getDimensions())
+    //{length:4,breadth:3}
+    console.log(y.getDimensions())
+
+    var module = (function () {
+      var N = 5;
+      function print(x) {
+        console.log("The result is:" + x);
+      }
+      function add(a) {
+        var x = a + N;
+        print(x);
+      }
+      return {
+        description: "This is description",
+        add: add
+      }
+    })()
+    // This is description
+    console.log(module.description)
+    // The result is : 10
+    console.log(module.add(5))
+
+
+    console.log(y) // undefined
+    y = 2 // 初始化y
+
+    var y // 声明y
+    console.log(y) // undefined
+    y = 2 // 初始化y
+
+
+    var add = function (x) {
+      return function (y) {
+        return x + y
+      }
+    }
+    console.log(add(1)(1)) // 2
+
+    var add1 = add(1)
+    console.log(add1(1)) // 2
+
+    var add10 = add(10)
+    console.log(add10(1)) // 11
+
+    // call
+    var user = {
+      name: "R M",
+      whatIsYourName: function () {
+        console.log(this.name)
+      }
+    }
+    user.whatIsYourName() // 'R M'
+
+    var user2 = {
+      name: "N S"
+    }
+    user.whatIsYourName.call(user2) // 'N S'
+
+    // apply
+    var user = {
+      greet: 'hello',
+      greetUser: function (userName) {
+        console.log(this.greet + " " + userName)
+      }
+    }
+
+    var greet1 = {
+      greet: 'Hola'
+    }
+    user.greetUser.call(greet1, 'R') // hello R
+    user.greetUser.apply(greet1, ['R']) // hello R
+
+    var user = {
+      greet: 'Hello',
+      greetUser: function (userName) {
+        console.log(this.greet + " " + userName)
+      }
+    }
+    var greetHola = user.greetUser.bind({ greet: "H" })
+    var greetBonjour = user.greetUser.bind({ greet: "B" })
+    greetHola('R') // H R
+    greetBonjour('R') // B R
+
+
+    function memoizeFuntion(func) {
+      var cache = {};
+      return function () {
+        var key = arguments[0];
+        if(cache[key]) {
+          return cache[key];
+        } else {
+          var val = func.apply(this, arguments)
+          cache[key] = val;
+          return val;
+        }
+      }
+    }
+
+    var fibonacci = memoizeFuntion(function(n) {
+      return (n===0 || n===1)?n:fibonacci(n-1) + fibonacci(n-2)
+    })
+    console.log(fibonacci)
+   // console.log(fibonacci(100)) // 354224848179262000000
+    //console.log(fibonacci(100)) // 354224848179262000000
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>正则表达式</title>
+    </head>
+    <body>
+        <script>
+            // replace
+            /*
+            let str = "{{name}}很厉害，才{{age}}岁"
+            let obj = {name: '二月', age: 15}
+            function test(str, obj){
+                let _s = str.replace(/\{\{(\w+)\}\}/g, '$1')
+                console.log(_s)
+                let result
+                for(let k in obj) {
+                    _s = _s.replace(new RegExp(k, 'g'), obj[k])
+                }
+                return _s
+            }
+            const s = test(str, obj)
+            console.log(s)
+            */
+
+            // match
+            /*
+            var str = "{{name}}很厉害，才{{age}}岁";
+            var str2 = "{{name}}很厉name害，才{{age}}岁{{name}}";
+            
+            var obj = {name: '周杰伦', age: 15};
+            function fun(str, obj) {
+                var arr;
+                arr = str.match(/{{[a-zA-Z\d]+}}/g);
+                for(var i=0;i<arr.length;i++){
+                    arr[i] = arr[i].replace(/{{|}}/g,'');
+                    str = str.replace('{{'+arr[i]+'}}',obj[arr[i]]);
+                }
+                return str;
+            }
+            console.log(fun(str,obj));
+            console.log(fun(str2,obj));
+            */
+
+
+            //regexp
+            /*
+            function a(str, obj) {
+                var str1 = str;
+                for (var key in obj) {
+                    var re = new RegExp("{{" + key + "}}", "g");
+                    str1 = str1.replace(re, obj[key]);
+                }
+                console.log(str1);
+            }
+            const str = "{{name}}很厉name害{{name}}，才{{age}}岁";
+            const obj = { name: "jawil", age: "15" };
+            a(str, obj);
+            */
+
+            // forin -> Object.keys(obj)
+            /*
+            function parseString(str, obj) {
+                Object.keys(obj).forEach(key => {
+                    str = str.replace(new RegExp(`{{${key}}}`,'g'), obj[key]);
+                });
+                return str;
+            }
+            const str = "{{name}}很厉name害{{name}}，才{{age}}岁";
+            const obj = { name: "jawil", age: "15" };
+            console.log(parseString(str, obj));
+            */
+
+            // replace callback
+            function render(template, context) {
+                return template.replace(/\{\{(.*?)\}\}/g, (match, key) => context[key]);
+            }
+            const template = "{{name}}很厉name害，才{{age}}岁";
+            const context = { name: "jawil", age: "15" };
+            console.log(render(template, context));
+
+
+            // 如果{}中间不是数字，则{}本身不需要转义
+        </script>
+    </body>
+</html>

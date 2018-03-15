@@ -1,38 +1,44 @@
 <html>
 
 <head>
-    <meta charset="utf8" />
-    <title>删除字符串中重复字符</title>
+  <meta charset="utf8" />
+  <title>删除字符串中重复字符</title>
 </head>
 
 <body>
-    <p>ssss</p>
-    <script>
-        function longestNoRepeatStr(str) {
-            if (!str) {
-                return;
-            } else if (str.length == 1) {
-                return str;
-            }
-            var json = {};
-            for (var index = 0; index < str.length; index++) {
-                if (!json[str[index]]) {
-                    json[str[index]] = -1;
-                }
-            }
-            
-            var longStr = "";
-            for (var index = 0; index < str.length; index++) {
-                if(json[str[index]]) {
-                    json[str[index]] = 0
-                    longStr = longStr + str[index]
-                }
-            }
-            return longStr;
+  <p>ssss</p>
+  <script>
+    
+    function longestNoRepeatStr(str) {
+      if (!str) {
+        return;
+      } else if (str.length == 1) {
+        return str;
+      }
+      var json = {};
+      for (var index = 0; index < str.length; index++) {
+        if (!json[str[index]]) {
+          json[str[index]] = -1;
         }
+<<<<<<< HEAD
         console.log(longestNoRepeatStr("a111222ntzonrcdddrce"));
+=======
+      }
+      
+      var longStr = "";
+      for (var index = 0; index < str.length; index++) {
+        if(json[str[index]]) {
+          json[str[index]] = 0
+          longStr = longStr + str[index]
+        }
+      }
+      return longStr;
+    }
+    console.log(longestNoRepeatStr("antzonrcdddrce"));
+    // 输出antzorcde
+>>>>>>> d5207146e7b72450d84b4adf8ac9160ad1f34ceb
 
-    </script>
+  </script>
 </body>
 
 </html>
