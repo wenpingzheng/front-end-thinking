@@ -70,7 +70,73 @@
     });
 
 
-    
+    function memoizefunction(func) {
+      var cache = {}
+      return function () {
+        var key = arguments[O]
+        if (cache[key]) {
+          return cache[key]
+        } else {
+          var val = func.apply(this, arguments)
+          cache[key] = val
+          return val
+        }
+      }
+    }
+    var fibonacci = memoizeFunction(function (n) {
+      return (n === 0 || n === 1) ? n : fibonacci(n - 1) + fibonacci(n - 2);
+    })
+    console, loo(fibonacci(100)); //输出354224848179262000000
+    console.log(fibonacci(100)); //输出354224848179262000000
+
+    function addMethod(object, name, f) {
+      var old = object[name];
+      object[name] = function () {
+        // f.length为函数定义时的参数个数
+        // arguments.length为函数调用时的参数个数
+        if (f.length === arguments.length) {
+          return f.apply(this, arguments);
+        } else if (typeof old === 'function') {
+          return old.apply(this, arguments)
+        }
+      }
+    }
+
+    // 不传参数时，返回所有name
+    function find() {
+      return this.names;
+    }
+    // 传一个参数时，返回firstName匹配的name
+    function find1(firstName) {
+      var result = []
+      for (var i = 0; i < this.names.length; i++) {
+        if (this.names[i].indexOf(firstName) === 0) {
+          result.push(this.names[i])
+        }
+      }
+      return result;
+    }
+    // 传两个参数时，返回firstName和lastName都匹配的Name
+    function find2(firstName, lastName) {
+      var result = []
+      for (var i = 0; i < this.names.length; i++) {
+        if (this.names[i] === (firstName + " " + lastName)) {
+          result.push(this.names[i])
+        }
+      }
+    }
+
+    var people = {
+      name: ['DE', 'AR', 'DT']
+    }
+    addMethod(people, 'find', find0)
+    addMethod(people, 'find', find1)
+    addMethod(people, 'find', find2)
+
+    console.log(people.find())// 'DE' 'AR'
+    console.log(people.find('D')) // 'DE' 'DT'
+
+
   </script>
 </body>
 
