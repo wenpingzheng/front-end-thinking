@@ -1,10 +1,12 @@
 <html>
-    <head>
-        <meta charset="utf8"/>
-        <title>分页</title>
-    </head>
-    <body>
-        <script type="text/javascript">
+
+<head>
+    <meta charset="utf8" />
+    <title>分页</title>
+</head>
+
+<body>
+    <script type="text/javascript">
         /*
             console.log('')
             console.log(a)
@@ -19,6 +21,7 @@
             console.log(f2) // undefined
             var f2 = function() {} // 函数表达式
         */
+        /*
         var obj1 = {
             name:'wp'
         }
@@ -29,8 +32,52 @@
             return false // 如果为空,返回false
         }
 
-        console.log(ifObj(Object.prototype))
-        
-        </script>
-    </body>
+        console.log(ifObj(Object.prototype)) */
+
+
+        // console.log()
+
+        console.log('hello')
+        console.info('something happened')
+        console.warn('something strange happened')
+        console.error('something horrible happened')
+
+        var fun1 = () => {
+            fun2()
+        }
+        var fun2 = () => {
+            fun3()
+        }
+        var fun3 = () => {
+            fun4()
+        }
+        var fun4 = () => {
+            console.trace()
+        }
+        fun1()
+
+
+        console.time('testForEach');
+        ['a', 'b', 'c'].forEach((i, a) => {
+            console.log(i)
+        })
+        console.timeEnd('testForEach');
+
+
+        console.table([{ name: 'yt', age: 32 }, { name: 'tom', age: 30 }])
+
+        var info = {
+            name: "小郑",
+            wxid: "小郑搞码事",
+            friends: ['w', 'l', 'd'],
+            getName: () => {
+                return this.name
+            }
+        }
+        console.dir(info)
+
+
+    </script>
+</body>
+
 </html>
