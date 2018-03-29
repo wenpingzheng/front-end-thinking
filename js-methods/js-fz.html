@@ -18,16 +18,64 @@
       var dog2 = {}
       dog2.name = "小毛"
       dog2.color = "黑色"
-    */
+    
       function Dog(name,color) {
         return {
           name: name,
           color: color
         }
       }
+
       var dog1 = Dog('大毛','红色')
       var dog2 = Dog('二毛','黑色')
       console.log(dog1)
+*/
+
+      function Dog(name,color) {
+        this.name = name;
+        this.color = color;
+        this.type = "狗类动物";
+        this.eat = function () {
+          alert('吃骨头')
+        }
+      }
+
+      var dog1 = new Dog('大毛','红色')
+      var dog2 = new Dog('二毛','黑色')
+      alert(dog1.name) // 大毛
+      dog1.eat() // 吃骨头
+
+      alert(dog1.constructor == Dog); //true 
+      alert(dog2.constructor == Dog); //true
+
+      alert(dog1 instanceof Dog); //true
+      alert(dog2 instanceof Dog); //true
+
+
+      alert(dog1.type)
+      dog1.eat()
+
+      function Dog(name,color) {
+        this.name = name;
+        this.color = color;
+      }
+      Dog.prototype.type = "狗类动物";
+      Dog.prototype.eat = function () {
+        alert('吃骨头')
+      }
+
+      alert(Dog.prototype.isPrototypeOf(dog1)); //true 
+      alert(Dog.prototype.isPrototypeOf(dog2)); //true
+
+      alert(Dog.prototype.hasOwnProperty('name')); //true 
+      alert(Dog.prototype.hasOwnProperty('type')); //false
+
+      alert("name" in dog1); // true 
+      alert("type" in dog2); // true
+
+      for(var prop in dog1) { 
+        alert("dog1["+prop+"]="+dog1[prop]); 
+      }
 
       
     </script>
