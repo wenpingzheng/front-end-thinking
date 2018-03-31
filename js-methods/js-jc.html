@@ -5,5 +5,35 @@
   </head>
   <body>
     <p></p>
+    <script>
+
+      function Animal() {
+        this.species = '动物'
+      }
+      
+      function Dog(name, color) {
+
+        Animal.apply(this, arguments)
+        
+        this.name = name
+        this.color = color
+      }
+      
+      var dog1 = new Dog('大毛', '黄色')
+      alert(dog1.species) 
+
+      Dog.prototype = new Animal()
+      Dog.prototype.constructor = Dog
+      var dog1 = new Dog('大毛','黄色')
+      alert(dog1.species)
+
+      alert(dog1.constructor == Dog.prototype.constructor)
+
+      function Animal(){}
+      Animal.proptype.species = '动物'
+
+      Dog.prototype = Animal.prototype
+
+    </script>
   </body>
 </html>
