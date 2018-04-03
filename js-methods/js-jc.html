@@ -34,6 +34,44 @@
 
       Dog.prototype = Animal.prototype
 
+/*
+Object.prototype.toString.call(2)     //  "[object Number]"
+Object.prototype.toString.call("")    // "[object String]"
+Object.prototype.toString.call(true)  // "[object Boolean]"
+Object.prototype.toString.call(undefined)//  "[object Undefined]"
+Object.prototype.toString.call(null)    // "[object Null]"
+Object.prototype.toString.call(Math)  // "[object Math]"
+Object.prototype.toString.call({})     //  "[object Object]"
+Object.prototype.toString.call([])    // "[object Array]"
+*/
+
+function extend(Child, Parent) {
+  var F = function(){}
+  F.prototype = Parent.prototype
+  Child.prototype = new F()
+  Child.prototype.constructor = Child
+}
+  
+extend(Dog, Animal)
+var dog1 = new Dog('大毛', '黄色')
+alert(dog1.species) // 动物
+
+function extend2(Child, Parent) {
+  var p = Parent.prototype;
+  var c = Child.prototype;
+  for(var i in p) {
+    c[i] = p[i]
+  }
+}
+
+
+
+
+
+
+
+
+
     </script>
   </body>
 </html>
