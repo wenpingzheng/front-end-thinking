@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>居中</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <style>
+            /*
+            .parent{
+                background-color:#ddd;
+                width:200px;
+                height:200px;
+                display:table-cell;
+                vertical-align: middle;
+            }
+            .child{
+                background-color:#000;
+                height:50px;
+                line-height: 50px;
+                color:#fff;
+                text-align:center;
+            } */
+
+            /*
+            .parent{
+                position: relative;
+                background-color:#ddd;
+                width:200px;
+                height:200px;
+            }
+            .child{
+                position:absolute;
+                top:50%;
+                transform:translateY(-50%);
+                background-color:#000;
+                height:50px;
+                line-height: 50px;
+                color:#fff;
+                text-align:center;
+            }*/
+
+            .parent{
+                display:flex;
+                align-items:center;
+                background-color:#ddd;
+                width:200px;
+                height:200px;
+            }
+            .child{
+                background-color:#000;
+                height:50px;
+                line-height: 50px;
+                color:#fff;
+                text-align:center;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+        <div class="parent">
+            <div class="child">DEMO</div>
+        </div>
+    </body>
+</html>
