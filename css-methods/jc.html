@@ -201,6 +201,7 @@
         height: 100px;
       } */
 
+      /*
       .parent {
         
         display:flex;
@@ -218,8 +219,44 @@
         color: #fff;
         width: 100px;
         height: 100px;
-      }
+      }*/
 
+      
+      body{
+        background-color:#ddd;
+        color:#fff;
+      }
+      *{margin:0;padding:0;}
+
+      /* 定宽加自适应 一*/
+      /*
+      .left { 
+        float :left; 
+        width: 100px ; 
+        margin-right: 20px ; 
+        background-color:#333;
+      } 
+      .right { 
+        overflow:hidden; 
+        background-color:blue;
+        word-break: break-word;
+      } */
+      
+      .left { 
+
+        float :left; 
+
+        width: 100px ; 
+        margin-right: 20px ; 
+        background-color:#333;
+      } 
+      .right { 
+        
+        margin-left:120px;
+
+        background-color:blue;
+        word-break: break-word;
+      }
 
       
   </style>
@@ -227,8 +264,19 @@
 
 <body>
 
+  <!--
   <div class="parent">
     <div class="child">DEMO</div>
+  </div> -->
+
+  <div class="parent">
+    <div class="left">
+      <p>左边的内容</p>
+    </div>
+    <div class="right">
+      <p>右边的内容右边的内容右边的内容</p>
+      <p>右边的内容右边的内容右边的内容</p>
+    </div>
   </div>
 
 
