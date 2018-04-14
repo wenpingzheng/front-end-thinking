@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>水果篮</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  </head>
+  <style>
+    *{margin:0;padding:0;}
+
+
+    .pos-food{
+      position:relative;
+      width:140px;
+      height:130px;
+      margin-left:100px;
+      margin-top:100px;
+      background-color:#333;
+      background:url(../all-images/lz.png) no-repeat;
+      background-size:100% auto;
+    }
+    .pos-food div{
+      display:inline-block;
+      width:50px;
+      height:50px;
+      position: absolute;
+      left:45px;
+      bottom:10px;
+      overflow:hidden;
+      opacity:0;
+      z-index:-1;
+    }
+
+    .load{
+      background:url(../all-images/icon.png) no-repeat;
+      background-size:200px auto;
+    }
+
+    .loading-lajiao{
+      background-position:0 0;
+      animation: transform-lajiao 1s linear .4s infinite;
+    }
+    .loading-qiezi{
+      background-position:-50px 0;
+      animation: transform-qiezi 1s linear .4s infinite;
+    }
+    .loading-caomei{
+      background-position:-100px 0;
+      animation: transform-caomei 1s linear .4s infinite;
+    }
+    .loading-xiangj{
+      background-position:-150px 0;
+      animation: transform-xiangj 1s linear .4s infinite;
+    }
+
+    .loading-demo1{
+      background-position:0 -50px;
+      animation: transform-demo1 1s linear .4s infinite;
+    }
+    .loading-demo2{
+      background-position:-50px -50px;
+      animation: transform-demo2 1s linear .4s infinite;
+    }
+    .loading-demo3{
+      background-position:-100px -50px;
+      animation: transform-demo3 1s linear .4s infinite;
+    }
+    .loading-demo4{
+      background-position:-150px -50px;
+      animation: transform-demo4 1s linear .4s infinite;
+    }
+  
+    /* 动画定义 */
+    @keyframes transform-lajiao{
+      0%{transform:translate(10px, -10px);opacity:1;}
+      10%{transform:translate(10px, -30px);opacity:1;}
+      14%{transform:translate(20px, -50px);opacity:1;}
+      18%{transform:translate(25px, -70px);opacity:1;}
+      24%{transform:translate(35px, -90px);opacity:1;}
+      25%{transform:translate(45px, -100px);opacity:1;}
+      30%{transform:translate(50px, -120px);opacity:1;}
+      35%{transform:translate(55px, -100px);opacity:1;}
+      40%{transform:translate(60px, -90px);opacity:1;}
+      45%{transform:translate(70px, -60px);opacity:1;}
+      50%{transform:translate(80px, -20px);opacity:1;}
+      70%{transform:translate(90px, 0px);opacity:.5;}
+      80%{transform:translate(95px, 10px);opacity:.25;}
+      100%{transform:translate(98px, 10px);opacity:0;}
+    }
+  
+  </style>
+  <body>
+   
+    <div class="pos-food">
+      <div class="load loading-lajiao"></div>
+      <div class="load loading-qiezi"></div>
+      <div class="load loading-caomei"></div>
+      <div class="load loading-xiangj"></div>
+      <div class="load loading-demo1"></div>
+      <div class="load loading-demo2"></div>
+      <div class="load loading-demo3"></div>
+      <div class="load loading-demo4"></div>
+    </div>
+
+    
+  </body>
+</html>
