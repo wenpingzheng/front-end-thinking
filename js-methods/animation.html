@@ -1,0 +1,59 @@
+<html>
+<head>
+  <meta charset="utf8" />
+  <title>JS快速实现一个重复动画</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrap {
+    position: relative;
+    margin: 20px 20px;
+    width: 300px;
+    height: 200px;
+    border: 2px solid #ddd;
+  }
+
+  .content {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 0;
+    top: 10px;
+    background-color: red;
+  }
+</style>
+
+<body>
+  <div class="wrap">
+    <div class="content" id="content"></div>
+  </div>
+  <script type="text/javascript">
+    //兼容性处理
+    window.requestAnimFrame = (function () {
+      return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        function (callback) {
+          window.setTimeout(callback, 1000 / 60);
+        };
+    })();
+    var e = document.getElementById("content");
+    var flag = true;
+    var left = 0;
+    function render() {
+      left == 0 ? flag = true : left == 100 ? flag = false : '';
+      flag ? e.style.left = ` ${left++}px` :
+        e.style.left = ` ${left--}px`;
+    }
+    (function animloop() {
+      render();
+      requestAnimFrame(animloop);
+    })();
+  </script>
+</body>
+
+</html>
