@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>封装一个函数</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function sleep(time) {
+        return new Promise((resolve) => setTimeout(resolve, time))
+      }
+      sleep(3000).then(()=> {
+        console.log('3秒之后打印出来')
+      })
+    </script>
+  </body>
+</html>
