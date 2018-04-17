@@ -7,10 +7,28 @@
     <script>
 
       var array = [...new Set([1,2,3,'a','2',3])]
-      console.log(array)
+     // console.log(array)
       
       // [1,2,3,'a','2']
+      
+      var  numbers = [5, 458 , 120 , -215 , 228 , 400 , 122205, -85411]; 
+      var maxInNumbers = Math.max.apply(Math, numbers); 
+      var minInNumbers = Math.min.apply(Math, numbers);   
+     // console.log(maxInNumbers,minInNumbers)
 
+      function isNumber(n) {
+        console.log('isN',parseFloat(n) && isFinite(n))
+        return !isNaN(parseFloat(n) && isFinite(n))
+      }
+     // console.log(isNumber(111)) // true
+      console.log(isNumber('222CC')) // true
+      console.log(isNumber('DD222CC')) // false
+     // console.log(isNumber(true)) // false
+
+     if('a' in window) {
+       var a = 10
+     }
+     console.log(a)
     </script>
   </body>
 </html>
