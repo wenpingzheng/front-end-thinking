@@ -17,18 +17,64 @@
      // console.log(maxInNumbers,minInNumbers)
 
       function isNumber(n) {
-        console.log('isN',parseFloat(n) && isFinite(n))
+       // console.log('isN',parseFloat(n) && isFinite(n))
         return !isNaN(parseFloat(n) && isFinite(n))
       }
      // console.log(isNumber(111)) // true
-      console.log(isNumber('222CC')) // true
-      console.log(isNumber('DD222CC')) // false
+     // console.log(isNumber('222CC')) // true
+     // console.log(isNumber('DD222CC')) // false
      // console.log(isNumber(true)) // false
 
      if('a' in window) {
        var a = 10
      }
-     console.log(a)
+     //console.log(a)
+
+    var obj1 = {
+      a: 1,
+      b: 2
+    }
+    var obj2 = {
+      a: 1,
+      b: 2
+    }
+
+    function isObjectValueEqual(a, b) {
+      var aProps = Object.getOwnPropertyNames(a);
+      var bProps = Object.getOwnPropertyNames(b);
+      if (aProps.length != bProps.length) {
+        return false;
+      }
+      for (var i = 0; i < aProps.length; i++) {
+        var propName = aProps[i];
+        if (a[propName] !== b[propName]) {
+          return false;
+        }
+      }
+      return true;
+    }
+    console.log(isObjectValueEqual(obj1,obj2))
+
+   // console.log(JSON.stringify(obj1))
+    //console.log(JSON.stringify(obj1) === JSON.stringify(obj2))
+
+/**
+* unique an array
+**/
+let unique = function(arr) {  
+  let hashTable = {};
+  let data = [];
+  for(let i=0,l=arr.length;i<l;i++) {
+    if(!hashTable[arr[i]]) {
+      hashTable[arr[i]] = true;
+      data.push(arr[i]);
+    }
+  }
+  return data
+}
+ 
+module.exports = unique;
+
     </script>
   </body>
 </html>
