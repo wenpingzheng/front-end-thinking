@@ -4,56 +4,199 @@
   <title>js常用编程技巧</title>
   <meta charset="utf8">
 </head>
+<style>
+  p::selection {
+    background: black;
+    color: red;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+</style>
 
 <body>
-  <h2>js常用的编程技巧</h2>
+  <!-- <h2>js常用的编程技巧</h2> -->
+
+  <p>这段文字请选中我</p>
+
+  <textarea style="height:100px;width:100px;overflow:hidden;resize:none;">
+    这段文字是用来测试textarea的滚动条的，这段文字是用来测试textarea的滚动条的。
+  </textarea>
   <script type="text/javascript">
 
-    var arrays = [1, 2, 3, 4];
-    var arrayItem = arrays[Math.floor(Math.random() * arrays.length)]
-    console.log(arrayItem) // 3
+    // var demo1 = 2 * (10 + 3 + 4)
 
-    var x = Math.floor(Math.random()*Max-Min+1) + min;
-
-    function str(stringLength) {
-      var x = "";
-      for (; x.length < stringLength; x += Math.random().toString(36).substr(2));
-      return x.substr(0, stringLength)
-    }
-    console.log(str(10)) // fpjxhv5s99
-
-
-    var arrays = [], max = 10;
-    for (var i = 0; arrays.push(i++) < max;);
-    console.log(arrays)
-
-
-    function checkNumber(n) {
-      return !isNaN(parseFloat(n)) && isFinite(n);
-    }
-    console.log(checkNumber(22))
-
-    var arrays = [1,3,5,20];
-    var maxN = Math.max.apply(Math,arrays);
-    var minN = Math.min.apply(Math,arrays);
-    console.log(maxN)// 20
-
-    var arrays = [3,2,2,4];
-    arrays.length = 2;
-    console.log(arrays) // [3,2]
-    arrays.length = 5;// [3,2,2,4,undefined]
-
-    var arrays1 = [1,2,3]
-    var arrays2 = [4,5]
-    Array.prototype.push.apply(arrays1,arrays2)
-    //[1,2,3,4,5]
-
-    function isArray(obj) {
-      return Object.prototype.toString.call(obj) === "[object Array]"
-    }
-
+    // var demo2 = (1===2) || (2===2) && (3===3)
     
 
+    // function isNumber(value) {
+    //   return typeof value === 'number' && isFinite(value)
+    // }
+
+    var someUndefinedVariable = '小郑搞码事'
+    var found = true
+    var result = (found && someUndefinedVariable)
+    console.log(result)
+
+
+
+    // var arrays = [1, 2, 3, 4];
+    // var arrayItem = arrays[Math.floor(Math.random() * arrays.length)]
+    // console.log(arrayItem) // 3
+
+    // var x = Math.floor(Math.random()*Max-Min+1) + min;
+
+    // function str(stringLength) {
+    //   var x = "";
+    //   for (; x.length < stringLength; x += Math.random().toString(36).substr(2));
+    //   return x.substr(0, stringLength)
+    // }
+    // console.log(str(10)) // fpjxhv5s99
+
+
+    // var arrays = [], max = 10;
+    // for (var i = 0; arrays.push(i++) < max;);
+    // console.log(arrays)
+
+
+    // function checkNumber(n) {
+    //   return !isNaN(parseFloat(n)) && isFinite(n);
+    // }
+    // console.log(checkNumber(22))
+
+    // var arrays = [1,3,5,20];
+    // var maxN = Math.max.apply(Math,arrays);
+    // var minN = Math.min.apply(Math,arrays);
+    // console.log(maxN)// 20
+
+    // var arrays = [3,2,2,4];
+    // arrays.length = 2;
+    // console.log(arrays) // [3,2]
+    // arrays.length = 5;// [3,2,2,4,undefined]
+
+    // var arrays1 = [1,2,3]
+    // var arrays2 = [4,5]
+    // Array.prototype.push.apply(arrays1,arrays2)
+    // //[1,2,3,4,5]
+
+    // function isArray(obj) {
+    //   return Object.prototype.toString.call(obj) === "[object Array]"
+    // }
+
+    // var user = {
+    //   greet: 'hello',
+    //   greetUser: function(username) {
+    //     console.log(this.greet + '' + username)
+    //   }
+    // }
+    // var greet1 = {
+    //   greet: 'Hola'
+    // }
+    // user.greetUser.call(greet1, 'R') 
+
+    // function swap(a,b) {
+    //   let s = a;
+    //   a = b;
+    //   b = s;
+    //   return [a,b]
+    // }
+    // console.log(swap(5,6))
+
+    // var person = new Object()
+    // person.name = '小郑搞码事'
+    // person.age = 98
+    // person.getName = function(){
+    //   return this.name
+    // }
+
+    // function createPerson(name, age) {
+    //   var o = new Object()
+    //   o.name = name
+    //   o.age = age
+    //   o.getName = function() {
+    //     return this.name
+    //   }
+    //   return o
+    // }
+
+    // function Person(name, age) {
+    //   this.name = name
+    //   this.age = age
+    //   this.getName = function() {
+    //     return this.name
+    //   }
+    // }
+
+    // function Person(){}
+    // Person.prototype = {
+    //   constructor: Person,
+    //   name: '小郑搞码事',
+    //   age: 98,
+    //   getName: function() {
+    //     return this.name
+    //   }
+    // }
+
+    // function Person(name,age) {
+    //   this.name = name
+    //   this.age = age
+    // }
+    // Person.prototype.getName = function() {
+    //   return this.name
+    // }
+
+    // console.log(sum(2,3))
+    // console.log(sum(2)(3))
+
+    // function sum(x) {
+    //   if(arguments.length == 2) {
+    //     return arguments[0] + arguments[1]
+    //   } else {
+    //     return function(y) { return x+y}
+    //   }
+    // }
+
+
+    // function sum(x,y) {
+    //   if(y !== undefined) {
+    //     return x + y;
+    //   } else {
+    //     return function(y) { return x+y}
+    //   }
+    // }
+
+    let str = null
+    // true
+   
+
+
+
+    function isObject (str) {
+      return (str !== null) && (str.constructor === object)
+    }
+
+    let btr = null
+    console.log(isObject(btr))
+    // true
+
+    // let ftr = function demo (){}
+    // console.log(isObject(ftr))
+
+
+    // // false
+
+    // let ftr = function demo (){}
+    // console.log(typeof(ftr)) 
+
+    let atr = []
+    console.log(atr.constructor === Array)
+
+    // toString.call(str) !== "[object Array]"
+    
+    
   </script>
 </body>
 
