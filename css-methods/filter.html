@@ -1,0 +1,151 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>常用滤镜的用法</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .container {
+      float: left;
+      margin: 10px 10px;
+      text-align: center;
+    }
+
+
+    html {
+      width: 100%;
+      background: #2F97C1;
+      background: linear-gradient(to bottom right, #fff, #fff);
+    }
+
+    body {
+      width: 90%;
+      margin: auto;
+      text-align: center;
+    }
+
+    .container {
+      display: inline-block;
+      padding: 20px 10px;
+    }
+
+    h1,
+    p,
+    .hidden {
+      font-family: sans-serif;
+      text-align: center;
+      color: #333;
+      letter-spacing: 0.1em;
+    }
+
+    h1 {
+      font-size: 4em;
+    }
+
+    #grayscale {
+      filter: grayscale(1);
+    }
+
+    #invert {
+      filter: invert(.9);
+    }
+
+    #brightness {
+      filter: brightness(.5);
+    }
+
+    #saturation {
+      filter: saturate(6);
+    }
+
+    #sepia {
+      filter: sepia(1);
+    }
+
+
+    #contrast {
+      filter: contrast(200%);
+    }
+
+    #hue-rotate {
+      filter: hue-rotate(45deg);
+    }
+
+    #blur {
+      filter: blur(5px);
+    }
+    #drop-shadow {
+      filter: drop-shadow(16px 16px 20px blue);
+    }
+    #opacity {
+      filter: opacity(.5);
+    }
+
+    img:hover {
+      cursor: pointer;
+      transition: filter .5s;
+      filter: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="title">
+    <h1>CSS3 filters</h1>
+  </div>
+  <div class="container">
+    <img id="no-filter" src="../all-images/home.jpg" />
+    <p>无滤镜</p>
+  </div>
+  <!-- <div class="container">
+    <img id="blur" src="../all-images/home.jpg" />
+    <p>Blur</p>
+  </div>
+  <div class="container">
+    <img id="drop-shadow" src="../all-images/home.jpg" />
+    <p>drop-shadow</p>
+  </div>
+  <div class="container">
+    <img id="opacity" src="../all-images/home.jpg" />
+    <p>opacity</p>
+  </div> -->
+  <div class="container">
+    <img id="contrast" src="../all-images/home.jpg" />
+    <p>contrast</p>
+  </div>
+  <div class="container">
+    <img id="grayscale" src="../all-images/home.jpg" />
+    <p>Grayscale</p>
+  </div>
+  <div class="container">
+    <img id="invert" src="../all-images/home.jpg" />
+    <p>Invert</p>
+  </div>
+  <div class="container">
+    <img id="brightness" src="../all-images/home.jpg" />
+    <p>Brightness</p>
+  </div>
+  <div class="container">
+    <img id="saturation" src="../all-images/home.jpg" />
+    <p>Saturation</p>
+  </div>
+  <div class="container">
+    <img id="sepia" src="../all-images/home.jpg" />
+    <p>Sepia</p>
+  </div>
+  <div class="container">
+    <img id="hue-rotate" src="../all-images/home.jpg" />
+    <p>hue-rotate</p>
+  </div>
+</body>
+
+</html>
