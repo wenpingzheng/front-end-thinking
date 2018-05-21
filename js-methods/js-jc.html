@@ -7,32 +7,32 @@
     <p></p>
     <script>
 
-      function Animal() {
-        this.species = '动物'
-      }
+      // function Animal() {
+      //   this.species = '动物'
+      // }
       
-      function Dog(name, color) {
+      // function Dog(name, color) {
 
-        Animal.apply(this, arguments)
+      //   Animal.apply(this, arguments)
         
-        this.name = name
-        this.color = color
-      }
+      //   this.name = name
+      //   this.color = color
+      // }
       
-      var dog1 = new Dog('大毛', '黄色')
-      alert(dog1.species) 
+      // var dog1 = new Dog('大毛', '黄色')
+      // alert(dog1.species) 
 
-      Dog.prototype = new Animal()
-      Dog.prototype.constructor = Dog
-      var dog1 = new Dog('大毛','黄色')
-      alert(dog1.species)
+      // Dog.prototype = new Animal()
+      // Dog.prototype.constructor = Dog
+      // var dog1 = new Dog('大毛','黄色')
+      // alert(dog1.species)
 
-      alert(dog1.constructor == Dog.prototype.constructor)
+      // alert(dog1.constructor == Dog.prototype.constructor)
 
-      function Animal(){}
-      Animal.proptype.species = '动物'
+      // function Animal(){}
+      // Animal.proptype.species = '动物'
 
-      Dog.prototype = Animal.prototype
+      // Dog.prototype = Animal.prototype
 
 /*
 Object.prototype.toString.call(2)     //  "[object Number]"
@@ -45,28 +45,50 @@ Object.prototype.toString.call({})     //  "[object Object]"
 Object.prototype.toString.call([])    // "[object Array]"
 */
 
-function extend(Child, Parent) {
-  var F = function(){}
-  F.prototype = Parent.prototype
-  Child.prototype = new F()
-  Child.prototype.constructor = Child
-}
+// function extend(Child, Parent) {
+//   var F = function(){}
+//   F.prototype = Parent.prototype
+//   Child.prototype = new F()
+//   Child.prototype.constructor = Child
+// }
   
-extend(Dog, Animal)
-var dog1 = new Dog('大毛', '黄色')
-alert(dog1.species) // 动物
+// extend(Dog, Animal)
+// var dog1 = new Dog('大毛', '黄色')
+// alert(dog1.species) // 动物
 
-function extend2(Child, Parent) {
-  var p = Parent.prototype;
-  var c = Child.prototype;
-  for(var i in p) {
-    c[i] = p[i]
+// function extend2(Child, Parent) {
+//   var p = Parent.prototype;
+//   var c = Child.prototype;
+//   for(var i in p) {
+//     c[i] = p[i]
+//   }
+// }
+
+// var obj1 = {
+//   'name': '小郑',
+//   'fullname' : '小郑搞码事'
+// }
+
+// for(name in obj1) {
+//   console.log(name,obj1[name])
+// }
+
+var obj1 = {
+  'name': '小郑',
+  'fullname' : '小郑搞码事'
+}
+function changeName() {
+  this.age = '90'
+}
+changeName.prototype = obj1
+
+var obj2 = new changeName()
+
+for(name in obj2) {
+  if(obj2.hasOwnProperty(name)) {
+    console.log(name,obj2[name])
   }
 }
-
-
-
-
 
 
 
