@@ -3,8 +3,98 @@
     <meta charset="utf8" />
     <title>继承</title>
   </head>
+  <style>
+    /* 第一个效果样式 */
+  /* .user-form {
+    width: 300px;
+    height: 100px;
+    border: 1px solid #EDEDED;
+    color: #000;
+    padding: 4px;
+  }
+
+  .user-form:focus-within {
+    background: #EDEDED;
+    color: black;
+  }
+  
+  .user-form label {
+    display: inline-block;
+    margin: 6px 10px;
+  }
+  .common-input {
+    margin: 4px;
+  } */
+
+  /* 第二个效果样式 */
+  /* .user-form {
+    width: 300px;
+    height: 100px;
+    border: 1px solid #EDEDED;
+    color: #000;
+    padding: 4px;
+    outline: 2000px solid hsla(0, 0%, 100%, 0);
+    transition: outline .2s;
+    position: relative;
+    z-index: 1;
+  }
+  .user-form:focus-within {
+    outline: 2000px solid hsla(0, 0%, 100%, 1);   
+  }
+  .user-form label {
+    display: inline-block;
+    margin: 6px 10px;
+  }
+  .common-input {
+    margin: 4px;
+  } */
+
+  /* 第三个效果样式 */
+  .container-textarea {
+    max-width: 280px;
+    border: 1px solid #d0d0d5;
+    border-radius: 5px;
+    background-color: #fff;
+    padding-bottom: 24px;
+    overflow: hidden;
+    position: relative;
+  }
+  .label-count {
+    position: absolute;
+    font-size: 12px;
+    line-height: 16px;
+    bottom: 5px;
+    right: 10px;
+    color: #999;
+  }
+  .container-textarea textarea {
+    display: block;
+    width: 100%;
+    padding: 7px 9px;
+    border: 0;
+    background: none;
+    box-sizing: border-box;
+    outline: 0;
+    resize: none;
+  }
+  .container-textarea:focus-within {
+    border-color: #00a5e0;
+  }
+  </style>
   <body>
-    <p></p>
+    <!-- <form class="user-form">
+      <label>账号: <input class="common-input" type="text" name="id"></label><br>
+      <label>密码: <input class="common-input" type="password" name="password"></label>
+    </form> -->
+    <!-- <h2>表单输入页面</h2>
+    <form class="user-form">
+      <label>账号: <input class="common-input" type="text" name="id"></label><br>
+      <label>密码: <input class="common-input" type="password" name="password"></label>
+    </form> -->
+    <div class="container-textarea">
+      <textarea id="text" maxlength="200" rows="6"></textarea>
+      <label for="text" class="label-count">0/200</label>
+    </div>
     <script>
 
       // function Animal() {
@@ -73,22 +163,22 @@ Object.prototype.toString.call([])    // "[object Array]"
 //   console.log(name,obj1[name])
 // }
 
-var obj1 = {
-  'name': '小郑',
-  'fullname' : '小郑搞码事'
-}
-function changeName() {
-  this.age = '90'
-}
-changeName.prototype = obj1
+// var obj1 = {
+//   'name': '小郑',
+//   'fullname' : '小郑搞码事'
+// }
+// function changeName() {
+//   this.age = '90'
+// }
+// changeName.prototype = obj1
 
-var obj2 = new changeName()
+// var obj2 = new changeName()
 
-for(name in obj2) {
-  if(obj2.hasOwnProperty(name)) {
-    console.log(name,obj2[name])
-  }
-}
+// for(name in obj2) {
+//   if(obj2.hasOwnProperty(name)) {
+//     console.log(name,obj2[name])
+//   }
+// }
 
 
 
