@@ -2,6 +2,7 @@
   <head>
     <meta charset="utf8" />
     <title>触摸事件</title>
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   </head>
   <body>
@@ -19,7 +20,27 @@
         console.log('move', moveX, moveY)
       })
 
-      
+      function People() {
+        this.name = '小郑搞码事'
+        this.age = 100
+        this.gender = 'body'
+      }
+
+      var people = new People()
+
+      with(people) {
+        name = '小郑'
+        weight = 80
+        // 输出一
+        console.log(name,age,gender,weight)
+      }
+      // 输出二
+      console.log(people.weight)
+
+
+
+
+
     </script>
   </body>
 </html>
