@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>触摸事件</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      var touch0 = null
+      document.body.addEventListener('touchstart', function(ev) {
+        touch0 = ev.touches[0]
+        console.log('touchstart')
+      })
+      document.body.addEventListener('touchmove', function(ev) {
+        var touch = ev.touches[0]
+        var moveX = touch.clientX - touch0.clientX
+        var moveY = touch.clientY - touch0.clientY
+        console.log('move', moveX, moveY)
+      })
+
+      
+    </script>
+  </body>
+</html>
