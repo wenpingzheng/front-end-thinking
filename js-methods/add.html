@@ -1,114 +1,501 @@
 <html>
 
 <head>
-    <meta charset="utf8" />
-    <title>分页</title>
-    <style>
-    .s{
-        width: 0;
-        height: 0;
-        border-top: 40px solid transparent;
-        border-left: 40px solid transparent;
-        border-right: 40px solid transparent;
-        border-bottom: 40px solid #ff0000;
+  <meta charset="utf8" />
+  <title>分页</title>
+  <style>
+    .s {
+      width: 0;
+      height: 0;
+      border-top: 40px solid transparent;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-bottom: 40px solid #ff0000;
     }
-    </style>
+
+    /* 效率较低 */
+
+    .wrap ul li {
+      color: #FC0;
+    }
+
+    .aaabb {
+      margin: 2px;
+      color: red;
+    }
+
+    /* 效率较高 */
+
+    /* * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    } */
+
+    .box-li {
+      color: #FC0;
+    }
+
+    .ball {
+      left: 50px;
+      transition: 0.4s ease-out;
+    }
+
+    /* left */
+
+    .ball.slide-out {
+      left: 500px;
+    }
+
+    /* translate */
+
+    .ball.slide-out {
+      transform: translateX(450px)
+    }
+
+    html {
+      font: normal 16px/1.4 sans-serif;
+    }
+
+    .red {
+      color: blue;
+    }
+
+    div {
+      width: 300px;
+      height: 200px;
+      background: url('http://cdn.tutorialzine.com/wp-content/uploads/2016/08/bicycle.jpg');
+      background-position: center center;
+      background-size: cover;
+    }
+
+    /*---------------   
+        #Header   
+    ---------------*/
+
+    header {
+      color: red;
+    }
+
+    header nav {
+      color: green;
+    }
+
+    /*---------------   
+        #Slideshow   
+    ---------------*/
+
+    .slideshow {
+      color: white;
+    }
+
+    .alignleft {
+      float: left;
+      margin-right: 20px;
+    }
+
+    /*   Footer Buttons   */
+
+    .footer button {
+      color: red;
+    }
+
+    .alignright {
+      float: right;
+      text-align: right;
+      margin-left: 20px;
+    }
+
+    .clear {
+      clear: both;
+      text-indent: -9999px;
+    }
+
+    h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: normal;
+    }
+
+    h2 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: normal;
+    }
+
+    h3 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: normal;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: normal;
+    }
+
+
+    .ball {
+      left: 50px;
+      transition: 0.4s ease-out;
+    }
+
+    /* Not Cool*/
+
+    .ball.slide-out {
+      left: 500px;
+    }
+
+    /* Cool*/
+
+    .ball.slide-out {
+      transform: translateX(450px);
+    }
+
+    .movie-poster {
+      text-transform: uppercase;
+    }
+
+    .arrow-up {
+      width: 0;
+      height: 0;
+      border-right: 50px solid transparent;
+      border-left: 50px solid transparent;
+      border-top: 50px solid red;
+    }
+
+    .arrow-down {
+      width: 0;
+      height: 0;
+      border-right: 50px solid transparent;
+      border-left: 50px solid transparent;
+      border-bottom: 50px solid red;
+    }
+
+    .arrow-left {
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-right: 50px solid red;
+    }
+
+    .arrow-right {
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-left: 50px solid red;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="s"></div>
-    <script type="text/javascript">
-        /*
-            console.log('')
-            console.log(a)
-            var a = 10;
-            console.log('')
-            console.log(this)
-            console.log('')
-
-            console.log(f1)  // function f1() {}
-            function f1() {} // 函数声明
-            
-            console.log(f2) // undefined
-            var f2 = function() {} // 函数表达式
-        */
-        /*
-        var obj1 = {
-            name:'wp'
-        }
-        var ifObj = (obj) => {
-            for (var i in obj) { // 如果不为空，则会执行到这一步，返回true
-                return true
-            }
-            return false // 如果为空,返回false
-        }
-
-        console.log(ifObj(Object.prototype)) */
 
 
-        // console.log()
-
-        // console.log('hello')
-        // console.info('something happened')
-        // console.warn('something strange happened')
-        // console.error('something horrible happened')
-
-        // var fun1 = () => {
-        //     fun2()
-        // }
-        // var fun2 = () => {
-        //     fun3()
-        // }
-        // var fun3 = () => {
-        //     fun4()
-        // }
-        // var fun4 = () => {
-        //     console.trace()
-        // }
-        // fun1()
-
-
-        // console.time('testForEach');
-        // ['a', 'b', 'c'].forEach((i, a) => {
-        //     console.log(i)
-        // })
-        // console.timeEnd('testForEach');
-
-
-        // console.table([{ name: 'yt', age: 32 }, { name: 'tom', age: 30 }])
-
-        // var info = {
-        //     name: "小郑",
-        //     wxid: "小郑搞码事",
-        //     friends: ['w', 'l', 'd'],
-        //     getName: () => {
-        //         return this.name
-        //     }
-        // }
-        // console.dir(info)
-
-        var a = [1,2,3]
-        a[9] = 99
+  <span class="clicked">点我</span>
 
 
 
-        console.log(a)
+  <!-- 
+  <div class="arrow-up">
 
-        console.log(a[6])
+  </div>
+
+  <div class="arrow-down">
+
+  </div> -->
+  <div class="arrow-left">
+
+  </div>
+  <div class="arrow-right">
+
+  </div>
+
+
+  <!-- <div class="movie-poster">xiao zheng gao ma shi</div>
+
+  <button>提交</button>
+
+  <h1>My name is
+    <span class="red">xiaozheng</span>
+  </h1>
+
+  <p class="alignleft">我是一个段落！</p>
+
+  <div class="wrap">
+    <ul>
+      <li>第一行</li>
+      <li>第二行</li>
+      <li>第三行</li>
+    </ul>
+  </div>
+
+
+  <ul class="box">
+    <li>第一行</li>
+    <li>第二行</li>
+    <li>第三行</li>
+  </ul> -->
+
+
+  <!-- <div class="s"></div> -->
+
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+
+    function compare(value1, value2) {
+      if(value1 < value2) {
+        return -1
+      } else if (value > value2) {
+        return 1
+      } else {
+        return 0
+      }
+    }
+
+    // Array.method('push', function () {
+    //   this.splice.apply(
+    //     this, 
+    //     [this.length, 0]
+    //       .concat(Array.prorotype.slice.apply(arguments)))
+    //   return this.length
+    // })
+   
+  /*
+    var colors = ['red', 'blue', 'green']
+    console.log(colors.toString())
+    console.log(colors.valueOf())
+    console.log(colors.toLocaleString()) */
+
+    String.method('charAt', function (pos) {
+      return this.slice(pos, pos + 1)
+    })
+
+    function parseQueryString(url) {
+      var obj = {};
+      var a = url.split('?');
+      if (a === 1) return obj;
+      var b = a[1].split('&');
+      for (var i = 0, length = b.length; i < length; i++) {
+        var c = b[i].split('=');
+        obj[c[0]] = c[1];
+      }
+      return obj;
+    }
+
+    var url = 'http://witmax.cn/index.php?key0=0&key1=1&key2=2';
+    var obj = parseQueryString(url);
+    console.log(obj.key0, obj.key1, obj.key2);  // 0 1 2
+
+
+    // var i, obj, list = []
+    // for (i = 0; i < 10; i++) {
+    //   obj = {};
+    //   obj.id = i;
+    //   obj.x = i * 10;
+    //   obj.y = i * 20;
+    //   obj.run = function () { };
+    //   obj.att = function () { };
+    //   list.push(obj)
+    // }
+
+    // function createPlayer(x, y, id) {
+    //   var player = {};
+    //   player.id = id;
+    //   player.x = x;
+    //   player.y = y;
+    //   player.run = function () { };
+    //   player.att = function () { };
+    //   return player;
+    // }
+    // var i, list = [];
+    // for (i = 0; i < 10; i++) {
+    //   list.push(createPlayer(i * 10, i * 20, i))
+    // }
+
+    // var array = [];
+    // (function (target) {
+    //   for (var i = 0, len = 10; i < len; i++) {
+    //     target[i] = i;
+    //   }
+    // })(array);
+
+    // console.log(len)
+    // // 输出undefined
+    // console.log(i)
+    // // 输出undefined
+
+    // 前端页面判断跳转
+    // if (navigator.userAgent.match(/iPhone|iPad|Android|iPad/i)) {
+    //   let hash = window.location.hash,
+    //     params = window.location.search;
+    //   location.href = 'xxx.html' + params + (hash ? (params ? '&' : '?') + hash.substr(1) : '')
+    // }
+
+    // // web服务器端跳转
+    // if (this.header['user-Agent'].match(/iPhone|iPad|Android|iPad/i)) {
+    //   let hash = this.hash,
+    //     params = this.querystring;
+    //   this.redirect('xxx.html' + params + (hash ? (params ? '&' : '?') + hash.substr(1) : ''))
+    // }
+
+    // $.fn.fun3 = function(){
+    //   console.log('执行方法三')
+    // }
+    // $(this).fun3()
+
+    // 输出"执行方法二"
+
+    // function sleep(d) {
+    //   for (var t = Date.now(); Date.now() - t <= d;) { }
+    // }
+
+    // const asyncFunction = async function () {
+    //   const numbers = [1, 2, 3, 4, 5];
+    //   for (let number of numbers) {
+
+    //     await sleep(3000);
+
+    //     console.log(number)
+    //   }
+    // }
+
+    // let result = asyncFunction();
+    // console.log('finish');
+
+
+    foo();
+    // 输出 1
+
+    var foo = function () {
+      console.log(2);
+    }
+
+    foo();
+    // 输出 2
+
+    function foo() {
+      console.log(1);
+    }
+
+
+    class Animal {
+      constructor() {
+        this.age = '100'
+      }
+    }
+
+    class People extends Animal {
+      constructor(contens = {}) {
+        super();
+        this.name = contens.name;
+        this.family = contens.family;
+      }
+      sayHi() {
+        console.log(`hello ${this.name} ${this.family} ${this.age}`);
+      }
+    }
+
+    let boy = new People({
+      name: '小郑',
+      family: '搞码事'
+    })
+
+    console.log(boy.sayHi())
+
+
+    /*
+      console.log('')
+      console.log(a)
+      var a = 10;
+      console.log('')
+      console.log(this)
+      console.log('')
+
+      console.log(f1)  // function f1() {}
+      function f1() {} // 函数声明
+      
+      console.log(f2) // undefined
+      var f2 = function() {} // 函数表达式
+    */
+    /*
+    var obj1 = {
+      name:'wp'
+    }
+    var ifObj = (obj) => {
+      for (var i in obj) { // 如果不为空，则会执行到这一步，返回true
+        return true
+      }
+      return false // 如果为空,返回false
+    }
+
+    console.log(ifObj(Object.prototype)) */
+
+
+    // console.log()
+
+    // console.log('hello')
+    // console.info('something happened')
+    // console.warn('something strange happened')
+    // console.error('something horrible happened')
+
+    // var fun1 = () => {
+    //   fun2()
+    // }
+    // var fun2 = () => {
+    //   fun3()
+    // }
+    // var fun3 = () => {
+    //   fun4()
+    // }
+    // var fun4 = () => {
+    //   console.trace()
+    // }
+    // fun1()
+
+
+    // console.time('testForEach');
+    // ['a', 'b', 'c'].forEach((i, a) => {
+    //   console.log(i)
+    // })
+    // console.timeEnd('testForEach');
+
+
+    // console.table([{ name: 'yt', age: 32 }, { name: 'tom', age: 30 }])
+
+    // var info = {
+    //   name: "小郑",
+    //   wxid: "小郑搞码事",
+    //   friends: ['w', 'l', 'd'],
+    //   getName: () => {
+    //     return this.name
+    //   }
+    // }
+    // console.dir(info)
+
+    // var a = [1, 2, 3]
+    // a[9] = 99
 
 
 
-        var b = [undefined];
-        b[3] = 2;
+    // console.log(a)
+
+    // console.log(a[6])
 
 
-        console.log(b);
 
-        
-        console.log(b.map(e => 7));
+    // var b = [undefined];
+    // b[3] = 2;
 
 
-    </script>
+    // console.log(b);
+
+
+    // console.log(b.map(e => 7));
+
+
+  </script>
 </body>
 
 </html>

@@ -1,0 +1,57 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>proxy</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+
+    let oo = {
+      name: '小郑搞码事',
+      age: '100'
+    }
+
+    // let object = new Proxy(oo, {
+    //   get: function (target, key, receiver) {
+    //     console.log(`get ${key}`)
+    //     return Reflect.get(target, key, receiver)
+    //   },
+    //   set: function (target, key, value, receiver) {
+    //     console.log(`set ${key}`)
+    //     return Reflect.set(target, key, value, receiver)
+    //   }
+    // })
+
+    console.log(oo.name)
+    oo.name = '小郑'
+    console.log(oo.name)
+
+    // let object = {};
+    // let value;
+
+    // Object.defineProperty(object, 'value', {
+    //   get : function() {
+    //     console.log('getting value');
+    //     return value;
+    //   },
+    //   set: function(newValue) {
+    //     value = newValue
+    //     console.log('setting value');
+    //   },
+    //   enumerable: true,
+    //   configurable: true
+    // })
+
+    // console.log(object.value)
+    // object.value = '小郑'
+    // console.log(object.value)
+    
+
+    
+
+  </script>
+</body>
+
+</html>

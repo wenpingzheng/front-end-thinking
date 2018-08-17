@@ -1,0 +1,115 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>水纹效果</title>
+  <style>
+    .g-container {
+      width: 300px;
+      margin: 0px auto;
+      padding: 0 0 20px 0;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 60px 0 10px;
+      font-size: 20px;
+    }
+
+    p {
+      text-align: center;
+      padding: 10px 0;
+      font-size: 20px;
+    }
+
+    .g-bgat-scroll {
+      height: 100px;
+      border: 1px solid #000;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      background-image: url("http://mpic.tiankong.com/4ab/250/4ab250c0254e50586c0c30767e42c64c/640.jpg@!670w");
+      background-size: cover;
+      background-position: center center;
+      background-attachment: scroll;
+    }
+
+    .g-bgat-local {
+      height: 100px;
+      border: 1px solid #000;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      background-image: url("http://mpic.tiankong.com/ec3/890/ec3890a27f414cf72a588fe1c4eddf49/640.jpg@!670w");
+      background-size: cover;
+      background-position: center center;
+      background-attachment: local;
+    }
+
+    .g-bgat-fixed {
+      height: 100px;
+      border: 1px solid #000;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      background-image: url("http://mpic.tiankong.com/c25/c1a/c25c1ae28acc1cff203db1d8a8fa9351/640.jpg@!670w");
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="g-container">
+    <h2>background-attachment: scroll;</h2>
+    <div class="g-bgat-scroll">
+      <div class="g-content">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+        <p>9</p>
+        <p>10</p>
+        <p>1</p>
+      </div>
+    </div>
+
+    <h2>background-attachment: local;</h2>
+    <div class="g-bgat-local">
+      <div class="g-content">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+        <p>9</p>
+        <p>10</p>
+        <p>1</p>
+      </div>
+    </div>
+
+    <h2>background-attachment: fixed;</h2>
+    <div class="g-bgat-fixed">
+      <div class="g-content">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+        <p>9</p>
+        <p>10</p>
+        <p>1</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>引用模块</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <style>
+    blockquote {
+      background: #f9f9f9;
+      border-left: 10px solid #ccc;
+      margin: 1.5em 10px;
+      padding: .5em 10px;
+      quotes: "\201C""\201D""\2018""\2019";
+    }
+
+    blockquote p {
+      display: inline;
+    }
+
+    #container {
+      background-color: #ccc;
+      height: 30px;
+      -webkit-border-radius: 4px 3px 6px 10px;
+      -moz-border-radius: 4px 3px 6px 10px;
+      -o-border-radius: 4px 3px 6px 10px;
+      border-radius: 4px 3px 6px 10px;
+    }
+
+    .container {
+      background-color: red;
+      width: 100%;
+      /* creates a block formatting context */
+    }
+
+    p {
+      background-color: lightgreen;
+      margin: 10px 0;
+    }
+
+    span {
+      background: #ddd;
+    }
+
+    a {
+      background: #000;
+    }
+
+    .parent {
+      position: relative;
+      background: yellow;
+      height: 100px;
+    }
+
+    .child {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background: green;
+      width: 140px;
+      height: 20px;
+      margin: auto 0;
+      text-align: center;
+    }
+
+    .line-box {
+      background: yellow;
+      line-height: 32px;
+      font-size: 20px;
+    }
+
+    .span-1 {
+      line-height: 40px;
+      background: red;
+    }
+
+     .span-2 {
+
+line-height: 38px;
+
+background: green;
+
+}
+.span-3{
+  line-height: 50px;
+}
+
+img {
+
+width: 50px;
+
+height: 50px;
+
+}
+
+
+
+  .box{
+    background:red;
+    margin:40px 0;
+    color:#fff;
+  }
+  .box1{
+    background:green;
+    width:300px;
+    margin: 20px auto 0;
+  }
+  .box2{
+    background:green;
+    width:300px;
+    margin:0 auto 20px;
+  }
+
+  
+  </style>
+</head>
+
+
+<body>
+
+  <div class="box">
+    <div class="box1">
+      第一个子元素的marignTop:20px
+    </div>
+    <div class="box2">
+      第二个子元素的marginBottom:20px;
+    </div>
+  </div>
+
+    <!-- <div class="line-box">
+
+        <span class="span-1">span(line-height: 40px)</span>
+  
+        <span class="span-2">span(line-height: 38px)</span>
+  
+         <br>
+  
+         <span class="span-3">span(line-height: 50px)</span>
+  
+  </div> -->
+  <!-- <div class="line-box">
+    <span class="span-1">span(line-height: 40px)</span>
+    <span class="span-2">span(line-height: 38px)</span>
+  </div> <div class="line-box">
+
+      <span class="span-1">span(line-height: 40px)</span>
+
+      <span class="span-2">span(line-height: 38px)</span>
+
+      <img src="#" />
+
+  </div> -->
+
+
+  <!-- <div class="parent">
+    <div class="child">垂直居中的子元素</div>
+  </div> -->
+  <!-- <div id="container">圆角区域</div> -->
+  <!-- <div class="container">
+    <div class="c">
+      我是居中
+    </div>
+  </div>
+  <div class="d">
+    这是另外一个空间
+    <p>我不</p>
+  </div> -->
+  <!-- <p>这里是前面的内容</p>
+  <blockquote>
+    <p>blockquote的内容，随便用一点内容来填充一下，关注小郑搞码事，给大家送惊喜。</p>
+  </blockquote>
+  <p>这里是后面的内容</p> -->
+</body>
+
+</html>

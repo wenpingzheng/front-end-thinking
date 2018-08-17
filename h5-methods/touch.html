@@ -1,46 +1,533 @@
 <html>
-  <head>
-    <meta charset="utf8" />
-    <title>触摸事件</title>
-   
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  </head>
-  <body>
-    <script type="text/javascript">
 
-      var touch0 = null
-      document.body.addEventListener('touchstart', function(ev) {
-        touch0 = ev.touches[0]
-        console.log('touchstart')
-      })
-      document.body.addEventListener('touchmove', function(ev) {
-        var touch = ev.touches[0]
-        var moveX = touch.clientX - touch0.clientX
-        var moveY = touch.clientY - touch0.clientY
-        console.log('move', moveX, moveY)
-      })
+<head>
+  <meta charset="utf8" />
+  <title>触摸事件</title>
 
-      function People() {
-        this.name = '小郑搞码事'
-        this.age = 100
-        this.gender = 'body'
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0
+  }
+
+  select {
+    margin: 20px;
+    height: 25px;
+    width: 100px;
+    text-align: center;
+    /* -webkit-appearance: none; */
+  }
+
+  /* p{
+    appearance:button;
+-moz-appearance:button; 
+-webkit-appearance:button;
+  } */
+
+  button {
+    /* width:300px;
+    height:40px;
+    appearance:none;
+-moz-appearance:none; 
+-webkit-appearance:none; */
+    /*
+    
+    color:#fff;
+    border:1px; */
+  }
+
+  .clearfix:before,
+  .container:after {
+    content: "";
+    display: table;
+  }
+
+  .clearfix:after {
+    clear: both;
+  }
+
+  /* IE 6/7 */
+
+  .clearfix {
+    zoom: 1;
+  }
+
+  /* a[href^="http://"]{
+      padding-right: 20px;
+      background: url(external.gif) no-repeat center right;
+    }
+
+    a[href^="mailto:"]{
+      padding-right: 20px;
+      background: url(email.png) no-repeat center right;
+    }
+
+    a[href$=".pdf"]{
+      padding-right: 20px;
+      background: url(pdf.png) no-repeat center right;
+    } */
+
+  .transparent {
+    filter: alpha(opacity=50);
+    /* internet explorer */
+    -khtml-opacity: 0.5;
+    /* khtml, old safari */
+    -moz-opacity: 0.5;
+    /* mozilla, netscape */
+    opacity: 0.5;
+    /* fx, safari, opera */
+  }
+
+  /* img {
+    filter: url(filters.svg#grayscale);
+    /* Firefox 3.5+ */
+
+  /* filter: gray; */
+
+  /* IE6-9 */
+
+  /* -webkit-filter: grayscale(1); */
+
+  /* Google Chrome, Safari 6+ & Opera 15+ */
+
+  /* }  */
+
+  img {
+    display: none;
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+  }
+
+  img.polaroid {
+    background: #000;
+    border: solid #fff;
+    border-width: 6px 6px 20px 6px;
+    box-shadow: 1px 1px 5px #333;
+    -webkit-box-shadow: 1px 1px 5px #333;
+    -moz-box-shadow: 1px 1px 5px #333;
+    height: 200px;
+    width: 200px;
+  }
+
+  button {
+    background-image: linear-gradient(#5187c4, #1c2f45);
+    background-size: auto 200%;
+    background-position: 0 100%;
+    -webkit-transition: background-position 0.5s;
+    transition: background-position 0.5s;
+
+  }
+
+  button:hover {
+    background-position: 0 0;
+  }
+
+  ::selection {
+    background: #e2eae2;
+  }
+
+  ::-moz-selection {
+    background: #e2eae2;
+  }
+
+  ::-webkit-selection {
+    background: #e2eae2;
+  }
+
+  h1 {
+    text-indent: -9999px;
+    margin: 0 auto;
+    width: 320px;
+    height: 85px;
+    background: transparent url(../all-images/home.jpg) no-repeat scroll;
+  }
+
+  /* a:link {
+    color: blue;
+  }
+
+  a:visited {
+    color: purple;
+  }
+
+  a:hover {
+    color: red;
+  }
+
+  a:active {
+    color: yellow;
+  } */
+
+  /* html {
+    background: url(../all-images/home.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  } */
+
+  /* html { height: 101% }
+  .content{
+    width:100px;
+    height: 80px;
+    display: table-cell;
+    vertical-align: middle;
+    background-color:#ddd;
+  } */
+
+  /* @font-face {
+    font-family: 'MyWebFont';
+    src: url('webfont.eot');
+    src: url('webfont.eot?#iefix') format('embedded-opentype'),
+    url('webfont.woff') format('woff'),
+    url('webfont.ttf') format('truetype'),
+    url('webfont.svg#svgFontName') format('svg');
+  }
+
+  body {
+    font-family: 'MyWebFont', Arial, sans-serif;
+  } */
+
+  /* .content {
+    background: #629721;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#83b842), to(#629721));
+    background-image: -webkit-linear-gradient(top, #83b842, #629721);
+    background-image: -moz-linear-gradient(top, #83b842, #629721);
+    background-image: -ms-linear-gradient(top, #83b842, #629721);
+    background-image: -o-linear-gradient(top, #83b842, #629721);
+    background-image: linear-gradient(top, #83b842, #629721);
+  } */
+
+  /* <!-- 
+  p {
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+    margin: 10px;
+    font-size: 21px;
+    line-height: 1.3em;
+    color: #fff;
+    background: #ff0030;
+    -webkit-box-shadow: 0 0 0 4px #ff0030, 2px 1px 4px 4px rgba(10, 10, 0, .5);
+    -moz-box-shadow: 0 0 0 4px #ff0030, 2px 1px 4px 4px rgba(10, 10, 0, .5);
+    box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10, 10, 0, .5);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+
+  p:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    right: 3px;
+    border: 2px dashed #fff;
+  }
+
+  p a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  p a:hover,
+  p a:focus,
+  p a:active {
+    text-decoration: underline;
+  } --> */
+
+  tbody tr:nth-child(odd) {
+    background-color: #ccc;
+  }
+
+  .amp {
+    font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 60px;
+  }
+
+  p:first-letter {
+    display: block;
+    margin: 5px 0 0 5px;
+    float: left;
+    color: #ff3366;
+    font-size: 5.4em;
+    font-family: Georgia, Times New Roman, serif;
+  }
+
+  ul {
+    margin: 0.75em 0;
+    padding: 0 1em;
+    list-style: none;
+  }
+
+  li:before {
+    content: "";
+    border-color: transparent #111;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -1em;
+    top: 0.9em;
+    position: relative;
+  }
+
+  .page-wrap {
+    background-color: #999;
+    height: 100px;
+
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  .newspaper {
+    text-align: justify;
+    font-size: 18px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 24px;
+    -webkit-column-rule: 1px solid #c4c8cc;
+    column-count: 3;
+    column-gap: 24px;
+    column-rule: 1px solid #c4c8cc;
+  }
+
+  #footer {
+    position: fixed;
+    color: #fff;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    background: #444;
+    z-index: 2
+  }
+
+  .bg {
+    width: 200px;
+    height: 100px;
+    background: url(/folder/yourimage.png) no-repeat;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/folder/yourimage.png', sizingMethod='crop');
+  }
+
+  #container {
+    min-height: 550px;
+    height: auto !important;
+    height: 550px;
+  }
+
+  input[type=text],
+  textarea {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #ddd;
+  }
+
+  input[type=text]:focus,
+  textarea:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+  }
+
+
+  a {
+    color: #00e;
+  }
+
+  a:visited {
+    color: #551a8b;
+  }
+
+  a:hover {
+    color: #06e;
+  }
+
+  a:focus {
+    outline: thin dotted;
+  }
+
+  a:hover,
+  a:active {
+    outline: 0;
+  }
+
+  a,
+  a:visited,
+  a:active {
+    text-decoration: none;
+    color: #999;
+    -webkit-transition: all .3s ease-in-out;
+            transition: all .3s ease-in-out;
+  }
+
+  a:hover,
+  .glow {
+    color: rgb(255, 0, 21);
+    text-shadow: 0 0 10px  rgb(255, 0, 21);
+
+
+
+    /* transition: all 5s ease 0.5s; */
+
+
+
+  }
+
+</style>
+
+<body>
+  <!-- <input type="text" value="小郑搞码事">
+  <textarea name="" id="" cols="30" rows="10">小郑搞码事,小郑搞码事,小郑搞码事,小郑搞码事,小郑搞码事</textarea> -->
+
+  <a href="javascript:;">鲜艳的锚链接</a>
+
+  <!-- <div class="page-wrap">
+    
+  </div> -->
+
+  <!-- <div class="newspaper">
+    人民网北京2月24日电 (记者 刘阳)国家发展改革委近日发出通知，决定自2月25日零时起将汽、柴油价格每吨分别提高300元和290元，折算到90号汽油和0号柴油（全国平均）每升零售价格分别提高0.22元和0.25元。 此次国内成品油价格调整幅度，是按照现行国内成品油价格形成机制，根据国际市场油价变化情况确定的。去年11月16日国内成品油价格调整以来，受市场预期欧美经济复苏前景向好以及中东局势持续动荡等因素影响，
+  </div>
+  <div id="footer">
+    页脚部分
+  </div> -->
+
+  <!-- <p class="content">
+    小郑搞码事
+  </p> -->
+  <!-- <table>
+    <tbody>
+      <tr>
+        <td>第一行</td>
+      </tr>
+      <tr>
+        <td>第二行</td>
+      </tr>
+      <tr>
+        <td>第三行</td>
+      </tr>
+      <tr>
+        <td>第四行</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <!-- <div class="amp">&&</div> -->
+
+  <!-- <p>小郑搞码事、小郑搞码事、小郑搞码事、小郑搞码事、小郑搞码事、
+    小郑搞码事、小郑搞码事、小郑搞码事、小郑搞码事、
+    小郑搞码事、小郑搞码事。</p> -->
+
+
+
+  <!-- <ul>
+    <li>第一行内容</li>
+    <li>第二行内容</li>
+    <li>第三行内容</li>
+    <li>第一行内容</li>
+    <li>第二行内容</li>
+    <li>第三行内容</li>
+    <li>第一行内容</li>
+    <li>第二行内容</li>
+    <li>第三行内容</li>
+    <li>第一行内容</li>
+    <li>第二行内容</li>
+    <li>第三行内容</li>
+  </ul> -->
+
+
+  <!-- <div class="select">这是一个按钮</div> -->
+
+  <!-- <h1>这个是标题名称</h1> -->
+
+  <!-- <a href="javascript:;">这是一个A链接</a>
+
+  <img class="polaroid" src="../all-images/home.jpg" alt=""> -->
+
+
+
+  <!--   
+  <button>这就是一个按钮</button>
+
+  <select>
+    <option value="1"> 小郑</option>
+    <option value="2"> 小郑搞码</option>
+    <option value="3"> 小郑搞码事</option>
+    <option value="4"> 最后一行文字</option>
+  </select>
+  <p>这是一行文字</p> -->
+  <script type="text/javascript">
+
+
+    
+
+
+    console.log(Array.of('小郑','小郑搞','小郑搞码事'))
+
+
+
+
+
+    // var touch0 = null
+    // document.body.addEventListener('touchstart', function (ev) {
+    //   touch0 = ev.touches[0]
+    //   console.log('touchstart')
+    // })
+    // document.body.addEventListener('touchmove', function (ev) {
+    //   var touch = ev.touches[0]
+    //   var moveX = touch.clientX - touch0.clientX
+    //   var moveY = touch.clientY - touch0.clientY
+    //   console.log('move', moveX, moveY)
+    // })
+
+    // function People() {
+    //   this.name = '小郑搞码事'
+    //   this.age = 100
+    //   this.gender = 'body'
+    // }
+
+    // var people = new People()
+
+    // with (people) {
+    //   name = '小郑'
+    //   weight = 80
+    //   // 输出一
+    //   console.log(name, age, gender, weight)
+    // }
+    // // 输出二
+    // console.log(people.weight)
+
+    const generator = function* () {
+      const numbers = [1, 2, 3, 4, 5];
+      for (let number of numbers) {
+        yield setTimeout(() => {
+          console.log(number)
+        }, 3000)
       }
-
-      var people = new People()
-
-      with(people) {
-        name = '小郑'
-        weight = 80
-        // 输出一
-        console.log(name,age,gender,weight)
-      }
-      // 输出二
-      console.log(people.weight)
+    }
+    let result = generator()
+    let re1 = result.next()
+    console.log('完成了')
 
 
 
 
+  </script>
+</body>
 
-    </script>
-  </body>
 </html>
