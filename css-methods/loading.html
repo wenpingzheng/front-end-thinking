@@ -1,0 +1,88 @@
+<html>
+<head>
+  <meta charset="utf8" />
+  <title>loading</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <style>
+    .loading {
+      background-color: red;
+      border-radius: 50%;
+      display: block;
+      height: 200px;
+      width: 200px;
+      margin: 100px auto;
+      overflow: hidden;
+      position: relative;
+    }
+    .loading .left,
+    .loading .right {
+      bottom: 0;
+      top: 0;
+      overflow: hidden;
+      position: absolute;
+      width: 50%;
+    }
+    .loading .left {
+      left: 0;
+    }
+    .loading .right {
+      right: 0;
+    }
+
+    /* 设置样式及旋转位置 */
+    .loading .bg {
+      background-color: #59b6fe;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .loading .left .bg {
+      border-radius: 16px 0 0 16px;
+      transform-origin: 100% 50%;
+    }
+    .loading .right .bg {
+      border-radius: 0 16px 16px 0;
+      transform-origin: 0% 50%;
+    }
+    
+    /* 设定元素动画参数 */
+    .loading.play .right .bg {
+      animation: loading 4s linear infinite;
+    }
+    .loading.play .left .bg {
+      animation: loading 4s linear 1s infinite;
+    }
+    
+    /* 定义动画 */
+    @keyframes loading {
+      0% {
+        -webkit-transform: rotate(0deg)
+      }
+      25%,
+      50% {
+        -webkit-transform: rotate(180deg)
+      }
+      75%,
+      100% {
+        -webkit-transform: rotate(360deg)
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="loading play">
+    <span class="left">
+      <i class="bg"></i>
+    </span>
+    <span class="right">
+      <i class="bg"></i>
+    </span>
+  </div>
+  
+</body>
+
+</html>

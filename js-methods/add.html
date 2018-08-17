@@ -298,44 +298,64 @@
 
         // console.log()
 
-        console.log('hello')
-        console.info('something happened')
-        console.warn('something strange happened')
-        console.error('something horrible happened')
+        // console.log('hello')
+        // console.info('something happened')
+        // console.warn('something strange happened')
+        // console.error('something horrible happened')
 
-        var fun1 = () => {
-            fun2()
-        }
-        var fun2 = () => {
-            fun3()
-        }
-        var fun3 = () => {
-            fun4()
-        }
-        var fun4 = () => {
-            console.trace()
-        }
-        fun1()
-
-
-        console.time('testForEach');
-        ['a', 'b', 'c'].forEach((i, a) => {
-            console.log(i)
-        })
-        console.timeEnd('testForEach');
+        // var fun1 = () => {
+        //     fun2()
+        // }
+        // var fun2 = () => {
+        //     fun3()
+        // }
+        // var fun3 = () => {
+        //     fun4()
+        // }
+        // var fun4 = () => {
+        //     console.trace()
+        // }
+        // fun1()
 
 
-        console.table([{ name: 'yt', age: 32 }, { name: 'tom', age: 30 }])
+        // console.time('testForEach');
+        // ['a', 'b', 'c'].forEach((i, a) => {
+        //     console.log(i)
+        // })
+        // console.timeEnd('testForEach');
 
-        var info = {
-            name: "小郑",
-            wxid: "小郑搞码事",
-            friends: ['w', 'l', 'd'],
-            getName: () => {
-                return this.name
-            }
-        }
-        console.dir(info)
+
+        // console.table([{ name: 'yt', age: 32 }, { name: 'tom', age: 30 }])
+
+        // var info = {
+        //     name: "小郑",
+        //     wxid: "小郑搞码事",
+        //     friends: ['w', 'l', 'd'],
+        //     getName: () => {
+        //         return this.name
+        //     }
+        // }
+        // console.dir(info)
+
+        var a = [1,2,3]
+        a[9] = 99
+
+
+
+        console.log(a)
+
+        console.log(a[6])
+
+
+
+        var b = [undefined];
+        b[3] = 2;
+
+
+        console.log(b);
+
+        
+        console.log(b.map(e => 7));
 
 
 

@@ -1,165 +1,383 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>居中</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <style>
-            
-            /* 垂直居中一 */
-            /*
-            .parent{
-                background-color:#ddd;
-                width:200px;
-                height:200px;
-                display:table-cell;
-                vertical-align: middle;
-            } 
-            .child{
-                background-color:#000;
-                height:50px;
-                line-height: 50px;
-                color:#fff;
-                text-align:center;
-            }*/
 
-            /* 垂直居中二 */
-            /*
-            .parent{
-                position: relative;
-                background-color:#ddd;
-                width:200px;
-                height:200px;
-            }
-            .child{
-                position:absolute;
-                top:50%;
-                transform:translateY(-50%);
-                background-color:#000;
-                height:50px;
-                line-height: 50px;
-                color:#fff;
-                text-align:center;
-            }*/
+<head>
+  <meta charset="utf-8">
+  <title>居中</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <style>
+    /* 垂直居中一 */
 
-            /* 垂直居中三 */
-            /*
-            .parent{
-                display:flex;
-                align-items:center;
-                background-color:#ddd;
-                width:200px;
-                height:200px;
-            }
-            .child{
-                background-color:#000;
-                height:50px;
-                line-height: 50px;
-                color:#fff;
-                text-align:center;
-            } */
+    /*
+      .parent{
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+        display:table-cell;
+        vertical-align: middle;
+      } 
+      .child{
+        background-color:#000;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+        text-align:center;
+      }*/
 
-            /* 水平居中一 */
-            /*
-            .parent{
-                text-align:center;
-                background-color:#ddd;
-                width:200px;
-                height:200px;
-            }
-            .child{
-                display:inline-block;
-                /*text-align:left 针对子元素里文字*/ 
-               /* width:80px;
-                background-color:#000;
-                height:50px;
-                line-height: 50px;
-                color:#fff;
-            }*/
+    /* 垂直居中二 */
 
-            /* 水平居中二 */
-            /*
-            .parent{
-                
-                background-color:#ddd;
-                width:200px;
-                height:200px;
-            }
-            .child{
+    /*
+      .parent{
+        position: relative;
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+      }
+      .child{
+        position:absolute;
+        top:50%;
+        transform:translateY(-50%);
+        background-color:#000;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+        text-align:center;
+      }*/
 
-                display:table;
-                margin:0 auto;
+    /* 垂直居中三 */
 
-                background-color:#000;
-                width:80px;
-                height:50px;
-                line-height: 50px;
-                color:#fff;
-            } */
+    /*
+      .parent{
+        display:flex;
+        align-items:center;
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+      }
+      .child{
+        background-color:#000;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+        text-align:center;
+      } */
 
-            /* 水平居中三 */
-            /*
-            .parent{
-                position: relative;
-                background-color:#ddd;
-                width:200px;
-                height:200px;
-            }
-            .child{
-                position: absolute;
-                left:50%;
-                transform: translateX(-50%);
-                background-color:#000;
-                width:80px;
-                height:50px;
-                line-height: 50px;
-                color:#fff;
-            } */
+    /* 水平居中一 */
 
-            /* 水平居中四 */
-            /*
-            .parent{
-                display:flex;
-                background-color:#ddd;
-            }
-            .child{
-                margin:0 auto;
-                background-color:#000;
-                width:80px;
-                height:50px;
-                line-height: 50px;
-                color:#fff;
-            }*/
-            /* 水平居中五 */
-            /*
-            .parent{
-                display:flex;
-                justify-content: center;
-                background-color:#ddd;
-            }
-            .child{
-                background-color:#000;
-                width:80px;
-                height:50px;
-                line-height: 50px;
-                color:#fff;
-            }*/
+    /*
+      .parent{
+        text-align:center;
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+      }
+      .child{
+        display:inline-block;
+        /*text-align:left 针对子元素里文字*/
+
+    /* width:80px;
+        background-color:#000;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+      }*/
+
+    /* 水平居中二 */
+
+    /*
+      .parent{
+        
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+      }
+      .child{
+
+        display:table;
+        margin:0 auto;
+
+        background-color:#000;
+        width:80px;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+      } */
+
+    /* 水平居中三 */
+
+    /*
+      .parent{
+        position: relative;
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+      }
+      .child{
+        position: absolute;
+        left:50%;
+        transform: translateX(-50%);
+        background-color:#000;
+        width:80px;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+      } */
+
+    /* 水平居中四 */
+
+    /*
+      .parent{
+        display:flex;
+        background-color:#ddd;
+      }
+      .child{
+        margin:0 auto;
+        background-color:#000;
+        width:80px;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+      }*/
+
+    /* 水平居中五 */
+
+    /*
+      .parent{
+        display:flex;
+        justify-content: center;
+        background-color:#ddd;
+      }
+      .child{
+        background-color:#000;
+        width:80px;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+      }*/
+
+    /* 水平垂直居中 */
+
+    /* 水平垂直居中 一*/
+
+    /*
+      .parent{
+
+        position:relative;
+
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+      }
+      .child{
+
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+
+        color:#fff;
+        background-color:#000;
+        color:#fff;
+        width:100px;
+        height:100px;
+      }*/
+
+      /* 水平垂直居中二 */
+      /*
+      .parent {
+        text-align:center;
+        display:table-cell;
+        vertical-align: middle;
+        background-color: #ddd;
+        width: 200px;
+        height: 200px;
+      }
+
+      .child {
+        display:inline-block;
+        color: #fff;
+        background-color: #000;
+        color: #fff;
+        width: 100px;
+        height: 100px;
+      } */
+
+      /*
+      .parent {
+        
+        display:flex;
+        justify-content: center;
+        align-items:center;
+
+        background-color: #ddd;
+        width: 200px;
+        height: 200px;
+      }
+
+      .child {
+        color: #fff;
+        background-color: #000;
+        color: #fff;
+        width: 100px;
+        height: 100px;
+      }*/
+
+      
+      body{
+        background-color:#ddd;
+        color:#fff;
+      }
+      *{margin:0;padding:0;}
+
+      /* 定宽加自适应 一*/
+      /*
+      .left { 
+        float :left; 
+        width: 100px ; 
+        margin-right: 20px ; 
+        background-color:#333;
+      } 
+      .right { 
+        overflow:hidden; 
+        background-color:blue;
+        word-break: break-word;
+      } */
+      
+      /*
+      .left { 
+        float :left; 
+        width: 100px ; 
+        margin-right: 20px ; 
+        background-color:#333;
+      } 
+      .right { 
+        margin-left:120px;
+        background-color:blue;
+        word-break: break-word;
+      }*/
+      
+      /* FLOAT+MARGIN改良 */
+      /*
+      .left{
+        float:left;
+        width:100px;
+        position: relative;
+        background-color:#333;
+      }
+      .right-fix{
+        float:right;
+        width:100%;
+        margin-left:-100px;
+        background-color:blue;
+      }
+      .right{
+        margin-left:120px;
+      } */
+
+      /* 使用TABLE */
+      /*
+      .parent {
+        display:table;
+        width:100%;
+      }
+      .left {
+        width:100px;
+        padding-right:20px;
+        background-color:#333;
+        vertical-align: middle;
+        text-align: center;
+      }
+      .right,.left{
+        display:table-cell;
+      }
+      .right{
+        background-color:blue;
+      }*/
+      /* 使用flex */
+      /*
+      .parent{
+        display:flex;
+      }
+      .left{
+        width:100px;
+        margin-right:20px;
+        background-color:#333;
+      }
+      .right{
+        flex:1;
+        background-color:blue;
+      } */
 
 
-        </style>
-    </head>
-    <body>
-        <div class="parent">
-            <div class="child">DEMO</div>
-        </div>
-        <script>
+      .left,.center{
+        float:left;
+        width:100px;
+        margin-right:10px;
+      }
+      .left{
+        background-color:aqua;
+      }
+      .center{
+        background-color:red;
+      }
+      .right{
+        background-color:#333;
 
-console.log('abc' === 'abc') // true
-console.log(1 === 1)         // true
+        overflow:hidden;
+      }
 
-console.log([1,2,3] === [1,2,3]) // false
-console.log({a: 1} === {a: 1})   // false
-console.log({} === {})           // false
 
-        </script>
-    </body>
+      
+  </style>
+</head>
+
+<body>
+
+  <!--
+  <div class="parent">
+    <div class="child">DEMO</div>
+  </div> -->
+
+  <!--
+  <div class="parent">
+    <div class="left">
+      <p>左边的内容</p>
+    </div>
+    <div class="right">
+      <p>右边的内容右边的内容右边的内容</p>
+      <p>右边的内容右边的内容右边的内容</p>
+    </div>
+  </div> -->
+
+
+
+<!--
+  <div class="parent">
+    <div class="left">
+      <p>左边的内容</p>
+    </div>
+    <div class="right-fix">
+      <div class="right">
+        <p>右边的内容右边的内容右边的内容</p>
+        <p>右边的内容右边的内容右边的内容</p>
+      </div>
+    </div>
+  </div>
+-->
+
+<div class="parent">
+  <div class="left">
+    <p>左边内容</p>
+  </div>
+  <div class="center">
+    <p>中间内容</p>
+  </div>
+  <div class="right">
+    <p>右边的内容右边的内容右边的内容</p>
+    <p>右边的内容右边的内容右边的内容</p>
+  </div>
+</div>
+
+
+</body>
+
 </html>

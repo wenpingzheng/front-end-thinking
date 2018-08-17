@@ -1,0 +1,195 @@
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>展示</title>
+  </head>
+  <style>
+    a{
+      font-size:28px;
+      display:block;
+      margin:10px 0;
+      color:#000;
+    }
+    .t1{
+      text-decoration-line: underline;
+      text-decoration-color:red;
+      text-decoration-style: dotted;
+    }
+    .t2{
+      text-decoration-line: underline;
+      text-decoration-color:blue;
+      text-decoration-style:dashed;
+    }
+    .t2{
+      text-decoration-line: underline;
+      text-decoration-color:yellow;
+      text-decoration-style:solid;
+    }
+
+  </style>
+  <body>
+
+      <a class="t1" href="">这个是用来测试的代码</a>
+      <a class="t2" href="">这个是用来测试的代码</a>
+      <a class="t3" href="">这个是用来测试的代码</a>
+
+      
+      <!-- <div id="app">
+        <input type="text" id="txt">
+        <p id="show-txt"></p>
+      </div> -->
+
+    <script>
+
+      // // 拼接数组
+      // const odd = [1, 3, 5];
+      // const nums = [2 ,4 , 6, ...odd];     // const nums = [2 ,4 , 6].concat(odd);
+      // console.log(nums) // [2,4,6,1,3,5]
+      
+      // // 复制数组
+      // const arr = [1, 2, 3, 4];
+      // const arr2 = [...arr] // const arr2 = arr.slice( )
+      // console.log(arr2)// [1,2,3,4]
+
+      // const { a, b, ...z } = { a: 1, b: 2, c: 3, d: 4 };
+      // console.log(a) // 1
+      // console.log(b) // 2
+      // console.log(z) // { c: 3, d: 4 }
+
+      // let testdemo = [2,5,8]
+      // for(let i = 0; i<testdemo.length;i++) {
+      //   console.log(testdemo[i])
+      // }
+      // // 输出结果：2 5 8
+      // for (let index of testdemo) {
+      //   console.log(index)
+      // }
+      // // 输出结果：2 5 8
+      // [2, 5, 8].forEach((e)=> {
+      //   console.log(e)
+      // });
+      // 输出结果：2 5 8
+
+        // let obj = {}
+        // let writedom = document.getElementById('txt')
+        // let showdom = document.getElementById('show-txt')
+
+        // Object.defineProperty(obj, 'txt', {
+        //   get: function () {
+        //     return obj
+        //   },
+        //   set: function (newValue) {
+        //     showdom.innerHTML = newValue
+        //   }
+        // })
+        // writedom.addEventListener('keyup', function (e) {
+        //   obj.txt = e.target.value
+        // })
+
+        // var obj = {};
+        // var initValue = 'hello';
+        // Object.defineProperty(obj,"newKey",{
+        //   get:function (){
+        //     return initValue;    
+        //   },
+        //   set:function (value){
+        //     initValue = value;
+        //   }
+        // });
+        // console.log( obj.newKey );
+        // obj.newKey = 'change value';
+        // console.log( obj.newKey );
+
+        // const pets = [
+        //   { type: 'Dog', name: 'Max'},
+        //   { type: 'Cat', name: 'Tommy'},
+        //   { type: 'Dog', name: 'Tommy'},
+        // ]
+        
+        // function findDog(name) {
+        //   for(let i = 0; i<pets.length;i++) {
+        //     if(pets[i].type === 'Dog' && pets[i].name === name) {
+        //       return pets[i];
+        //     }
+        //   }
+        // }
+        // console.log(findDog('Tommy'))
+
+
+        // pet = pets.find(pet => pet.name === 'Tommy');
+       
+        // pet = pets.find((pet) => { 
+        //   return pet.name === 'Tommy'
+        // });
+
+        // function func() {
+        //   let a = 10;
+        //   var a = 1;
+        // }
+        // Uncaught SyntaxError: Identifier 'a' has already been declared
+        // function func() {
+        //   let a = 10;
+        //   let a = 1;
+        // }
+        // func()
+
+
+        // console.log(pet);
+
+        // var pHandler = function(e){e.preventDefault();}
+        // document.addEventListener('touchmove', pHandler, false);
+        // document.removeEventListener('touchmove', pHandler, false);
+
+
+        // document.addEventListener('touchmove', function(e){
+        //   e.preventDefault();
+        // }, {passive:false});
+
+        // var tmp = new Date();
+        // function demo() {
+        //   console.log(tmp);
+        //   if (false) {
+        //     //var tmp = 'hello world';
+        //   }
+        // }
+        // demo()
+
+        // var s = 'hello';
+        // for (var i = 0; i < s.length; i++) {
+        //   console.log(s[i]);
+        // }
+        // console.log(i);
+        
+        // let obj = {
+        //   name: '小郑搞码事'
+        // }
+        // console.log(obj.valueOf())
+        // let arr = ['小郑','小郑搞码','小郑搞码事']
+        // console.log(arr.valueOf())
+
+        let a = 2;
+        if(true) {
+          let a = 3;
+          console.log(a) // 3
+        }
+        console.log(a) //2
+
+      
+
+
+// var xhr = new XMLHttpRequest (); 
+// xhr.onreadystatechange = function () { 
+//   if (this.readyState == 4) { 
+//     clearTimeout(timeout);
+//   } 
+// } 
+// var timeout = setTimeout( function () { 
+//   xhr.abort();
+// }, 60*1000); 
+// xhr.open('GET', url, true); 
+// xhr.send();
+
+
+    </script>
+  </body>
+</html>
