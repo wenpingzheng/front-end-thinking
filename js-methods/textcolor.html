@@ -8,26 +8,124 @@
   <style>
     html,
     body {
-      background: #000;
-      color: #fff;
+      /* background:#000; */
+      /* color: #fff; */
       font: bold 14px/1.5 georgia, sans-serif;
     }
 
-    #demo p {
+    /* #demo p {
       width: 800px;
-      margin: 30px auto;
+      margin: 60px auto;
+
+
+
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 1px #fff;
-      font-size: 126px;
+      /* background: -webkit-linear-gradient(top, #eee, #aaa 50%, #333 51%, #000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font: bold 95px/1.231 georgia, sans-serif;
+      text-transform: uppercase; */
+      /* font-size: 46px;
+    }
+
+    
+      ul>li:not(:last-child)::after {
+        content: ",";
+      } */
+      .inner {
+      background: linear-gradient(60deg,
+      rgb(255, 187, 51),
+      rgb(255, 187, 51) 25%,
+      rgb(85, 136, 187) 0,
+      rgb(85, 136, 187) 50%,
+      rgb(255, 187, 51) 0,
+      rgb(255, 187, 51) 75%,
+      rgb(85, 136, 187) 0,
+      rgb(85, 136, 187) 100%);
+      background-size: 18px 31px;
+
+      width:300px;
+      height:200px;
+      background-color:#ddd;
+
+      background: repeating-linear-gradient(60deg,
+      rgb(65, 62, 58),
+      rgb(65, 62, 58) 15px,
+      rgb(187, 192, 192) 0,
+      rgb(187, 192, 192) 30px);
+
+
+      
+    }
+    /* .skew {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin:50px;
+      width: 200px;
+      height: 80px;
+      background:red;
+      color: #fff;
+      font-size: 14px;
+      transform: skewX(-10deg);
+    }  */
+
+    .mydiv{
+      box-shadow: inset 2px 0 4px #000
     }
   </style>
 </head>
 
 <body>
+  <textarea name="" id=""></textarea>
+  <div class="mydiv"></div>
+  <!-- <ul>
+    <li>第一个li内容</li>
+    <li>第二个li内容</li>
+    <li>第三个li内容</li>
+    <li>第四个li内容</li>
+  </ul>
+  <div class="inner">
 
-  <div id="demo">
-    <p>镂空了的文字</p>
   </div>
+  <div id="demo">
+    <p>直播审核中...</p>
+  </div> -->
+
+  <script>
+
+
+    /* 旧的处理方式 */
+    // let myArr = ['a', 'b']
+    // myArr.push('end')
+    // myArr.unshift('start')
+    // console.log(myArr)
+    // 输出 ['start','a','b','end']
+
+    /* 新的处理方式 */
+    let myArr = ['a', 'b']
+    let newArr = ['start', ...myArr, 'end']
+    console.log(newArr)
+    // 输出 ['start','a','b','end']
+
+
+
+    let unique = function (arr) {
+      let hashTable = {};
+      let data = [];
+      for (let i = 0, l = arr.length; i < l; i++) {
+        if (!hashTable[arr[i]]) {
+          hashTable[arr[i]] = true;
+          data.push(arr[i]);
+        }
+      }
+      return data
+    }
+
+
+  </script>
+
 </body>
 
 </html>

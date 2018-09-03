@@ -1,0 +1,77 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>empty hide</title>
+  <style>
+
+    
+    .table-show {
+      empty-cells: show;
+    }
+
+    .table-hide {
+      empty-cells: hide;
+    }
+
+    body {
+      background: #333;
+      padding: 25px 0;
+      color: #fff;
+      font-family: Helvetica;
+      font-size: 3em;
+      text-align: center;
+    }
+
+    table {
+      margin: 25px auto;
+    }
+
+    td {
+      background: #fff;
+      border: 1px solid #999;
+      padding: 10px 15px;
+      color: green;
+      cursor: pointer;
+    }
+
+    td:hover {
+      background: #eaeaea;
+    }
+
+    h1 {
+      font-size: .5em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Show Empty Cells</h1>
+  <table class="table-show">
+    <tbody>
+      <tr>
+        <td>&check;</td>
+        <td>&check;</td>
+        <td></td>
+        <td>&check;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1>Hide The Cells</h1>
+  <table class="table-hide">
+    <tbody>
+      <tr>
+        <td>&check;</td>
+        <td>&check;</td>
+        <td></td>
+        <td>&check;</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</body>
+
+</html>

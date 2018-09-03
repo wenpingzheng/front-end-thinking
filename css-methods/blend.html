@@ -1,0 +1,61 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>图片</title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      margin: 50px;
+      float: left;
+      box-sizing: border-box;
+    }
+
+    .bg1 {
+      border-radius: 50%;
+      border: 5px solid #000;
+      background: url("../all-images/demo.gif"), linear-gradient(45deg, #fff 0%, #fff 50%, #000 50%, #000 100%);
+      background-size: 280px 280px, 25% 25%;
+      background-position: center;
+      background-repeat: no-repeat, repeat;
+      background-blend-mode: difference;
+    }
+
+    .bg2 {
+      border: 5px solid #000;
+      background: url("../all-images/demo.gif"), linear-gradient(#fff 0%, #fff 50%, #000 50%, #000 100%);
+      background-size: 280px 280px, 25% 25%;
+      background-position: center;
+      background-repeat: no-repeat, repeat;
+      background-blend-mode: difference;
+    }
+
+    .bg3 {
+      border-radius: 50%;
+      border: 5px solid #000;
+      background: url("../all-images/demo.gif"), linear-gradient(90deg, #fff 0%, #fff 50%, #000 50%, #000 100%);
+      background-size: 280px 280px, 10% 10%;
+      background-position: center;
+      background-repeat: no-repeat, repeat;
+      background-blend-mode: difference;
+    }
+
+    .bg4 {
+      border: 5px solid #000;
+      background: url("../all-images/demo.gif"), linear-gradient(45deg, #fff 0%, #fff 50%, transparent 50%, transparent 100%);
+      background-size: 280px 280px, 20% 20%;
+      background-position: center, 50% 50%, 50% 50%;
+      background-repeat: no-repeat, repeat, repeat;
+      background-blend-mode: difference;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg bg1"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+  <div class="bg bg4"></div>
+</body>
+
+</html>
