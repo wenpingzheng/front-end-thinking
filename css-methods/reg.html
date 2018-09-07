@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>正则表达式-【只用一行代码就能实现一个简单的模板字符串替换】</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    // 先来看一段有问题的代码
+    let str = "{{name}}很厉害，才{{age}}岁"
+    let obj = { name: '小郑', age: 15 }
+    function test(str, obj) {
+      let _s = str.replace(/\{\{(\w+)\}\}/g, '$1')
+      let result
+      for (let k in obj) {
+        _s = _s.replace(new RegExp(k, 'g'), obj[k])
+      }
+      return _s
+    }
+    const s = test(str, obj)
+    console.log(s)
+    // 知道这段代码有几个问题吗
+
+
+
+    
+// 返回[1,2,3]
+  </script>
+</body>
+
+</html>
