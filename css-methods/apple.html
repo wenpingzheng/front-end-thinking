@@ -132,6 +132,27 @@
     <p>xiao zheng gao ma shi xiao zheng gao ma shi xiao zheng gao ma shi</p>
     <script>
      
+
+      let test = [2, 5, 8]
+
+      // 方法一
+      for(let i = 0; i < test.length; i++) {
+        console.log(test[i])
+      }
+
+      // 方法二
+      for(let index of test) {
+        console.log(index)
+      }
+
+      // 方法三
+      test.forEach((e)=>{
+        console.log(e)
+      })
+      
+      
+
+
     </script>
   </body>
 </html>
