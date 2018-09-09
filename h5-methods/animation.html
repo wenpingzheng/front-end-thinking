@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -6,6 +5,18 @@
   <meta charset='UTF-8'>
   <title>Animation</title>
   <style>
+
+
+    
+    /**
+    * @name: 文件名或模块名
+    * @description: 文件或模块描述
+    * @author: autor-name(mail-name@domain.com)
+    * @update: 2018-09-09 8:21 
+    */
+
+
+
     body {
       background: #133d48;
       animation: sky-to-black 5s ease forwards;
@@ -68,16 +79,62 @@
         background-color: black;
       }
     }
+
   </style>
 </head>
 
 <body>
-
   <!-- 月亮 -->
   <div class="moon"></div>
   <!-- 发光 -->
   <div class="ground"></div>
 
 </body>
+<script>
+  // function showCase(value) {
+  //   console.log(value)
+  //   switch(value) {
+  //     case 'A':
+  //       console.log('case A');
+  //       break;
+  //     case 'B':
+  //       console.log('case B');
+  //       break;
+  //     case undefined:
+  //       console.log('undefined');
+  //       break;
+  //     default:
+  //       console.log('do not know!')
+  //   }
+  // }
+  // var str = new String('A')
+
+  // console.log(showCase(str.valueOf()))
+  // console.log(showCase('A'))
+
+
+  // var array = [0,1,2];
+  // array[10] = 10;
+  // array.filter(function(x) {
+  //   return x === undefined
+  // })
+
+
+  var array = [0, 1, 2]
+  // array.map(() => {
+  //   console.log(arguments)
+  // })
+  array.map(function () {
+    console.log(arguments)
+  })
+
+
+let arrowfunc = (...theArgs) => console.log(theArgs.length)
+
+
+
+
+
+</script>
 
 </html>
