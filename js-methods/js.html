@@ -246,7 +246,42 @@
 
     // toString.call(str) !== "[object Array]"
     
+    const names = [
+      '小',
+      '小郑',
+      '小郑搞',
+      '小郑搞码',
+      '小郑搞码事'
+    ]
+    console.log(names.indexOf('小郑')) // 1
+
     
+    console.log(names.includes('小郑')) // true
+
+
+    const characters = [
+      { id : 1, name: '小郑' },
+      { id : 2, name: '小郑搞码事' },
+      { id : 3, name: '小郑' },
+      { id : 4, name: '小郑搞' }
+    ]
+
+    // let result = characters.filter((item, index) => {
+    //   console.log(index)
+    //   return item && item.name === '小郑'
+    // })
+
+    // let result = characters.find((item, index) => {
+    //   console.log(index)
+    //   return item && item.name === '小郑'
+    // })
+
+    let result = characters.some((item, index) => {
+      console.log(index)
+      return item && item.name === '小郑'
+    })
+    
+    console.log(result)
   </script>
 </body>
 
