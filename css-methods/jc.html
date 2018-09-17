@@ -331,6 +331,7 @@
 </head>
 
 <body>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
   <!--
   <div class="parent">
@@ -363,7 +364,11 @@
     </div>
   </div>
 -->
-
+<select name="dd" id="ff">
+  <option value="1" text="1">1111</option>
+  <option value="2" text="2">2222</option>
+  <option value="3" text="3">3333</option>
+</select>
 <div class="parent">
   <div class="left">
     <p>左边内容</p>
@@ -376,7 +381,9 @@
     <p>右边的内容右边的内容右边的内容</p>
   </div>
 </div>
-
+<script>
+$("#ff").find("option[text='2']").attr("selected",true)
+</script>
 
 </body>
 
