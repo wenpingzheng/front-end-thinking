@@ -1,0 +1,105 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>数组去重</title>
+</head>
+
+<body>
+  <script>
+
+    let arr = [1, 1, 'true', 'true',
+      true, true, undefined, undefined,
+      null, null, NaN, NaN, 'NaN',
+      0, 0, 'a', 'a', {}, {}]
+
+    // 方法一
+
+    function unique0(arr) {
+      return Array.from(new Set(arr))
+    }
+    console.log(unique0(arr))
+
+
+    // 输出：[1,'true',true, undefined, null, NaN, 'NaN', 0, 'a', {}, {}]
+
+    // 方法二
+
+    function unique1(arr) {
+      for (var i = 0; i < arr.length; i++) {
+        for (var j = i + 1; j < arr.length; j++) {
+          if (arr[i] == arr[j]) {
+            arr.splice(j, 1);
+            j--;
+          }
+        }
+      }
+      return arr;
+    }
+    console.log(unique1(arr))
+
+    // 输出：[1, "true", undefined, NaN, NaN, "NaN", 0, "a", {}, {}]
+
+    // 方法三
+
+    function unique2(arr) {
+      if(!Array.isArray(arr)) {
+        return
+      }
+      var array = []
+      for(var i = 0;i<arr.length;i++) {
+        if(array.indexOf(arr[i]) === -1) {
+          array.push(arr[i])
+        }
+      }
+      return array
+    }
+    console.log(unique2(arr))
+
+    // 输出：[1, "true", undefined, NaN, NaN, "NaN", 0, "a", {}, {}]
+
+    // 方法四
+    
+    function unique3(arr) {
+      if(!Array.isArray(arr)) {
+        return;
+      }
+      arr = arr.sort()
+      var arry = [arr[0]]
+      for(var i = 1; i< arr.length; i++) {
+        if(arr[i] !== arr[i-1]) {
+          arry.push(arr[i])
+        }
+      }
+      return arry
+    }
+    console.log(unique3(arr))
+
+    // 输出：[0, 1, NaN, NaN, "NaN", {…}, {…}, "a", "true", undefined]
+
+    // 方法五
+    function unique4(arr) {
+      if(!Array.isArray(arr)) {
+        return;
+      }
+      var arry = []
+      var obj = {}
+      for(var i = 0; i< arr.length; i++) {
+        if(!obj[arr[i]]) {
+          arry.push(arr[i])
+          obj[arr[i]] = 1
+        } else {
+          obj[arr[i]]++
+        }
+      }
+      return arry;
+    }
+    console.log(unique4(arr))
+    // [0, 1, NaN, {}, "a", "true", undefined]
+
+
+
+  </script>
+</body>
+
+</html>
