@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>css3高度灵活的模拟扑克牌切换图片效果</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      padding-bottom: 100px;
+      background: rgb(122, 188, 255);
+      background: -moz-radial-gradient(center, ellipse cover, rgba(122, 188, 255, 1) 0%, rgba(96, 171, 248, 1) 44%, rgba(64, 150, 238, 1) 100%);
+      background: -webkit-radial-gradient(center, ellipse cover, rgba(122, 188, 255, 1) 0%, rgba(96, 171, 248, 1) 44%, rgba(64, 150, 238, 1) 100%);
+      background: -o-radial-gradient(center, ellipse cover, rgba(122, 188, 255, 1) 0%, rgba(96, 171, 248, 1) 44%, rgba(64, 150, 238, 1) 100%);
+      background: -ms-radial-gradient(center, ellipse cover, rgba(122, 188, 255, 1) 0%, rgba(96, 171, 248, 1) 44%, rgba(64, 150, 238, 1) 100%);
+      background: radial-gradient(ellipse at center, rgba(122, 188, 255, 1) 0%, rgba(96, 171, 248, 1) 44%, rgba(64, 150, 238, 1) 100%);
+      font-family: 'Lato', Helvetica, sans-serif;
+      font-size: 18px;
+      color: #fff;
+      text-align: center;
+    }
+
+    a {
+      color: #e7e388;
+      text-decoration: none;
+      -webkit-transition: 0.15s color ease;
+      -moz-transition: 0.15s color ease;
+      -ms-transition: 0.15s color ease;
+      -o-transition: 0.15s color ease;
+      transition: 0.15s color ease;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 0 0 15px 0;
+    }
+
+    h2 {
+      font-size: 18px;
+      opacity: 0.6;
+      font-weight: normal;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .contents {
+      padding: 40px 0px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #222;
+      color: white;
+      background: #39536B;
+    }
+
+    .sharing {
+      margin-top: 20px;
+    }
+
+    .thumb {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 20px auto 60px auto;
+    }
+
+    .thumb img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 5px solid white;
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8);
+    }
+
+    /**
+ * Kort styles start here, everything above is demo-page 
+ * specific.
+ */
+
+    .kort {
+      -webkit-perspective: 1200px;
+      -moz-perspective: 1200px;
+      -o-perspective: 1200px;
+      perspective: 1200px;
+      -webkit-perspective-origin: 50% 50%;
+      -moz-perspective-origin: 50% 50%;
+      -o-perspective-origin: 50% 50%;
+      perspective-origin: 50% 50%;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+    }
+
+    .kort img {
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
+    /* DEFAULT TRANSITION */
+    .kort:hover img,
+    .kort.touching img {
+      -webkit-transform: translateX(-60%) rotateY(60deg) translateZ(-80px);
+      -moz-transform: translateX(-60%) rotateY(60deg) translateZ(-80px);
+      -o-transform: translateX(-60%) rotateY(60deg) translateZ(-80px);
+      transform: translateX(-60%) rotateY(60deg) translateZ(-80px);
+    }
+
+    .kort:hover img.present~img,
+    .kort.touching img.present~img {
+      -webkit-transform: translateX(82%) rotateY(50deg);
+      -moz-transform: translateX(82%) rotateY(50deg);
+      -o-transform: translateX(82%) rotateY(50deg);
+      transform: translateX(82%) rotateY(50deg);
+    }
+
+    /* CONCAVE TRANSITION */
+    .kort.concave:hover img.present~img,
+    .kort.concave.touching img.present~img {
+      -webkit-transform: translateX(60%) rotateY(-60deg) translateZ(-80px);
+      ;
+      -moz-transform: translateX(60%) rotateY(-60deg) translateZ(-80px);
+      ;
+      -o-transform: translateX(60%) rotateY(-60deg) translateZ(-80px);
+      ;
+      transform: translateX(60%) rotateY(-60deg) translateZ(-80px);
+      ;
+    }
+
+    /* STACK TRANSITION */
+    .kort.stack:hover img,
+    .kort.stack.touching img {
+      -webkit-transform: translateZ(-180px) rotateY(-60deg);
+      -moz-transform: translateZ(-180px) rotateY(-60deg);
+      -o-transform: translateZ(-180px) rotateY(-60deg);
+      transform: translateZ(-180px) rotateY(-60deg);
+    }
+
+    .kort.stack:hover img.present~img,
+    .kort.stack.touching img.present~img {
+      -webkit-transform: translateX(82%) rotateY(50deg);
+      -moz-transform: translateX(82%) rotateY(50deg);
+      -o-transform: translateX(82%) rotateY(50deg);
+      transform: translateX(82%) rotateY(50deg);
+    }
+
+    .kort:hover img.present,
+    .kort.touching img.present {
+      -webkit-transform: none;
+      -moz-transform: none;
+      -o-transform: none;
+      transform: none;
+      margin: 0 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Default</h2>
+  <div class="thumb kort">
+    <img src="../all-images/lanren1.jpg" width="200" height="200">
+    <img src="../all-images/lanren2.jpg" width="200" height="200">
+    <img src="../all-images/lanren3.jpg" width="200" height="200">
+    <img src="../all-images/lanren4.jpg" width="200" height="200">
+    <img src="../all-images/lanren5.jpg" width="200" height="200">
+    <img src="../all-images/lanren6.jpg" width="200" height="200">
+    <img src="../all-images/lanren7.jpg" width="200" height="200">
+    <img src="../all-images/lanren8.jpg" width="200" height="200">
+    <img src="../all-images/lanren9.jpg" width="200" height="200">
+  </div>
+
+  <h2>Concave</h2>
+  <div class="thumb kort concave">
+    <img src="../all-images/lanren1.jpg" width="200" height="200">
+    <img src="../all-images/lanren2.jpg" width="200" height="200">
+    <img src="../all-images/lanren3.jpg" width="200" height="200">
+    <img src="../all-images/lanren4.jpg" width="200" height="200">
+    <img src="../all-images/lanren5.jpg" width="200" height="200">
+    <img src="../all-images/lanren6.jpg" width="200" height="200">
+    <img src="../all-images/lanren7.jpg" width="200" height="200">
+    <img src="../all-images/lanren8.jpg" width="200" height="200">
+    <img src="../all-images/lanren9.jpg" width="200" height="200">
+  </div>
+
+  <h2>Stack</h2>
+  <div class="thumb kort stack">
+    <img src="../all-images/lanren1.jpg" width="200" height="200">
+    <img src="../all-images/lanren2.jpg" width="200" height="200">
+    <img src="../all-images/lanren3.jpg" width="200" height="200">
+    <img src="../all-images/lanren4.jpg" width="200" height="200">
+    <img src="../all-images/lanren5.jpg" width="200" height="200">
+    <img src="../all-images/lanren6.jpg" width="200" height="200">
+    <img src="../all-images/lanren7.jpg" width="200" height="200">
+    <img src="../all-images/lanren8.jpg" width="200" height="200">
+    <img src="../all-images/lanren9.jpg" width="200" height="200">
+  </div>
+  <script>
+    var Kort = (function () {
+
+      var OFFSET_MARGIN = 2;
+
+      var supports3DTransforms = 'WebkitPerspective' in document.body.style ||
+        'MozPerspective' in document.body.style ||
+        'msPerspective' in document.body.style ||
+        'OPerspective' in document.body.style ||
+        'perspective' in document.body.style;
+
+      /**
+       * Binds events for all elements with the class 'kort'.
+       */
+      function bind() {
+
+        // Properties that are read from the DOM when the user hovers
+        // and then cached to avoid needless DOM interaction
+        var elementLeft = 0,
+          elementWidth = 0,
+          elementChildren = [];
+
+        // Gotta have 3D transform support
+        if (supports3DTransforms) {
+
+          [].slice.call(document.querySelectorAll('.kort')).forEach(function (element, i) {
+
+            // Make sure we don't bind to the same element twice
+            if (element.classList.contains('kort-activated') === false) {
+              element.classList.add('kort-activated');
+
+              function onMouseOver(event) {
+                updateState();
+                addMargin();
+              }
+
+              function onMouseMove(event) {
+                update(event.clientX);
+              }
+
+              function onMouseOut(event) {
+                removeMargin();
+              }
+
+              function onTouchStart(event) {
+                updateState();
+                addMargin();
+
+                update(event.touches[0].clientX);
+
+                element.classList.add('touching');
+
+                document.addEventListener('touchmove', onTouchMove, false);
+                document.addEventListener('touchend', onTouchEnd, false);
+              }
+
+              function onTouchMove(event) {
+                update(event.touches[0].clientX);
+
+                event.preventDefault();
+              }
+
+              function onTouchEnd(event) {
+                removeMargin();
+
+                element.classList.remove('touching');
+
+                document.removeEventListener('touchmove', onTouchMove, false);
+                document.removeEventListener('touchend', onTouchEnd, false);
+              }
+
+              function updateState() {
+                elementLeft = element.offsetLeft;
+                elementWidth = element.offsetWidth;
+                elementChildren = [].slice.call(element.children);
+              }
+
+              function update(x) {
+                // Find the present element based on the x position
+                var present = Math.floor((x - elementLeft) / elementWidth * elementChildren.length);
+
+                // Cap to 0 - number_of_elements
+                present = Math.max(Math.min(present, elementChildren.length - 1), 0);
+
+                elementChildren.forEach(function (child, i) {
+
+                  if (i === present) {
+                    child.classList.add('present');
+                  }
+                  else {
+                    child.classList.remove('present');
+                  }
+
+                });
+              }
+
+              function addMargin() {
+                elementChildren.forEach(function (child, i) {
+
+                  child.style.marginLeft = (i * OFFSET_MARGIN) + 'px';
+
+                });
+              }
+
+              function removeMargin() {
+                elementChildren.forEach(function (child, i) {
+
+                  child.style.marginLeft = 0;
+
+                });
+              }
+
+              if ('ontouchstart' in window) {
+                element.addEventListener('touchstart', onTouchStart, false);
+              }
+              else {
+                element.addEventListener('mouseover', onMouseOver, false);
+                element.addEventListener('mouseout', onMouseOut, false);
+                element.addEventListener('mousemove', onMouseMove, false);
+              }
+
+            }
+
+          });
+
+        }
+
+      }
+
+      // Bind elments that are currently in the DOM
+      bind();
+
+      return {
+        bind: bind
+      };
+
+    })();
+  </script>
+  <script>
+    // FF OS X animates this at 3-4 FPS when there are box-shadows
+    // on the images, hence the hack... Ugh :/
+    if (navigator.userAgent.match(/firefox/gi)) {
+      [].slice.call(document.querySelectorAll('.thumb img')).forEach(function (el) { el.style.boxShadow = 'none'; });
+    }
+  </script>
+</body>
+
+</html>
