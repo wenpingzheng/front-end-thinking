@@ -135,6 +135,40 @@
     // 输出：[0, 1, NaN, "NaN", {}, {}, "a", "true", undefined]
 
 
+    // 方法六
+    function unique5(arr) {
+      if(!Array.isArray(arr)) {
+        return
+      }
+      var arry = []
+      for(var i = 0; i< arr.length; i++) {
+        if(!arry.includes(arr[i])) {
+          arry.push(arr[i])
+        }
+      }
+      return arry;
+    }
+    console.log(unique5(arr))
+    // 输出：[0, 1, NaN, "NaN", {}, {}, "a", "true", undefined]
+
+    // 方法七
+    function unique6(arr) {
+      var obj = {}
+      return arr.filter(function(item, index, arr) {
+        return obj.hasOwnProperty(typeof item + item) ? false : (obj[typeof item + item] = true)
+      })
+    }
+    console.log(unique6(arr))
+    // 输出：[0, 1, NaN, "NaN", {}, "a", "true", undefined]
+
+    // 方法八
+    function unique7(arr) {
+      return arr.filter(function(item, index, arr) {
+        return arr.indexOf(item, 0) === index
+      })
+    }
+    console.log(unique7(arr))
+    // 输出：[0, 1, "NaN", {}, {}, "a", "true", undefined]
 
   </script>
 </body>

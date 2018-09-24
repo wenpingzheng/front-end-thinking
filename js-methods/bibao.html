@@ -22,13 +22,43 @@
     // }
 
     var lis = document.links;
-    for(var i = 0, length = lis.length; i < length; i++) {
-      (function(i) {
-        lis[i].onclick = function() {
+    for (var i = 0, length = lis.length; i < length; i++) {
+      (function (i) {
+        lis[i].onclick = function () {
           alert(i + 1);
         };
-      })(i); 
+      })(i);
     }
+
+    // setTimeout(function () {
+    //   console.log('我执行了')
+    // }, 1000)
+
+    // console.log(1)
+
+    // setTimeout(function() {
+    //   console.log(2)
+    // }, 0)
+
+    // console.log(3)
+
+    setTimeout(function() {
+      console.log(1)
+    })
+    
+    new Promise(function(resolve) {
+      console.log(2)
+      for(var i = 0; i< 1000;i++) {
+        i == 99 && resolve()
+      }
+    }).then(function() {
+      console.log(3)
+    })
+
+    console.log(4)
+
+
+
 
 
   </script>
