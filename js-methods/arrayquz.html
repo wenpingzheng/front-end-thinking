@@ -43,12 +43,12 @@
     // 方法三
 
     function unique2(arr) {
-      if(!Array.isArray(arr)) {
+      if (!Array.isArray(arr)) {
         return
       }
       var array = []
-      for(var i = 0;i<arr.length;i++) {
-        if(array.indexOf(arr[i]) === -1) {
+      for (var i = 0; i < arr.length; i++) {
+        if (array.indexOf(arr[i]) === -1) {
           array.push(arr[i])
         }
       }
@@ -59,15 +59,15 @@
     // 输出：[1, "true", undefined, NaN, NaN, "NaN", 0, "a", {}, {}]
 
     // 方法四
-    
+
     function unique3(arr) {
-      if(!Array.isArray(arr)) {
+      if (!Array.isArray(arr)) {
         return;
       }
       arr = arr.sort()
       var arry = [arr[0]]
-      for(var i = 1; i< arr.length; i++) {
-        if(arr[i] !== arr[i-1]) {
+      for (var i = 1; i < arr.length; i++) {
+        if (arr[i] !== arr[i - 1]) {
           arry.push(arr[i])
         }
       }
@@ -79,13 +79,13 @@
 
     // 方法五
     function unique4(arr) {
-      if(!Array.isArray(arr)) {
+      if (!Array.isArray(arr)) {
         return;
       }
       var arry = []
       var obj = {}
-      for(var i = 0; i< arr.length; i++) {
-        if(!obj[arr[i]]) {
+      for (var i = 0; i < arr.length; i++) {
+        if (!obj[arr[i]]) {
           arry.push(arr[i])
           obj[arr[i]] = 1
         } else {
@@ -96,6 +96,43 @@
     }
     console.log(unique4(arr))
     // [0, 1, NaN, {}, "a", "true", undefined]
+
+    function arrayNonReapeatfy(arr) {
+      let map = new Map()
+      let array = new Array()
+      for (let i = 0; i < arr.length; i++) {
+        if (map.has(arr[i])) {
+          map.set(arr[i], true)
+        } else {
+          map.set(arr[i], false)
+          array.push(arr[i])
+        }
+      }
+      return array;
+    }
+    console.log(arrayNonReapeatfy(arr))
+    // [0, 1, NaN, "NaN", {}, {}, "a", "true", undefined]
+
+    let arrry = [6,6,3,4,4,4,2,2]
+    function unique9(arr) {
+      var arry = arr
+      var len = arry.length
+      arry.sort(function (a, b) {
+        return a - b
+      })
+      function loop(index) {
+        if (index > 0) {
+          if (arry[index] === arry[index - 1]) {
+            arry.splice(index, 1)
+          }
+          loop(index - 1)
+        }
+      }
+      loop(len - 1)
+      return arry
+    }
+    console.log(unique9(arrry))
+    // 输出：[0, 1, NaN, "NaN", {}, {}, "a", "true", undefined]
 
 
 
