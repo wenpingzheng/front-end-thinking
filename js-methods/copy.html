@@ -194,7 +194,13 @@
 
 
 
-
+    for(var key in children) {
+      // 排除继承的属性
+      if(children.hasOwnProperty(key)) {
+        // 基本类型值的复制
+        cloneObject[key] = children[key]
+      }
+    }
 
 
 
