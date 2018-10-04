@@ -332,7 +332,75 @@
 
 <body>
   <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script>
 
+    // Object
+    var src = {
+      name : 'src'
+    }
+    var target = src;
+    target.name = "target";
+    console.log(src.name); // target
+
+    // Array
+    var src = [1,2,3];
+    var target = src;
+    target[0] = 5;
+    console.log(src); // [5,2,3]
+    console.log(target); // [5,2,3]
+
+    var obj1 = {
+      'name' : 'xiaozheng',
+      'age' : '18',
+      'language' : [3,[2,2],[1,1]],
+    }
+    
+    var obj2 = obj1;
+    var obj3 = shallowCopy(obj1);
+
+    function shallowCopy(src) {
+      var dst = {}
+      for(var prop in src) {
+        if(src.hasOwnProperty(prop)) {
+          dst[prop] = src[prop]
+        }
+      }
+      return dst;
+    }
+    
+    obj2.name = 'haha'
+    obj3.age = '20'
+    obj2.language[1] = ['二', '二']
+    obj3.language[2] = ['一', '一']
+
+    console.log(obj1)
+    /*
+    {
+      name: "haha", 
+      age: "18", 
+      language: [1, ['二','二'], ['一', '一']]}
+    }
+    */
+    console.log(obj2)
+    /*
+    {
+      name: "haha", 
+      age: "18", 
+      language: [1, ['二','二'], ['一', '一']]}
+    }
+    */
+    console.log(obj3)
+    /*
+    {
+      name: "xiaozheng", 
+      age: "20", 
+      language: [1, ['二','二'], ['一', '一']]}
+    }
+    */
+
+
+  
+  </script>
   <!--
   <div class="parent">
     <div class="child">DEMO</div>

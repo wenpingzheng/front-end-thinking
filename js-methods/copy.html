@@ -202,7 +202,69 @@
       }
     }
 
+    function Test() {
+      this.name = "xiaozheng"
+      this.age = 18
+      this.run = function () {
+        console.log('run')
+      }
+    }
+    var test = new Test()
+    // console.log(test.age)
+    // test.run()
 
+    function ChilrTest() {
+      this.name = 'xiaogang',
+        this.age = 15,
+        this.sing = function () {
+          console.log('sing')
+        }
+    }
+    ChilrTest.prototype = new Test()
+    var children = new ChilrTest()
+
+    // 有继承的属性
+    for (var key in children) {
+      console.log('有继承', key)
+    }
+
+    // 无继承的属性
+    for (var key in children) {
+      if (children.hasOwnProperty(key)) {
+        console.log('无继承', key)
+      }
+    }
+
+    // 深复制一个对象
+    var cloneObject = {}
+    for (var key in children) {
+      if (children.hasOwnProperty(key)) {
+        cloneObject[key] = children[key]
+      }
+    }
+    console.log(cloneObject)
+
+    cloneObject.age = 26
+    console.log(test.age) // 18
+    console.log(children.age) // 15
+    console.log(cloneObject.age) // 26
+
+
+
+    var source = {
+      name: 'source',
+      child: {
+        name: 'child'
+      }
+    }
+    var target = JSON.parse(JSON.stringify(source))
+    target.name = 'target'
+    console.log(source.name) // source
+    console.log(target.name) // target
+
+    target.child.name = 'target child'
+    console.log(source.child.name) // child
+    console.log(target.child.name) // target child
 
   </script>
 </body>
