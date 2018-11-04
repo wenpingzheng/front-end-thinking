@@ -1,4 +1,3 @@
-/* 代码整理：懒人之家 www.lanrenzhijia.com */
 (function () {
 
   var supports3DTransforms = document.body.style['perspectiveProperty'] !== undefined ||
