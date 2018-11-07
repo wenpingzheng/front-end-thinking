@@ -1,0 +1,458 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>居中</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <style>
+    /* 垂直居中一 */
+
+    /*
+      .parent{
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+        display:table-cell;
+        vertical-align: middle;
+      } 
+      .child{
+        background-color:#000;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+        text-align:center;
+      }*/
+
+    /* 垂直居中二 */
+
+    /*
+      .parent{
+        position: relative;
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+      }
+      .child{
+        position:absolute;
+        top:50%;
+        transform:translateY(-50%);
+        background-color:#000;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+        text-align:center;
+      }*/
+
+    /* 垂直居中三 */
+
+    /*
+      .parent{
+        display:flex;
+        align-items:center;
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+      }
+      .child{
+        background-color:#000;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+        text-align:center;
+      } */
+
+    /* 水平居中一 */
+
+    /*
+      .parent{
+        text-align:center;
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+      }
+      .child{
+        display:inline-block;
+        /*text-align:left 针对子元素里文字*/
+
+    /* width:80px;
+        background-color:#000;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+      }*/
+
+    /* 水平居中二 */
+
+    /*
+      .parent{
+        
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+      }
+      .child{
+
+        display:table;
+        margin:0 auto;
+
+        background-color:#000;
+        width:80px;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+      } */
+
+    /* 水平居中三 */
+
+    /*
+      .parent{
+        position: relative;
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+      }
+      .child{
+        position: absolute;
+        left:50%;
+        transform: translateX(-50%);
+        background-color:#000;
+        width:80px;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+      } */
+
+    /* 水平居中四 */
+
+    /*
+      .parent{
+        display:flex;
+        background-color:#ddd;
+      }
+      .child{
+        margin:0 auto;
+        background-color:#000;
+        width:80px;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+      }*/
+
+    /* 水平居中五 */
+
+    /*
+      .parent{
+        display:flex;
+        justify-content: center;
+        background-color:#ddd;
+      }
+      .child{
+        background-color:#000;
+        width:80px;
+        height:50px;
+        line-height: 50px;
+        color:#fff;
+      }*/
+
+    /* 水平垂直居中 */
+
+    /* 水平垂直居中 一*/
+
+    /*
+      .parent{
+
+        position:relative;
+
+        background-color:#ddd;
+        width:200px;
+        height:200px;
+      }
+      .child{
+
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+
+        color:#fff;
+        background-color:#000;
+        color:#fff;
+        width:100px;
+        height:100px;
+      }*/
+
+      /* 水平垂直居中二 */
+      /*
+      .parent {
+        text-align:center;
+        display:table-cell;
+        vertical-align: middle;
+        background-color: #ddd;
+        width: 200px;
+        height: 200px;
+      }
+
+      .child {
+        display:inline-block;
+        color: #fff;
+        background-color: #000;
+        color: #fff;
+        width: 100px;
+        height: 100px;
+      } */
+
+      /*
+      .parent {
+        
+        display:flex;
+        justify-content: center;
+        align-items:center;
+
+        background-color: #ddd;
+        width: 200px;
+        height: 200px;
+      }
+
+      .child {
+        color: #fff;
+        background-color: #000;
+        color: #fff;
+        width: 100px;
+        height: 100px;
+      }*/
+
+      
+      body{
+        background-color:#ddd;
+        color:#fff;
+      }
+      *{margin:0;padding:0;}
+
+      /* 定宽加自适应 一*/
+      /*
+      .left { 
+        float :left; 
+        width: 100px ; 
+        margin-right: 20px ; 
+        background-color:#333;
+      } 
+      .right { 
+        overflow:hidden; 
+        background-color:blue;
+        word-break: break-word;
+      } */
+      
+      /*
+      .left { 
+        float :left; 
+        width: 100px ; 
+        margin-right: 20px ; 
+        background-color:#333;
+      } 
+      .right { 
+        margin-left:120px;
+        background-color:blue;
+        word-break: break-word;
+      }*/
+      
+      /* FLOAT+MARGIN改良 */
+      /*
+      .left{
+        float:left;
+        width:100px;
+        position: relative;
+        background-color:#333;
+      }
+      .right-fix{
+        float:right;
+        width:100%;
+        margin-left:-100px;
+        background-color:blue;
+      }
+      .right{
+        margin-left:120px;
+      } */
+
+      /* 使用TABLE */
+      /*
+      .parent {
+        display:table;
+        width:100%;
+      }
+      .left {
+        width:100px;
+        padding-right:20px;
+        background-color:#333;
+        vertical-align: middle;
+        text-align: center;
+      }
+      .right,.left{
+        display:table-cell;
+      }
+      .right{
+        background-color:blue;
+      }*/
+      /* 使用flex */
+      /*
+      .parent{
+        display:flex;
+      }
+      .left{
+        width:100px;
+        margin-right:20px;
+        background-color:#333;
+      }
+      .right{
+        flex:1;
+        background-color:blue;
+      } */
+
+
+      .left,.center{
+        float:left;
+        width:100px;
+        margin-right:10px;
+      }
+      .left{
+        background-color:aqua;
+      }
+      .center{
+        background-color:red;
+      }
+      .right{
+        background-color:#333;
+
+        overflow:hidden;
+      }
+
+
+      
+  </style>
+</head>
+
+<body>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+
+    // Object
+    var src = {
+      name : 'src'
+    }
+    var target = src;
+    target.name = "target";
+    console.log(src.name); // target
+
+    // Array
+    var src = [1,2,3];
+    var target = src;
+    target[0] = 5;
+    console.log(src); // [5,2,3]
+    console.log(target); // [5,2,3]
+
+    var obj1 = {
+      'name' : 'xiaozheng',
+      'age' : '18',
+      'language' : [3,[2,2],[1,1]],
+    }
+    
+    var obj2 = obj1;
+    var obj3 = shallowCopy(obj1);
+
+    function shallowCopy(src) {
+      var dst = {}
+      for(var prop in src) {
+        if(src.hasOwnProperty(prop)) {
+          dst[prop] = src[prop]
+        }
+      }
+      return dst;
+    }
+    
+    obj2.name = 'haha'
+    obj3.age = '20'
+    obj2.language[1] = ['二', '二']
+    obj3.language[2] = ['一', '一']
+
+    console.log(obj1)
+    /*
+    {
+      name: "haha", 
+      age: "18", 
+      language: [1, ['二','二'], ['一', '一']]}
+    }
+    */
+    console.log(obj2)
+    /*
+    {
+      name: "haha", 
+      age: "18", 
+      language: [1, ['二','二'], ['一', '一']]}
+    }
+    */
+    console.log(obj3)
+    /*
+    {
+      name: "xiaozheng", 
+      age: "20", 
+      language: [1, ['二','二'], ['一', '一']]}
+    }
+    */
+
+
+  
+  </script>
+  <!--
+  <div class="parent">
+    <div class="child">DEMO</div>
+  </div> -->
+
+  <!--
+  <div class="parent">
+    <div class="left">
+      <p>左边的内容</p>
+    </div>
+    <div class="right">
+      <p>右边的内容右边的内容右边的内容</p>
+      <p>右边的内容右边的内容右边的内容</p>
+    </div>
+  </div> -->
+
+
+
+<!--
+  <div class="parent">
+    <div class="left">
+      <p>左边的内容</p>
+    </div>
+    <div class="right-fix">
+      <div class="right">
+        <p>右边的内容右边的内容右边的内容</p>
+        <p>右边的内容右边的内容右边的内容</p>
+      </div>
+    </div>
+  </div>
+-->
+<select name="dd" id="ff">
+  <option value="1" text="1">1111</option>
+  <option value="2" text="2">2222</option>
+  <option value="3" text="3">3333</option>
+</select>
+<div class="parent">
+  <div class="left">
+    <p>左边内容</p>
+  </div>
+  <div class="center">
+    <p>中间内容</p>
+  </div>
+  <div class="right">
+    <p>右边的内容右边的内容右边的内容</p>
+    <p>右边的内容右边的内容右边的内容</p>
+  </div>
+</div>
+<script>
+$("#ff").find("option[text='2']").attr("selected",true)
+</script>
+
+</body>
+
+</html>

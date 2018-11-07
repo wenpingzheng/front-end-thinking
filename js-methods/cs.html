@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>参数测试</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      function hello(name='小郑搞码事') {
+        console.log(`Hello ${name}`)
+      }
+      hello()
+
+      function hello(...name) {
+        console.log(name.reduce((a,b)=>`Hello ${a} ${b}`))
+      }
+      hello('小郑', '小郑搞码事')
+
+      let name = ['小郑', '小郑搞码事']
+      function hello(name1, name2) {
+        console.log(`Hello ${name1} ${name2}`)
+      }
+      hello(...name)
+
+    </script>
+  </body>
+</html>

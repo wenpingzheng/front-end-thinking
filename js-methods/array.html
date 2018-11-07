@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <meta charset="utf8"/>
+    <title>数组</title>
+  </head>
+  <body>
+    <script>
+
+
+      // let arrayAdd = ['a', 'b', 'c', 'd', 'e'];
+      // console.log(arrayAdd.push('f')); // 6
+      // console.log(arrayAdd) // ['a', 'b', 'c', 'd', 'e', 'f']
+      // console.log(arrayAdd.unshift('z')) // 7 
+      // console.log(arrayAdd) // ['z', 'b', 'c', 'd', 'e' 'f']
+      
+      // const arr1 = ['a','b']
+      // const arr2 = arr1.concat('f') 
+      // console.log(arr1)  // ['a','b']
+      // console.log(arr2) // ['a','b','f']
+
+      // const arr1 = ['a', 'b'];
+      // const arr2 = [...arr1, 'f']; 
+      // console.log(arr2) // ['a', 'b', 'f']  
+      // const arr3 = ['z', ...arr1]; 
+      // console.log(arr3) // ['z', 'a', 'b']
+
+      // let arrayRemove = ['a', 'b', 'c'] 
+      // console.log(arrayRemove.pop()) // 'c'
+      // console.log(arrayRemove) // ['a', 'b']  
+      // console.log(arrayRemove.shift()) // 'a'
+      // console.log(arrayRemove) // ['b']
+
+      // let arrayRemove = ['a', 'b', 'c', 'd', 'e'];  
+      // let returnedItems = arrayRemove.splice(0, 2);  
+      // console.log(arrayRemove); // ['c', 'd', 'e']  
+      // console.log(returnedItems) // ['a', 'b']
+
+      // const arr1 = ['a', 'b', 'c', 'd', 'e'];
+      // const arr2 = arr1.filter(a => {  
+      //   return a !== 'e';
+      // });
+      // console.log(arr1) // ['a', 'b', 'c', 'd', 'e']
+      // console.log(arr2) // ['a', 'b', 'c', 'd']
+
+      // const arr1 = ['a', 'b', 'c', 'd', 'e'];  
+      // const arr2 = arr1.slice(1, 5) 
+      // cosole.log(arr2) // ['b', 'c', 'd', 'e']  
+      // const arr3 = arr1.slice(2) 
+      // console.log(arr3) // ['c', 'd', 'e']
+      // console.log(arr1) // ['a', 'b', 'c', 'd', 'e']
+
+
+      // let aReplace = ['a', 'b', 'c', 'd', 'e'];  
+      // aReplace.splice(2, 1, 30); 
+      // console.log(aReplace) // ['a', 'b', 30, 'd', 'e']  
+      // // 或者
+      // aReplace.splice(2, 1, 30, 31); 
+      // console.log(aReplace) // ['a', 'b', 30, 31, 'd', 'e']
+
+      
+      const arr1 = ['a', 'b', 'c', 'd', 'e']  
+      const arr2 = arr1.map(item => {  
+        if(item === 'c') {
+          item = '小郑搞码事';
+        }
+        return item;
+      }); 
+      console.log(arr1) // ['a', 'b', 'c', 'd', 'e']  
+      console.log(arr2) // ['a', 'b', '小郑搞码事', 'd', 'e']  
+
+
+    </script>
+  </body>
+</html>

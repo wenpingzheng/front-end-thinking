@@ -1,0 +1,85 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>animation的控制播放与暂停</title>
+  <style>
+    .animation {
+      width: 100px;
+      height: 100px;
+      margin: 50px auto;
+      background: red;
+      -webkit-animation: move 2s linear infinite alternate;
+      animation: move 2s linear infinite alternate;
+    }
+
+    @-webkit-keyframes move {
+      0% {
+        -webkit-transform: translate(-100px, 0);
+        transform: translate(-100px, 0);
+      }
+      100% {
+        -webkit-transform: translate(100px, 0);
+        transform: translate(100px, 0);
+      }
+    }
+
+    @keyframes move {
+      0% {
+        -webkit-transform: translate(-100px, 0);
+        transform: translate(-100px, 0);
+      }
+      100% {
+        -webkit-transform: translate(100px, 0);
+        transform: translate(100px, 0);
+      }
+    }
+
+    .btn {
+      width: 50px;
+      margin: 10px auto;
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #ddd;
+      color: #333;
+    }
+
+    .btn:active {
+      background: #aaa;
+    }
+
+    /* .stop:hover~.animation {
+      animation-play-state: paused;
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="btn">stop</div>
+  <div class="animation"></div>
+
+  <script>
+
+    document.querySelector('.btn').addEventListener('click', function () {
+      let btn = document.querySelector('.btn');
+      let elem = document.querySelector('.animation');
+      let state = elem.style['animationPlayState'];
+      if (state === 'paused') {
+        elem.style['animationPlayState'] = 'running';
+        btn.innerText = 'stop';
+      } else {
+        elem.style['animationPlayState'] = 'paused';
+        btn.innerText = 'play';
+      }
+    });
+
+  </script>
+</body>
+
+</html>

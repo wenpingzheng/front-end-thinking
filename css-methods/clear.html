@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>清除浮动</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  </head>
+  <style>
+    *{margin:0;padding:0;}
+
+
+    .parent{
+      border: 1px solid #0000ff;
+      margin:0 0 10px 0;
+      width:100%;
+      float:left;
+    }
+    img{ width:100px;float:left;}
+    .footer{border:1px solid red;clear:left;}
+
+
+    .clearfix:after{
+      content:'';
+      display:block;
+      height:0;
+      visibility: hidden;
+      clear:both;
+    }
+    
+
+  </style>
+  <body>
+
+    <div class="parent">
+      <img src="../all-images/home.jpg" alt="">
+      <p>小郑搞码事，小郑搞码事，小郑搞码事，小郑搞码事</p>
+      <div class="clear_me"></div>
+    </div>
+    <div class="footer">这个是页面的尾部，这个是页面的尾部，这个是页面的尾部</div>
+
+
+  </body>
+</html>

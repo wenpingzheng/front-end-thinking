@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8" />
+<title>flex-flow_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+<style>
+*{margin:0;padding:0}
+h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
+.box{
+	display:-webkit-flex;
+	display:flex;
+	width:220px;margin:0;padding:10px;list-style:none;background-color:#eee;}
+.box li{width:100px;height:100px;border:1px solid #aaa;text-align:center;}
+#box{
+	-webkit-flex-flow:row nowrap;
+	flex-flow:row nowrap;
+}
+#box2{
+	-webkit-flex-flow:row wrap-reverse;
+	flex-flow:row wrap-reverse;
+}
+#box3{
+  background-color:#ddd;
+	height:220px;
+	-webkit-flex-flow:column wrap-reverse;
+	flex-flow:column wrap-reverse;
+}
+#box3 li{
+  /* margin:auto 0; */
+}
+h1{
+  width:20vw;
+}
+
+.parent{
+ 
+  overflow:hidden;
+  height:100vh;
+  background:rgba(0,0,0,.5);
+}
+.child-left{
+  margin-top:100px;
+  float:left;
+  background-color:#ddd;
+  width:20vw;
+}
+.child-right{
+  margin-top:100px;
+  float:right;
+  background-color:red;
+  width:80vw;
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- <h1>测试一下vw</h1> -->
+<div class="parent">
+  <div class="child-left">左边框</div>
+  <div class="child-right">右边框</div>
+</div>
+
+<!-- <h1>flex-flow示例：</h1>
+<h2>flex-flow:row nowrap</h2>
+<ul id="box" class="box">
+	<li>a</li>
+	<li>b</li>
+	<li>c</li>
+</ul>
+<h2>flex-flow:row wrap-reverse</h2>
+<ul id="box2" class="box">
+	<li>a</li>
+	<li>b</li>
+	<li>c</li>
+</ul>
+<h2>flex-flow:column wrap-reverse;</h2>
+<ul id="box3" class="box">
+	<li>a</li>
+	<li>b</li>
+  <li>c</li>
+  <li>d</li>
+  <li>e</li> -->
+<!-- </ul> -->
+
+</body>
+<script>
+
+  function sleep(time) {
+    return new Promise((resolve)=>
+      setTimeout(resolve,time)
+    )
+  }
+
+  sleep(3000).then(()=>{
+    console.log('3秒之后输出出我')
+  })
+
+  let numbers = [2,44,3,45,222,-33]
+  let maxNumbers = Math.max.apply(Math, numbers)
+  let minNumbers = Math.min.apply(Math, numbers)
+  console.log(maxNumbers, minNumbers)
+  // 输出: 222 -33
+
+  // 【作用一】
+  // let variable1 = 1, variable2 = 2, variable3 = 3;
+  // console.log(variable1, variable2, variable3)
+  // 输出：1 2 3
+
+  // 【作用二】
+  // const variable = (1, 2, 3)
+  // console.log(variable)
+  // 输出：3
+  // var s = [2]
+  // var d = [3]
+  // console.log(mixin(s,d))
+  // console.log(Object.assign(s,d))
+
+
+  // 【连续赋值】
+  // (function() {
+  //   let a = b = 8;
+  // })()
+  // console.log(b) // 输出8
+  // console.log(a) // a is not defined
+
+
+  // 【逗号运算】
+  // (function() {
+  //   let a = 8 , b = 8;
+  // })()
+  // console.log(b) // b is not defined
+  // console.log(a) // a is not defined
+
+  // var a = 1;
+  // var a = 1;
+  // console.log(a)
+  // 输出 1
+  
+  // let a = 1;
+  // let a = 1;
+  // console.log(a) 
+  // 输出 'a' has already been declared
+
+</script>
+</html>
+			

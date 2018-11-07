@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>迭代器</title>
+  </head>
+  <body>
+    <p>迭代器</p>
+    <script>
+      
+      const numbers = [1, 2, 3, 4, 5]
+      for(let number of numbers) {
+        console.log(number)
+      }
+
+      let iterator = numbers[Symbol.iterator]();
+      let result1 = iterator.next();
+      console.log(result1.value);
+
+      let result2 = iterator.next();
+      console.log(result2.value);
+
+    </script>
+  </body>
+</html>

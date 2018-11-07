@@ -1,0 +1,56 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>loading</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+</head>
+<style>
+
+  /* .loading:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    animation: ellipsis 2s infinite;
+    content: "\2026";
+  }
+
+  @keyframes ellipsis {
+    from {
+      width: 2px;
+    }
+    to {
+      width: 15px;
+    }
+  } */
+  body,html{padding:0;margin:0;}
+
+  .video{
+    position:relative;
+    width:100%;
+    height:0;
+    padding:0 0 56.25% 0;/* 按照16:9的比例计算获得*/
+    background:#000;
+  }
+  .video video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+  }
+  
+</style>
+
+<body>
+  <div class="video">
+    <video src="http://cntv.vod.cdn.myqcloud.com/flash/mp4video62/TMS/2018/06/24/2931cf904a9b4964a3cfb0d88f3688d0_h2642000000nero_aac16.mp4" controls="controls">
+
+    </video>
+  </div>
+  <!-- <div class="loading">
+    正在加载
+  </div> -->
+</body>
+
+</html>

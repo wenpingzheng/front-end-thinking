@@ -1,0 +1,67 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>闭包</title>
+</head>
+
+<body>
+  <!-- 实现一段脚本，使得点击对应链接alert出相应的编号 -->
+  <a href='#'> 第一个链接 </a>
+  <a href='#'> 第二个链接 </a>
+  <a href='#'> 第三个链接 </a>
+  <a href='#'> 第四个链接 </a>
+  <script>
+
+    // var lis = document.links;
+    // for(var i = 0, length = lis.length; i < length; i++) {
+    //   lis[i].index = i;
+    //   lis[i].onclick = function() {
+    //     alert(this.index);
+    //   };
+    // }
+
+    var lis = document.links;
+    for (var i = 0, length = lis.length; i < length; i++) {
+      (function (i) {
+        lis[i].onclick = function () {
+          alert(i + 1);
+        };
+      })(i);
+    }
+
+    // setTimeout(function () {
+    //   console.log('我执行了')
+    // }, 1000)
+
+    // console.log(1)
+
+    // setTimeout(function() {
+    //   console.log(2)
+    // }, 0)
+
+    // console.log(3)
+
+    setTimeout(function() {
+      console.log(1)
+    })
+    
+    new Promise(function(resolve) {
+      console.log(2)
+      for(var i = 0; i< 1000;i++) {
+        i == 99 && resolve()
+      }
+    }).then(function() {
+      console.log(3)
+    })
+
+    console.log(4)
+
+
+
+
+
+  </script>
+</body>
+
+</html>

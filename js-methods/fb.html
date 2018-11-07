@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <meta charset="utf8"/>
+    <title>封闭函数</title>
+  </head>
+  <body>
+    <script>
+      // var a = b = 3
+      // console.log(a,b)
+      // (function(){
+      //   var a = b = 3;
+      // })();
+      // "use strict"
+// <!-- 
+//       (function(){
+//         var a = 1, b = 1;
+//       })()
+//       console.log(b) -->
+      
+      // (function(){
+      //   var a = b = 1;
+      // })()
+      // console.log(b)
+
+
+      // (function(){
+      //   "use strict"
+      //   var a = b = 1;
+      // })()
+      // console.log(b)
+
+      let list =[]
+      for(var i = 0;i<100000;i++) {
+        if(i === 99999){
+          list.push('小郑搞码事')
+        } else {
+          list.push(i)
+        }
+      }
+
+      var nextItem = function() {
+        var item = list.pop()
+        if(item == '小郑搞码事') {
+          console.log(item)
+        }
+        if(item) {
+          // nextItem()
+          setTimeout(nextItem,0)
+        } else {
+          console.log('end')
+        }
+      }
+      nextItem()
+
+      // function sum(x, y) {
+      //   if (y > 0) {
+      //     return sum(x + 1, y - 1);
+      //   } else {
+      //     return x;
+      //   }
+      // }
+
+      // console.log(sum(1, 100000))
+      
+
+    </script>
+  </body>
+</html>

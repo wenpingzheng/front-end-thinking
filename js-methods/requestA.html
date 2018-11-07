@@ -136,6 +136,14 @@
     console.log(people.find())// 'DE' 'AR'
     console.log(people.find('D')) // 'DE' 'DT'
 
+    window.addEventListener('popstate', (res)=> {
+      let callback = res.state
+      if(callback) {
+        // 跳转的目标页
+      }
+    })
+
+
 
   </script>
 </body>

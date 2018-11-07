@@ -4,20 +4,270 @@
     <meta charset="utf8" />
     <title>分页</title>
     <style>
-    .s{
-        width: 0;
-        height: 0;
-        border-top: 40px solid transparent;
-        border-left: 40px solid transparent;
-        border-right: 40px solid transparent;
-        border-bottom: 40px solid #ff0000;
-    }
+        .s {
+            width: 0;
+            height: 0;
+            border-top: 40px solid transparent;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid #ff0000;
+        }
+
+        /* external links */
+
+        a[href^="http://"] {
+            color: #ff0000;
+            padding-right: 13px;
+            background: url('external.gif') no-repeat center right;
+        }
+
+        /* emails */
+
+        a[href^="mailto:"] {
+            color: #ddd;
+            padding-right: 20px;
+            background: url('email.png') no-repeat center right;
+        }
+
+        /* pdfs */
+
+        a[href$=".pdf"] {
+            color: #000;
+            padding-right: 18px;
+            background: url('acrobat.png') no-repeat center right;
+        }
+
+        a[href],
+        input[type='submit'],
+        input[type='image'],
+        label[for],
+        select,
+        button,
+        .pointer {
+            cursor: pointer;
+        }
+
+        /* body:before {
+            content: "";
+            position: fixed;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, .8);
+            -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, .8);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, .8);
+            z-index: 100;
+        } */
+
+        .chat-bubble {
+            background-color: #ededed;
+            border: 2px solid #666;
+            font-size: 35px;
+            line-height: 1.3em;
+            margin: 10px auto;
+            padding: 10px;
+            position: relative;
+            text-align: center;
+            width: 100px;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            border-radius: 20px;
+            -moz-box-shadow: 0 0 5px #888;
+            -webkit-box-shadow: 0 0 5px #888;
+            box-shadow: 0 0 5px #888;
+            font-family: 'Bangers', arial, serif;
+        }
+
+        .chat-bubble-arrow-border {
+            border-color: #666 transparent transparent transparent;
+            border-style: solid;
+            border-width: 20px;
+            height: 0;
+            width: 0;
+            position: absolute;
+            bottom: -42px;
+            left: 30px;
+        }
+
+        .chat-bubble-arrow {
+            border-color: #ededed transparent transparent transparent;
+            border-style: solid;
+            border-width: 20px;
+            height: 0;
+            width: 0;
+            position: absolute;
+            bottom: -39px;
+            left: 30px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: #005a9c;
+        }
+
+        h1 {
+            font-size: 2.6em;
+            line-height: 2.45em;
+        }
+
+        h2 {
+            font-size: 2.1em;
+            line-height: 1.9em;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            line-height: 1.65em;
+        }
+
+        h4 {
+            font-size: 1.65em;
+            line-height: 1.4em;
+        }
+
+        h5 {
+            font-size: 1.4em;
+            line-height: 1.25em;
+        }
+
+        /* body {
+            background-image: url(data:image/png;base64,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);
+            background-color: #0094d0;
+        } */
+
+        ol {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        ol>li:before {
+            content: counter(chapter) ". ";
+            counter-increment: chapter;
+            font-weight: bold;
+            float: left;
+            width: 40px;
+        }
+
+        ol li {
+            clear: left;
+        }
+
+        ol.start {
+            counter-reset: chapter;
+        }
+
+        ol.continue {
+            counter-reset: chapter 11;
+        }
+
+        .graybtn {
+            -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+            -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+            box-shadow: inset 0px 1px 0px 0px #ffffff;
+            background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #d1d1d1));
+            background: -moz-linear-gradient( center top, #ffffff 5%, #d1d1d1 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#d1d1d1');
+            background-color: #ffffff;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 1px solid #dcdcdc;
+            display: inline-block;
+            color: #777777;
+            font-family: arial;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 6px 24px;
+            text-decoration: none;
+            text-shadow: 1px 1px 0px #ffffff;
+        }
+
+        .graybtn:hover {
+            background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d1d1d1), color-stop(1, #ffffff));
+            background: -moz-linear-gradient( center top, #d1d1d1 5%, #ffffff 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d1d1', endColorstr='#ffffff');
+            background-color: #d1d1d1;
+        }
+
+        .graybtn:active {
+            position: relative;
+            top: 1px;
+        }
+
+        @media print {
+            a:after {
+                content: " [" attr(href) "] ";
+            }
+        }
+
+        .test {
+            padding: 10px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            background: #eee;
+
+            /* animation: 'name' 10s ease 2s 10 alternate */
+        }
     </style>
 </head>
 
 <body>
-    <div class="s"></div>
+
+    <!-- <div class="graybtn">按钮</div>
+
+
+    <a href="http://www.baidu.com">百度</a> -->
+
+
+    <div class="test">选择我试试，你会发现怎么也选择不到我，哈哈哈哈</div>
+
+    <!-- <ol>
+        <li>第一列</li>
+        <li>第二列</li>
+        <li>第三列</li>
+        <li>第四列</li>
+        <li>第五列</li>
+    </ol> -->
+
+    <!-- <h1>h1的样式默认</h1>
+    <h2>h2的样式默认</h2>
+    <h3>h3的样式默认</h3>
+    <h4>h4的样式默认</h4>
+    <h5>h5的样式默认</h5> -->
+
+    <!-- <div class="chat-bubble">
+        <div class="chat-bubble-arrow-border"></div>
+        <div class="chat-bubble-arrow"></div>
+    </div> -->
+
+    <!-- <h2>看顶部效果</h2> -->
+
+
+    <!-- <a href="http://www.qq.com">腾讯网</a>
+    <a href="mailto:xxx">邮件</a>
+    <a href="3.pdf">文件跳转</a> -->
+    <!-- <div class="s"></div> -->
     <script type="text/javascript">
+    
+        var arr = new Array(3)
+        arr[0] = "John"
+        arr[1] = "Andy"
+        arr[2] = "Wendy"
+        var arr = ['John', 'Andy', 'Wendy']
+        console.log(arr)
+        arr.length = 5
+        console.log(arr)
+        console.log(arr[3])
+
+
+
+
         /*
             console.log('')
             console.log(a)
@@ -26,67 +276,340 @@
             console.log(this)
             console.log('')
 
-            console.log(f1)  // function f1() {}
-            function f1() {} // 函数声明
-            
-            console.log(f2) // undefined
-            var f2 = function() {} // 函数表达式
-        */
-        /*
-        var obj1 = {
-            name:'wp'
+
+  <span class="clicked">点我</span>
+
+
+
+  <!-- 
+  <div class="arrow-up">
+
+  </div>
+
+  <div class="arrow-down">
+
+  </div> -->
+  <div class="arrow-left">
+
+  </div>
+  <div class="arrow-right">
+
+  </div>
+
+
+  <!-- <div class="movie-poster">xiao zheng gao ma shi</div>
+
+  <button>提交</button>
+
+  <h1>My name is
+    <span class="red">xiaozheng</span>
+  </h1>
+
+  <p class="alignleft">我是一个段落！</p>
+
+  <div class="wrap">
+    <ul>
+      <li>第一行</li>
+      <li>第二行</li>
+      <li>第三行</li>
+    </ul>
+  </div>
+
+
+  <ul class="box">
+    <li>第一行</li>
+    <li>第二行</li>
+    <li>第三行</li>
+  </ul> -->
+
+
+  <!-- <div class="s"></div> -->
+
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+
+    function compare(value1, value2) {
+      if(value1 < value2) {
+        return -1
+      } else if (value > value2) {
+        return 1
+      } else {
+        return 0
+      }
+    }
+
+    // Array.method('push', function () {
+    //   this.splice.apply(
+    //     this, 
+    //     [this.length, 0]
+    //       .concat(Array.prorotype.slice.apply(arguments)))
+    //   return this.length
+    // })
+   
+  /*
+    var colors = ['red', 'blue', 'green']
+    console.log(colors.toString())
+    console.log(colors.valueOf())
+    console.log(colors.toLocaleString()) */
+
+    String.method('charAt', function (pos) {
+      return this.slice(pos, pos + 1)
+    })
+
+    function parseQueryString(url) {
+      var obj = {};
+      var a = url.split('?');
+      if (a === 1) return obj;
+      var b = a[1].split('&');
+      for (var i = 0, length = b.length; i < length; i++) {
+        var c = b[i].split('=');
+        obj[c[0]] = c[1];
+      }
+      return obj;
+    }
+
+    var url = 'http://witmax.cn/index.php?key0=0&key1=1&key2=2';
+    var obj = parseQueryString(url);
+    console.log(obj.key0, obj.key1, obj.key2);  // 0 1 2
+
+
+
+    const str = '码'
+    const Str = '小郑搞'
+    + str + '事, 小郑搞'
+    + str + '事。'
+    // console.log(Str)
+    
+    const str = '码'
+    const Str = `小郑搞${str}事, 小郑搞${str}事`
+    console.log(Str)
+
+
+    // var i, obj, list = []
+    // for (i = 0; i < 10; i++) {
+    //   obj = {};
+    //   obj.id = i;
+    //   obj.x = i * 10;
+    //   obj.y = i * 20;
+    //   obj.run = function () { };
+    //   obj.att = function () { };
+    //   list.push(obj)
+    // }
+
+    // function createPlayer(x, y, id) {
+    //   var player = {};
+    //   player.id = id;
+    //   player.x = x;
+    //   player.y = y;
+    //   player.run = function () { };
+    //   player.att = function () { };
+    //   return player;
+    // }
+    // var i, list = [];
+    // for (i = 0; i < 10; i++) {
+    //   list.push(createPlayer(i * 10, i * 20, i))
+    // }
+
+    // var array = [];
+    // (function (target) {
+    //   for (var i = 0, len = 10; i < len; i++) {
+    //     target[i] = i;
+    //   }
+    // })(array);
+
+    // console.log(len)
+    // // 输出undefined
+    // console.log(i)
+    // // 输出undefined
+
+    // 前端页面判断跳转
+    // if (navigator.userAgent.match(/iPhone|iPad|Android|iPad/i)) {
+    //   let hash = window.location.hash,
+    //     params = window.location.search;
+    //   location.href = 'xxx.html' + params + (hash ? (params ? '&' : '?') + hash.substr(1) : '')
+    // }
+
+    // // web服务器端跳转
+    // if (this.header['user-Agent'].match(/iPhone|iPad|Android|iPad/i)) {
+    //   let hash = this.hash,
+    //     params = this.querystring;
+    //   this.redirect('xxx.html' + params + (hash ? (params ? '&' : '?') + hash.substr(1) : ''))
+    // }
+
+    // $.fn.fun3 = function(){
+    //   console.log('执行方法三')
+    // }
+    // $(this).fun3()
+
+    // 输出"执行方法二"
+
+    // function sleep(d) {
+    //   for (var t = Date.now(); Date.now() - t <= d;) { }
+    // }
+
+    // const asyncFunction = async function () {
+    //   const numbers = [1, 2, 3, 4, 5];
+    //   for (let number of numbers) {
+
+    //     await sleep(3000);
+
+    //     console.log(number)
+    //   }
+    // }
+
+    // let result = asyncFunction();
+    // console.log('finish');
+
+
+    foo();
+    // 输出 1
+
+    var foo = function () {
+      console.log(2);
+    }
+
+    foo();
+    // 输出 2
+
+    function foo() {
+      console.log(1);
+    }
+
+
+    class Animal {
+      constructor() {
+        this.age = '100'
+      }
+    }
+
+    class People extends Animal {
+      constructor(contens = {}) {
+        super();
+        this.name = contens.name;
+        this.family = contens.family;
+      }
+      sayHi() {
+        console.log(`hello ${this.name} ${this.family} ${this.age}`);
+      }
+    }
+
+    let boy = new People({
+      name: '小郑',
+      family: '搞码事'
+    })
+
+    console.log(boy.sayHi())
+
+
+    /*
+      console.log('')
+      console.log(a)
+      var a = 10;
+      console.log('')
+      console.log(this)
+      console.log('')
+
+      console.log(f1)  // function f1() {}
+      function f1() {} // 函数声明
+      
+      console.log(f2) // undefined
+      var f2 = function() {} // 函数表达式
+    */
+    /*
+    var obj1 = {
+      name:'wp'
+    }
+    var ifObj = (obj) => {
+      for (var i in obj) { // 如果不为空，则会执行到这一步，返回true
+        return true
+      }
+      return false // 如果为空,返回false
+    }
+
+    console.log(ifObj(Object.prototype)) */
+
+
+    // console.log()
+
+    // console.log('hello')
+    // console.info('something happened')
+    // console.warn('something strange happened')
+    // console.error('something horrible happened')
+
+    // var fun1 = () => {
+    //   fun2()
+    // }
+    // var fun2 = () => {
+    //   fun3()
+    // }
+    // var fun3 = () => {
+    //   fun4()
+    // }
+    // var fun4 = () => {
+    //   console.trace()
+    // }
+    // fun1()
+
+
+    // console.time('testForEach');
+    // ['a', 'b', 'c'].forEach((i, a) => {
+    //   console.log(i)
+    // })
+    // console.timeEnd('testForEach');
+
+
+    // console.table([{ name: 'yt', age: 32 }, { name: 'tom', age: 30 }])
+
+    // var info = {
+    //   name: "小郑",
+    //   wxid: "小郑搞码事",
+    //   friends: ['w', 'l', 'd'],
+    //   getName: () => {
+    //     return this.name
+    //   }
+    // }
+    // console.dir(info)
+
+    // var a = [1, 2, 3]
+    // a[9] = 99
+
+
+
+    // console.log(a)
+
+    // console.log(a[6])
+
+
+
+    // var b = [undefined];
+    // b[3] = 2;
+
+
+    // console.log(b);
+
+
+    // console.log(b.map(e => 7));
+
+
+
+
+
+        var mo = function (e) { e.preventDefault() };
+
+        /***禁止滑动***/
+        function stop() {
+            document.body.style.overflow = 'hidden';
+            document.addEventListener("touchmove", mo, false);//禁止页面滑动
         }
-        var ifObj = (obj) => {
-            for (var i in obj) { // 如果不为空，则会执行到这一步，返回true
-                return true
-            }
-            return false // 如果为空,返回false
+
+        /***取消滑动限制***/
+        function move() {
+            document.body.style.overflow = '';//出现滚动条
+            document.removeEventListener("touchmove", mo, false);
         }
 
-        console.log(ifObj(Object.prototype)) */
-
-
-        // console.log()
-
-        console.log('hello')
-        console.info('something happened')
-        console.warn('something strange happened')
-        console.error('something horrible happened')
-
-        var fun1 = () => {
-            fun2()
-        }
-        var fun2 = () => {
-            fun3()
-        }
-        var fun3 = () => {
-            fun4()
-        }
-        var fun4 = () => {
-            console.trace()
-        }
-        fun1()
-
-
-        console.time('testForEach');
-        ['a', 'b', 'c'].forEach((i, a) => {
-            console.log(i)
-        })
-        console.timeEnd('testForEach');
-
-
-        console.table([{ name: 'yt', age: 32 }, { name: 'tom', age: 30 }])
-
-        var info = {
-            name: "小郑",
-            wxid: "小郑搞码事",
-            friends: ['w', 'l', 'd'],
-            getName: () => {
-                return this.name
-            }
-        }
-        console.dir(info)
-
+        
 
     </script>
 </body>

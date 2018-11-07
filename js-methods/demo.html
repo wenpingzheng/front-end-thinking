@@ -1,0 +1,664 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>测试</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <style>
+    /* .tips {
+      color: red;
+       margin: 120px;
+     position: relative;
+    }
+
+    .tips:hover::after {
+      content: attr(data-title);
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      color: #333;
+      position: absolute;
+      top: -50px;
+      left: -30px;
+    }
+
+    .p11-1>div div.curmonth:after {
+      content: attr(data-content);
+      position: absolute;
+      top: -22px;
+      left: 3px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+.parent {
+  width: 100%;
+  height:150px;
+  border: solid black 1px;
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  left: 0;
+  height:50px;
+  top:calc(50% - 25px);
+  width: calc(100% - 100px);
+  background-color:red;
+  text-align: center;
+}
+  .test{
+    border:1px solid #000000;
+    width:326px;
+    margin-left:5px;
+    background:#ddd;
+  }
+  .space{
+    background-color:#ddd;
+  }
+  p{
+    width:100px;
+    background:red;
+    white-space: nowrap;
+  } */
+
+    /* p{
+    margin:50px;
+    position:relative;
+    color:red;
+    width:20px;
+    height:50px;
+    font-size:14px;
+    background:url(../all-images/delete.svg) center center no-repeat;
+    background-size:100% auto;
+  }
+  span{
+    display:none;
+    position: absolute;
+    right:0;
+    top:-20px;
+  }
+  p:hover span{
+    display:inline-block;
+  } */
+
+    /* p.text{
+    width:100px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    
+  } */
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .box {
+      width: 300px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid red;
+    }
+
+    ul {
+      font-size: 0;
+      overflow-x: scroll;
+    }
+
+    li {
+      font-size: 22px;
+      text-align: center;
+      width: 100px;
+      height: 50px;
+      background: #ddd;
+      list-style: none;
+      display: inline-block;
+    }
+
+    a {
+      /* display: inline-block;
+      width: 150px;
+      height: 40px;
+      text-align: center;
+      background-color: red; */
+    }
+
+    .child {
+      margin: 0 auto;
+    }
+
+    .parent {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      margin: 10px;
+      border: solid 10px;
+      background-color: teal;
+    }
+
+    .child {
+      position: absolute;
+      left: 0;
+      top: 0;
+      /* bottom:0; */
+      /* bottom:30px; */
+      width: 80px;
+      height: 50px;
+      line-height: 50px;
+      /* margin:auto 0; */
+      padding: 10px;
+      background-color: red;
+      color: #fff;
+    }
+
+    button {
+      width: 200px;
+      height: 150px;
+      border: 0;
+      color: #fff;
+      margin: 50px;
+
+      background-image: linear-gradient(#5187c4, #1c2f45);
+      background-size: auto 200%;
+      background-position: 0 100%;
+      transition: background-position .5s;
+    }
+
+    button:hover {
+      background-position: 0 0;
+    }
+
+    td {
+      width: 50px;
+    }
+
+
+    /* p {
+      margin: 50px;
+      color: transparent;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    } */
+
+    .loading {
+      margin: 50px;
+    }
+
+    .loading::after {
+      content: '\2026';
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: bottom;
+      animation: ellipsis 2s infinite;
+    }
+
+    @keyframes ellipsis {
+      from {
+        width: 2px;
+      }
+      to {
+        width: 15px;
+      }
+    }
+
+    /* div {
+      width: 205px;
+      height:100px;
+      background-color: #ddd;
+      overflow-y: scroll;
+      overflow-x:hidden;
+    }
+
+    div::-webkit-scrollbar {
+      width: 20px;
+      /* color:green; */
+      /* background: deeppink; */
+    /* } */
+    
+
+    ::selection{
+      background:red;
+      color:#fff;
+    }
+
+    div{
+      margin:100px;
+      position: relative;
+      width:200px;
+      height:60px;
+      background:#e0e0e0;
+      box-shadow:-5px 0px 0 0 deeppink;
+      /* border-left:5px solid deeppink; */
+    }
+    
+
+
+    tbody tr:nth-child(odd) {
+      background-color:#ccc;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+  <table>
+    <tbody>
+      <tr>
+        <td>第一行第一行第一行第一行</td>
+      </tr>
+      <tr>
+        <td>第二行第二行第二行第二行</td>
+      </tr>
+      <tr>
+        <td>第三行第三行第三行第三行</td>
+      </tr>
+      <tr>
+        <td>第四行第四行第四行第四行</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <div class="loading">
+    正在加载
+  </div> -->
+  <!-- <div class="scroll">
+    小郑搞码事，和大家每天分享有趣的代码事情。小郑搞码事，和大家每天分享有趣的代码事情。小郑搞码事，和大家每天分享有趣的代码事情。小郑搞码事，和大家每天分享有趣的代码事情。小郑搞码事，和大家每天分享有趣的代码事情。小郑搞码事，和大家每天分享有趣的代码事情。小郑搞码事，和大家每天分享有趣的代码事情。小郑搞码事，和大家每天分享有趣的代码事情。
+  </div> -->
+  <div></div>
+
+   <!-- <p>小郑搞码事，和大家每天分享有趣的代码事情。</p> -->
+
+  <!-- 
+  <div class="parent">
+    <div class="child">
+      我是子元素
+    </div>
+  </div> -->
+
+  <!-- <button>看我</button> -->
+  <!-- <table border="1">
+    <tr>
+      <td>
+        这是第一列,文字有点长。
+      </td>
+      <td>
+        <p>这是第二列,文字有点长。</p>
+      </td>
+    </tr>
+  </table> -->
+  <!-- <p>小郑搞码事，与大家一起分享代码那点事。</p> -->
+
+
+  <!-- <img src="" alt="">
+  <a href=""></a> -->
+  <!-- <a href="dd">sssss</a>
+  <span>fffff</span>
+  <input type="text" value="dd"> 
+  <img src="" alt="">
+  <div> -->
+  <!-- <a href="javascript:;">这里一堆文字，看清楚</a> -->
+
+  <!-- </div> -->
+  <!-- <p></p> -->
+
+
+  <p>  hellohellohello hello
+  world
+  </p>
+
+  <script>
+    var flight = {
+      name: 'xiao',
+      age: 90
+    }
+    console.log(typeof(flight.name)) // string
+    console.log(flight.hasOwnProperty('name')) // true 
+    console.log(flight.hasOwnProperty('constructor')) // false
+  
+  </script>
+
+  <!-- <p><span>删除</span></p> -->
+
+  <!-- <p class="text">小郑搞码事，和你一块搞代码，有兴趣的可以关注一下</p> -->
+  <!-- <div class="box">
+    <ul>
+      <li>第一列</li>
+      <li>第二列</li>
+      <li>第三列</li>
+
+                                                                                                                                                                                                                                                                                                    .;.;'.;'';'';'                                                                                                                                                                                                                                                                                                                                                                                .,,,,,,,,,. . .
+        <li>第四列</li>
+      <li>第五列</li>
+    </ul>
+  </div> -->
+
+
+
+  <script>
+
+    console.log(1<2<3)
+    // 输出true
+    console.log(3>2>1)
+    // 输出false
+
+
+
+    console.log('abc' === 'abc') // true
+    console.log(1 === 1) // true
+    console.log([4,5,3] === [4,5,3]) // false
+    console.log({} === {}) // false
+ 
+    // console.log(1<<2)
+
+    // typeof [] === 'object'
+    // // 输出true
+
+    // typeof null === 'object'
+    // 输出true
+
+
+    // let variable = 'xiaozhenggaomashi'
+    // const replaced = variable.replace('a','Z')
+    // console.log(replaced)
+    // // 输出：xiZozhenggaomashi
+    // console.log(variable)
+    // // 输出：xiaozhenggaomashi
+
+
+    // const replaced= variable.replace(/a/g, 'Z')
+    // console.log(replaced)
+    // // 输出：xiZozhenggZomZshi
+    // console.log(variable)
+    // // 输出：输出：xiaozhenggaomashi
+
+
+    const Greeters = []
+    for (var i = 0; i < 10; i++) {
+      Greeters.push(function () {
+        return i
+      })
+    }
+    console.log(Greeters[0](), Greeters[1](), Greeters[2]())
+    // 输出10 10 10
+
+
+
+    const Greeters = []
+    for (let i = 0; i < 10; i++) {
+      Greeters.push(function () {
+        return i
+      })
+    }
+    console.log(Greeters[0](), Greeters[1](), Greeters[2]())
+    // 输出：0 1 2
+
+    const Greeters = []
+    var helper = function (j) {
+      return function () {
+        return j
+      }
+    }
+    for (var i = 0; i < 10; i++) {
+      Greeters.push(helper(i))
+    }
+    console.log(Greeters[0](), Greeters[1](), Greeters[2]())
+    // 输出0 1 2 
+
+
+
+
+    // const a = {
+    //   i: 1,
+    //   valueOf: () => {
+    //     return a.i++
+    //   }
+    // }
+    // if (a == 1 && a == 2 && a == 3) {
+    //   console.log('小郑搞码!');
+    // }
+
+    // let aﾠ = 1;
+    // let a = 2;
+    // let ﾠa = 3;
+    // if (aﾠ == 1 && a == 2 && ﾠa == 3) {
+    //   console.log("小郑搞码!")
+    // }
+
+    // let a_ = 1;
+    // let a = 2;
+    // let _a = 3;
+    // if (a_ == 1 && a == 2 && _a == 3) {
+    //   console.log("小郑搞码!")
+    // }
+
+    // let a = 0;
+    // Object.defineProperty(window, 'a', {
+    //   get: () => {
+    //     return ++a;
+    //   }
+    // })
+
+    // if (window.a == 1 && window.a == 2 && window.a == 3) {
+    //   console.log('小郑搞码!');
+    // }
+
+    // let aﾠ = 1;
+    // let a = 2;
+    // console.log(aﾠ == 1 && a == 2)
+
+    // let a_ = 1;
+    // let a = 2;
+    // console.log(a_ == 1 && a == 2)
+
+    // true
+
+    // let colors = ['red', 'blue', 'green', 'green']
+
+    // let result = colors.map((color)=>{
+    //   if(color === 'green') {
+    //     return color;
+    //   }
+    // })
+    // console.log(result)
+    // 输出 [undefined, undefined, "green", "green"]
+
+
+    // let colors = ['red', 'blue', 'green', 'green']
+
+    // let result = colors.filter((color)=>{
+    //   if(color === 'green') {
+    //     return color;
+    //   }
+    // })
+    // console.log(result)
+    // ["green", "green"]
+
+
+
+
+    // var a = function () {
+    //   var x = 'a';
+    //   this.z = 'c';
+    // }
+    // a.y = 'b';
+    // a.prototype.m = 'd'
+
+    // var t1 = new a();
+
+    // console.log(t1.x) // undefined
+    // console.log(t1.y) // undefined
+    // console.log(t1.z) // c
+    // console.log(t1.m) // d
+
+    // console.log(a.x) // undefined
+    // console.log(a.y) // b
+    // console.log(a.z) // undefined
+    // console.log(a.m) // undefined
+
+    // var b = function() {}
+    // b.f1 = function() { // 定义一个静态方法
+    //   console.log('静态方法')
+    // }
+    // b.f1() // 静态方法
+    // var c = new b()
+    // c.f1() // c.f1 is not a function
+
+    // var b = function() {
+    //   this.method1 = function() {
+    //     console.log('this')
+    //   }
+    // }
+
+    // var c = new b()
+    // c.method1 = function() {
+    //   console.log('instance')
+    // }
+
+    // b.prototype.method1 = function() {
+    //   console.log('prototype')
+    // }
+
+    // c.method1(); // instance
+
+    // var b = function() {
+    //   var method1 = function() {
+    //     console.log('method1')
+    //   }
+    //   var method2 = function() {
+    //     console.log('method2')
+    //     method1()
+    //   }
+    //   this.method3 = function() {
+    //     method2()
+    //   }
+    // }
+    // var c = new b()
+    // c.method1() // c.method1 is not a function
+    // c.method3() // method2 method1
+
+    // setTimeout(()=>{
+    //   console.log(1)
+    //   setTimeout(()=>{
+    //     console.log(2)
+    //     setTimeout(()=>{
+    //       console.log(3)
+    //     }, 1000)
+    //   }, 1000)
+    // }, 1000)
+
+    // function next(n) {
+    //   return new Promise((resolve, reject)=> {
+    //     setTimeout(()=>{
+    //       resolve(n)
+    //     }, 1000)
+    //   })
+    // }
+
+    // next(1).then((res)=>{
+    //   console.log(res)
+    //   return next(2) // return 2
+    // }).then((res)=> {
+    //   console.log(res)
+    //   return next(3) // return 3
+    // }).then((res)=>{
+    //   console.log(res)
+    // })
+
+
+
+
+    // function next(n) {
+    //   return new Promise((resolve, reject)=> {
+    //     let num = Math.floor(Math.random()*10)
+    //     if(num <= 5) {
+    //       resolve(n)
+    //     } else {
+    //       reject(new Error())
+    //     }
+    //   })
+    // }
+
+    // next(1).then((res)=>{
+    //   console.log(res)
+    // },(res)=>{
+    //   console.log(res)
+    // })
+
+    // next(1).then((res)=>{
+    //   console.log(res)
+    // }).catch((res)=>{
+    //   console.log('reject' + res)
+    // })
+
+
+    // let count = 0
+    // function next(n) {
+    //   return new Promise((resolve, reject)=> {
+    //     let num = Math.floor(Math.random()*10)
+    //     setTimeout(()=>{
+    //       console.log(num)
+    //       resolve(`第${++count}随机到值是${num}`)
+    //     }, 2000)
+    //   })
+    // }
+
+
+    // Promise.race([next(),next(),next()]).then((res)=>{
+    //   console.log(res)
+    // })
+
+    function ajaxA(success) {
+      setTimeout(function () {
+        console.log("AAAAAAAAAA");
+        success();
+      }, 3000);
+    }
+
+    function ajaxB(success) {
+      setTimeout(function () {
+        console.log("BBBBBBBBBB");
+        success();
+      }, 2000);
+    }
+
+    function ajaxC(success) {
+      setTimeout(function () {
+        console.log("CCCCCCCCCC");
+        success();
+      }, 1000);
+    }
+
+    function ajaxD() {
+      setTimeout(function () {
+        console.log("DDDDDDDDD");
+      }, 2000);
+    }
+    //模拟异步编程效果
+    function MyPromise(func) {
+      var self = this;
+      var count = 0;
+      this.cbklist = [];
+      this.then = function (callback) {
+        console.log(callback)
+        this.cbklist.push(callback);
+        return this;
+      }
+      this.success = function () {
+        console.log(count, self.cbklist.length)
+        if (count == self.cbklist.length) return;
+        self.cbklist[count++](self.success);
+      }
+
+      setTimeout(function () {
+        console.log('aaaaaaaaaaaaa')
+        func(self.success);
+      }, 0);
+    }
+    new MyPromise(ajaxA).then(ajaxB).then(ajaxC).then(ajaxD);
+  </script>
+</body>
+
+</html>

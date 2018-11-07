@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Animation</title>
+  <style>
+
+
+    
+    /**
+    * @name: 文件名或模块名
+    * @description: 文件或模块描述
+    * @author: autor-name(mail-name@domain.com)
+    * @update: 2018-09-09 8:21 
+    */
+
+
+
+    body {
+      background: #133d48;
+      animation: sky-to-black 5s ease forwards;
+    }
+
+    .ground {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: black;
+      animation: ground-to-black 5s ease forwards;
+    }
+
+    .moon {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background: white;
+      border-radius: 50px;
+      box-shadow: 0 0 20px white;
+      left: 50%;
+      top: 80%;
+      margin: 0 -50px;
+      animation: rising-sun 5s ease forwards;
+    }
+
+    .ground,
+    .moon {
+      text-indent: -9999px;
+      overflow: hidden;
+    }
+
+    @keyframes rising-sun {
+      0% {
+        top: 80%;
+        box-shadow: 0 0 20px 100px white;
+      }
+      100% {
+        top: 15%;
+        box-shadow: 0 0 150px 20px white;
+      }
+    }
+
+    @keyframes sky-to-black {
+      0% {
+        background-color: #133d48;
+      }
+      100% {
+        background-color: black;
+      }
+    }
+
+    @keyframes ground-to-black {
+      0% {
+        background-color: #211d11
+      }
+      100% {
+        background-color: black;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- 月亮 -->
+  <div class="moon"></div>
+  <!-- 发光 -->
+  <div class="ground"></div>
+
+</body>
+<script>
+  // function showCase(value) {
+  //   console.log(value)
+  //   switch(value) {
+  //     case 'A':
+  //       console.log('case A');
+  //       break;
+  //     case 'B':
+  //       console.log('case B');
+  //       break;
+  //     case undefined:
+  //       console.log('undefined');
+  //       break;
+  //     default:
+  //       console.log('do not know!')
+  //   }
+  // }
+  // var str = new String('A')
+
+  // console.log(showCase(str.valueOf()))
+  // console.log(showCase('A'))
+
+
+  // var array = [0,1,2];
+  // array[10] = 10;
+  // array.filter(function(x) {
+  //   return x === undefined
+  // })
+
+
+  var array = [0, 1, 2]
+  // array.map(() => {
+  //   console.log(arguments)
+  // })
+  array.map(function () {
+    console.log(arguments)
+  })
+
+
+let arrowfunc = (...theArgs) => console.log(theArgs.length)
+
+
+
+
+
+</script>
+
+</html>

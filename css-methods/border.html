@@ -1,32 +1,80 @@
 <html>
-    <head>
-        <meta charset="utf8">
-        <title>不一样的CSS属性</title>
-    </head>
-    <body>
-        
-    <style> 
-    div{
-        border:15px solid transparent;
-        width:300px;
-        padding:10px 20px;
-    }
-    #round{
-        -moz-border-image:url(/i/border.png) 30 30 round;	/* Old Firefox */
-        -webkit-border-image:url(/i/border.png) 30 30 round;	/* Safari and Chrome */
-        -o-border-image:url(/i/border.png) 30 30 round;		/* Opera */
-        border-image:url(/i/border.png) 30 30 round;
-    }
-    #stretch{
-        -moz-border-image:url(/i/border.png) 30 30 stretch;	/* Old Firefox */
-        -webkit-border-image:url(/i/border.png) 30 30 stretch;	/* Safari and Chrome */
-        -o-border-image:url(/i/border.png) 30 30 stretch;	/* Opera */
-        border-image:url(/i/border.png) 30 30 stretch;
-    }
-    </style>
+
+<head>
+    <meta charset="utf8">
+    <title>不一样的CSS属性</title>
 </head>
+
 <body>
-    <div id="round">在这里，图片铺满整个边框。</div>
+
+    <style>
+        div {
+            border: 15px solid transparent;
+            width: 300px;
+            padding: 10px 20px;
+        }
+
+        #round {
+            -moz-border-image: url(/i/border.png) 30 30 round;
+            /* Old Firefox */
+            -webkit-border-image: url(/i/border.png) 30 30 round;
+            /* Safari and Chrome */
+            -o-border-image: url(/i/border.png) 30 30 round;
+            /* Opera */
+            border-image: url(/i/border.png) 30 30 round;
+        }
+
+        #stretch {
+            -moz-border-image: url(/i/border.png) 30 30 stretch;
+            /* Old Firefox */
+            -webkit-border-image: url(/i/border.png) 30 30 stretch;
+            /* Safari and Chrome */
+            -o-border-image: url(/i/border.png) 30 30 stretch;
+            /* Opera */
+            border-image: url(/i/border.png) 30 30 stretch;
+        }
+
+        .featureBanner {
+            position: relative;
+            margin: 20px
+        }
+
+        .featureBanner:before {
+            content: "Featured";
+            position: absolute;
+            top: 5px;
+            left: -8px;
+            padding-right: 10px;
+            color: #232323;
+            font-weight: bold;
+            height: 0px;
+            border: 15px solid #ffa200;
+            border-right-color: transparent;
+            line-height: 0px;
+            box-shadow: -0px 5px 5px -5px #000;
+            z-index: 1;
+        }
+
+        .featureBanner:after {
+            content: "";
+            position: absolute;
+            top: 35px;
+            left: -8px;
+            border: 4px solid #89540c;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+        }
+
+
+    </style>
+    </head>
+
+    <body>
+
+        <div class="featureBanner"></div>
+
+        
+        <!-- <div id="round">在这里，图片铺满整个边框。</div>
     <br>
     <div id="stretch">在这里，图片被拉伸以填充该区域。</div>
 
@@ -34,7 +82,8 @@
     <img src="/i/border.png">
 
     <p><b>注释：</b> Internet Explorer 不支持 border-image 属性。</p>
-    <p>border-image 属性规定了用作边框的图片。</p>
+    <p>border-image 属性规定了用作边框的图片。</p> -->
 
-</body>
+    </body>
+
 </html>

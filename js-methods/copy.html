@@ -5,7 +5,10 @@
   <title>复制到剪贴板</title>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+  <style>
 
+
+  </style>
 </head>
 
 <body>
@@ -61,11 +64,207 @@
     clipboard.on('error', (e) => {
       console.log(e)
     })*/
+    // https://www.jb51.net/article/51079.htm
 
 
 
 
 
+
+
+
+
+    /* $.extend浅拷贝和深拷贝的实现原理，应用*/
+
+    var $ = {
+      extend: null
+    }
+
+    var class2type = {
+      "[object Boolean]": "boolean",
+      "[object Number]": "number",
+      "[object Array]": "array",
+      "[object String]": "string",
+      "[object Undefined]": "undefined",
+      "[object Null]": "null"
+    }
+
+    var isArray = Array.isArray || function (object) {
+      return Object.prototype.toString.call(object) === '[object Array]'
+    }
+
+    function type(obj) {
+      return obj == null ? String(obj) :
+        class2type[toString.call(obj)] || "object"
+    }
+
+    function isObject(obj) {
+      return type(obj) == 'object'
+    }
+
+    function isWindow(obj) {
+      return obj != null && obj == obj.window
+    }
+
+    function isPlainObject(obj) {
+      return isObject(obj) && !isWindow(obj) && Object.getPrototypeOf(obj) == Object.prototype
+    }
+
+    function extend(target, source, deep) {
+      for (key in source) {
+        if (deep && (isPlainObject(source[key]) || isArray(source[key]))) {
+          if (isPlainObject(source[key]) && !isPlainObject(target[key]))
+            target[key] = {}
+          if (isArray(source[key]) && !isArray(target[key]))
+            target[key] = []
+          extend(target[key], source[key], deep)
+        }
+        else if (source[key] !== undefined) target[key] = source[key]
+      }
+    }
+
+    $.extend = function (target) {
+      var deep, args = Array.prototype.slice.call(arguments, 1)
+      if (typeof target === 'boolean') {
+        deep = target;
+        target = args.shift()
+      }
+      args.forEach(function (arg) {
+        extend(target, arg, deep)
+      })
+      return target
+    }
+
+    /* 实例 - 对象 */
+    var obj1 = {
+      name: 'xiaozheng',
+      age: 19,
+      lang: {
+        eng: true,
+        chan: true
+      }
+    }
+    var obj2 = {
+      name: 'dazheng',
+      lang: {
+        leng: true,
+        lchan: true
+      }
+    }
+    /* 实例 - 数组 */
+    var Array01 = [1, 2, [6, 3]]
+    var Array02 = [3, 4, [0]]
+    var Array03 = $.extend(true, Array01, Array02)
+    console.log(Array03)
+    var obj3 = $.extend(true, obj1, obj2)
+
+
+
+    // var src = [1,2,3]
+    // var deepArray = []
+    // function deepCopy(src, target) {
+    //   for(var i = 0, l = src.length; i < l; i++) {
+    //     target[i] = src[i]
+    //   }
+    // }
+    // deepCopy(src, deepArray)
+    // deepArray[0] = 5
+    // console.log(src) // [1,2,3]
+    // console.log(deepArray) // [5,2,3]
+
+
+
+
+    var src = [1, [2, 3, 4], 5]
+    function deepCopy(src) {
+      var i = 0, target = [], l = src.length;
+      for (; i < l; i++) {
+        if (src[i] instanceof Array) {
+          target[i] = deepCopy(src[i])
+        } else {
+          target[i] = src[i]
+        }
+      }
+      return target
+    }
+    var result = deepCopy(src);
+    result[1][2] = 10;
+    console.log(src)// [1,[2,3,4],5]
+    console.log(result)// [1,[2,3,10],5]
+
+
+
+    for (var key in children) {
+      // 排除继承的属性
+      if (children.hasOwnProperty(key)) {
+        // 基本类型值的复制
+        cloneObject[key] = children[key]
+      }
+    }
+
+    function Test() {
+      this.name = "xiaozheng"
+      this.age = 18
+      this.run = function () {
+        console.log('run')
+      }
+    }
+    var test = new Test()
+
+    function ChilrTest() {
+      this.name = 'xiaogang',
+      this.age = 15,
+      this.sing = function () {
+        console.log('sing')
+      }
+    }
+    ChilrTest.prototype = new Test()
+    var children = new ChilrTest()
+
+    // 有继承的属性
+    for (var key in children) {
+      console.log('有继承', key)
+    }
+
+    // 无继承的属性
+    for (var key in children) {
+      if (children.hasOwnProperty(key)) {
+        console.log('无继承', key)
+      }
+    }
+
+    
+
+    // 深复制一个对象
+    var cloneObject = {}
+    for (var key in children) {
+      if (children.hasOwnProperty(key)) {
+        cloneObject[key] = children[key]
+      }
+    }
+    console.log(cloneObject)
+
+    cloneObject.age = 26
+    console.log(test.age) // 18
+    console.log(children.age) // 15
+    console.log(cloneObject.age) // 26
+
+
+
+    var source = {
+      name: 'source',
+      child: {
+        name: 'child'
+      }
+    }
+    var target = JSON.parse(JSON.stringify(source))
+    target.name = 'target'
+    console.log(source.name) // source
+    console.log(target.name) // target
+
+    target.child.name = 'target child'
+    console.log(source.child.name) // child
+    console.log(target.child.name) // target child
 
   </script>
 </body>
