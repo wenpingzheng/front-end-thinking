@@ -1,39 +1,40 @@
 <!DOCTYPE html>
-  <head>
-    <title>Changing style</title>
-    <meta chaset="utf-8">
-  </head>
-  <style>
-    #elem{
+
+<head>
+  <title>Changing style</title>
+  <meta chaset="utf-8">
+</head>
+<style>
+  #elem{
       width:200px;
       height:20px;
       font-size:18px;
       background-color:lime;
     }
   </style>
-  <body>
-    <div id="elem" style="height:30px;width:150px;font-size:24px">元素</div>
-    <script type="text/javascript">
-      function getStyle(elem, cssprop, cssprop2) {
-        if(elem.currentStyle) {
-          return elem.currentStyle[cssprop]
-        } else if(document.defaultView &&
+
+<body>
+  <div id="elem" style="height:30px;width:150px;">元素</div>
+  <script type="text/javascript">
+
+    function getStyle(elem, cssprop, cssprop2) {
+      if (elem.currentStyle) {
+        return elem.currentStyle[cssprop]
+      } else if (document.defaultView &&
         document.defaultView.getComputedStyle) {
-          return document.defaultView.getComputedStyle(elem,null).getPropertyValue(cssprop2)
-        } else {
-          return null
-        }
+        return document.defaultView.getComputedStyle(elem, null).getPropertyValue(cssprop2)
+      } else {
+        return null
       }
-      var elem = document.getElementById('elem')
-      // console.log(elem.style.fontSize)
-      // console.log(elem.getAttribute('style'))
+    }
 
+    
+    var elem = document.getElementById('elem')
+    console.log('style', elem.style.backgroundColor)
+    console.log('attribute', elem.getAttribute('style'))
+    elem.style.height = '190px'
+    console.log(getStyle(elem, "backgroundColor", "background-color"))
+  </script>
+</body>
 
-
-      elem.style.height = '190px'
-
-      elem.style.fontSize = '12px';
-      console.log(getStyle(elem, "fontSize", "font-size"))
-    </script>
-  </body>
 </html>
