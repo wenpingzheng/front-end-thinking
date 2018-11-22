@@ -7,11 +7,12 @@
     #elem{
       width:200px;
       height:20px;
+      font-size:18px;
       background-color:lime;
     }
   </style>
   <body>
-    <div id="elem" style="height:30px;width:150px;">元素</div>
+    <div id="elem" style="height:30px;width:150px;font-size:24px">元素</div>
     <script type="text/javascript">
       function getStyle(elem, cssprop, cssprop2) {
         if(elem.currentStyle) {
@@ -24,10 +25,15 @@
         }
       }
       var elem = document.getElementById('elem')
-      console.log('style', elem.style.backgroundColor)
-      console.log('attribute', elem.getAttribute('style'))
+      // console.log(elem.style.fontSize)
+      // console.log(elem.getAttribute('style'))
+
+
+
       elem.style.height = '190px'
-      console.log(getStyle(elem, "backgroundColor", "background-color"))
+
+      elem.style.fontSize = '12px';
+      console.log(getStyle(elem, "fontSize", "font-size"))
     </script>
   </body>
 </html>
