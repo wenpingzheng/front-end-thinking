@@ -245,6 +245,16 @@
 </head>
 
 <body>
+    <input id="in_2" data-id="list">
+<ul id="menu" class="ul-list" data-id="list">
+  <li>测试</li>
+</ul>
+
+<script>
+  var menuUI = document.getElementById('in_2')
+  console.log(menuUI.id)
+  console.log(menuUI['data-id'])
+</script>
   <table>
     <tbody>
       <tr>

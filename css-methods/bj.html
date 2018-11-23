@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>两边固定中间自适应</title>
+  <style>
+    *{margin:0;padding:0}
+    .layout{height:100px;line-height:100px;background-color:gray;overflow:hidden;color:#fff;text-align:center;}
+    .layout div{height:100%;width:100px;background-color:firebrick;display:inline-block;}
+    .layout .center{background-color:forestgreen;width:auto;}
+    .left{float:left;}
+    .right{float:right;}
+    
+
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <div class="left">
+      left
+    </div>
+    <div class="center">
+      宽度随着内容变化
+    </div>
+    <div class="right">
+      right
+    </div>
+  </div>
+</body>
+
+</html>
