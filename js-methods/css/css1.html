@@ -12,17 +12,6 @@
       background-color:lime;
     }
   </style>
-<<<<<<< HEAD
-  <body>
-    <div id="elem" style="height:30px;width:150px;">元素</div>
-
-
-    <script type="text/javascript">
-      function getStyle(elem, cssprop, cssprop2) {
-        if(elem.currentStyle) {
-          return elem.currentStyle[cssprop]
-        } else if(document.defaultView &&
-=======
 
 <body>
   <div id="elem" style="height:30px;width:150px;">元素</div>
@@ -32,7 +21,6 @@
       if (elem.currentStyle) {
         return elem.currentStyle[cssprop]
       } else if (document.defaultView &&
->>>>>>> 4881affe00c989ae76df475167bc4a9084952545
         document.defaultView.getComputedStyle) {
         return document.defaultView.getComputedStyle(elem, null).getPropertyValue(cssprop2)
       } else {

@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>匀速运动的实现</title>
+    <style>
+      *{
+        margin:0;
+        padding:0;
+      }
+      #share{
+        width:200px;
+        height:200px;
+        position:relative;
+        left:-200px;
+        top:0;
+        background-color:brown;
+      }
+      #share-icon{
+        position:absolute;
+        height:50px;
+        width:30px;
+        top:75px;
+        right:-30px;
+        color:#fff;
+        text-align:center;
+        background-color:darkblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="share">
+      <div id="share-icon">分享</div>
+    </div>
+    <script>
+      window.onload = function() {
+        var oDiv = document.getElementById('share')
+        oDiv.onmouseover = function() {
+          startMove(0)
+        }
+        oDiv.onmouseout = function() {
+          startMove(-200)
+        }
+        // 匀速运动函数
+        var timer = null;
+        function startMove(iTarget) {
+          clearInterval(timer)
+          var oDiv = document.getElementById('share');
+          timer = setInterval(function() {
+            var speed = 0;
+            if(oDiv.offsetLeft > iTarget) {
+              speed = -10;
+            } else {
+              speed = 10;
+            }
+            if(oDiv.offsetLeft == iTarget) {
+              clearInterval(timer)
+            } else {
+              oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+            }
+          }, 30)
+        }
+      }
+    </script>
+  </body>
+</html>

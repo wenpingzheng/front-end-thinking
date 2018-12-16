@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="uf8"/>
+    <title>REM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <style>
+      /* html{
+        font-size:18px;
+      } */
+      .rem-wrap{
+        width:10rem;
+        height:10rem;
+        font-size:2rem;
+        background-color:darkgoldenrod;
+      }
+      /**
+        根据屏幕的大小动态修改html的font-size大小。
+      */
+      /* @media screen and (max-width:320px) {
+        html{
+          font-size:24px;
+        }
+      }
+      @media screen and (max-width:375px) and (min-width:321px) {
+        html {
+          font-size: 20px;
+        }
+      } */
+      
+    </style>
+  </head>
+  <body>
+    <div class="rem-wrap">
+      rem大小演示
+    </div>
+    <script>
+      let htmlWidth = document.documentElement.clientWidth || 
+      document.body.clientWidth;
+
+      let htmlDom = document.getElementsByTagName('html')[0];
+      htmlDom.style.fontSize = htmlWidth / 10 + 'px';
+    </script>
+  </body>
+</html>

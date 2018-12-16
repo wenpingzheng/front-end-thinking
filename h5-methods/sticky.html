@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>position定位</title>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+      
+      *{
+        margin:0;
+        padding:0;
+      }
+      #sticky ul{
+        display:-webkit-flex;
+        height:40px;
+        line-height:40px;
+        text-align:center;
+        background-color:#ddd;
+      }
+      #sticky li{
+        list-style: none;
+        flex:1
+      }
+      /* #sticky{
+        position: -webkit-sticky;
+        position:sticky;
+        left:0;
+        top:0;
+      } */
+      .sticky{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>标题1</h2>
+    <h2>标题2</h2>
+    <div id="sticky">
+      <ul>
+        <li>tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+      </ul>
+    </div>
+    <ul>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+      <li>第一列</li>
+    </ul>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      
+      let $menu = $('#sticky')
+      let offset = $menu.offset()
+      $(window).scroll(function() {
+        let height = $(window).scrollTop()
+        height >= offset.top ? $menu.addClass('sticky') : $menu.removeClass('sticky')
+      })
+    </script>
+  </body>
+</html>
