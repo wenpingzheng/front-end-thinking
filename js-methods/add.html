@@ -3,7 +3,24 @@
 <head>
     <meta charset="utf8" />
     <title>分页</title>
+    
     <style>
+
+        .scale{
+          position: relative;
+        }
+        .scale:after{
+          content:"";
+          position: absolute;
+          bottom:0px;
+          left:0px;
+          right:0px;
+          border-bottom:1px solid #ddd;
+          transform:scale(0.5);
+          transform-origin: 0 0;
+        }
+
+
         .s {
             width: 0;
             height: 0;
@@ -611,7 +628,7 @@
 
         
 
-
+    
 
 
 

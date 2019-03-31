@@ -1,15 +1,15 @@
 // 如何高效遍历一个数组
 const items = [1, 2, 3]
 // 下面方法不推荐
-for(let i = 0, len=items.length;i<len;i++) {
+for (let i = 0, len = items.length; i < len; i++) {
   console.log(items[i])
 }
-items.map((item,i) => {
+items.map((item, i) => {
   console.log(item)
 })
 // 还有foreach等方法都不推荐使用
 // 推荐使用for of
-for(let item of items) {
+for (let item of items) {
   console.log(item)
 }
 
@@ -49,11 +49,35 @@ let newArray = originArray[0].concat(originArray[1], originArray[2]);
 const items = [1, 2, 3];
 let itemsCopy = [];
 // 不推荐
-for(let i = 0;len = items.length;i<len;i++) {
+for (let i = 0; len = items.length; i < len; i++) {
   itemsCopy[i] = items[i]
 }
 // 推荐
 itemsCopy = [...items]
+
+
+function clone(Obj) {
+  var buf;
+  if (Obj instanceof Array) {
+    buf = []; // 创建一个空的数组
+    var i = Obj.length;
+    while (i--) {
+      buf[i] = clone(Obj[i]);
+    }
+    return buf;
+  } else if (Obj instanceof Object) {
+    buf = {}; // 创建一个空对象
+    for (var k in Obj) { // 为这个对象添加新的属性
+      buf[k] = clone(Obj[k])
+    }
+    return buf;
+  } else {
+    return Obj;
+  }
+}
+
+
+
 
 
 

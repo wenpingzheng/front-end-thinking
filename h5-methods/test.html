@@ -1,0 +1,180 @@
+<html>
+
+<head>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+</head>
+<style>
+  * {
+    margin: 10px;
+    padding: 0;
+    /* background:#999; */
+    background:#ddd;
+  }
+
+  p {
+    width: 4rem;
+    height: 3rem;
+    border: 1px solid red;
+    font-size: 0.5rem;
+  }
+  h4{
+    font-size:64px;
+    /* color:#999;
+    background:#999;
+    text-shadow: 1px 1px 3px #666, 
+    -1px -1px 3px #fff, 
+    1px 1px #666, -1px -1px #fff; */
+    color:#eee;
+    background:#ddd;
+    text-shadow:0 -1px #000, 1px 0 #000, 0 1px #000, -1px 0 #000;
+  }
+</style>
+
+<body>
+  <!-- <p>我是用来测试的</p> -->
+  <h4>小郑搞码事</h4>
+</body>
+<script>
+  var dpr, rem, scale;
+  var docEl = document.documentElement;
+  var fontEl = document.createElement('style');
+  var metaEl = document.querySelector('meta[name="viewport"]');
+  dpr = window.devicePixelRatio || 1;
+  rem = docEl.clientWidth * dpr / 10;
+  scale = 1 / dpr;
+  // 设置viewport，进行缩放，达到高清效果
+  metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+  // 设置data-dpr属性，留作的css hack之用
+  docEl.setAttribute('data-dpr', dpr);
+  // 动态写入样式
+  docEl.firstElementChild.appendChild(fontEl); fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
+  // 给js调用的，某一dpr下rem和px之间的转换函数
+  window.rem2px = function (v) { v = parseFloat(v); return v * rem; };
+  window.px2rem = function (v) { v = parseFloat(v); return v / rem; };
+  window.dpr = dpr;
+  window.rem = rem;
+
+
+  //   for(var i = 0; i< 10;i++) {
+  //     setTimeout(function() {
+  //       console.log(i);
+  //     }, 0)
+  //   }
+  //   // 10
+
+  //   for(let i = 0; i< 10;i++) {
+  //     setTimeout(function() {
+  //       console.log(i);
+  //     }, 0)
+  //   }
+  //  // 0 1 2 3 4 5 6 7 8 9
+
+  function unique8(arr) {
+    return arr.filter(function (item, index, arr) {
+      return arr.indexOf(item, 0) === index
+    })
+  }
+
+  let testArr = [1, 2, 3, 2, 4, 6]
+
+  function unique7(arr) {
+    var obj = {}
+    return arr.filter(function (item, index, arr) {
+      return obj.hasOwnProperty(typeof item + item) ? false :
+        (obj[typeof item + item] = true)
+    })
+  }
+
+
+  console.log(unique7(testArr))
+
+  function unique6(arr) {
+    if (!Array.isArray(arr)) {
+      return
+    }
+    var arry = []
+    for (var i = 0; i < arr.length; i++) {
+      if (!array.includes(arr[i])) {
+        arry.push(arr[i])
+      }
+    }
+    return arry;
+  }
+
+  function unique5(arr) {
+    if (!Array.isArray(arr)) {
+      return;
+    }
+    var arry = []
+    var obj = {}
+    for (var i = 0; i < arr.length; i++) {
+      if (!obj[arr[i]]) {
+        arry.push(arr[i])
+        obj[arr[i]] = 1
+      } else {
+        obj[arr[i]]++
+      }
+    }
+    return arry;
+  }
+
+  function unique4(arr) {
+    if (!Array.isArray(arr)) {
+      return;
+    }
+    arr = arr.sort()
+    var arry = [arr[0]]
+    for (var i = 1; i < arr.length; i++) {
+      if (arr[i] !== arr[i - 1]) {
+        arry.push(arr[i])
+      }
+    }
+    return arry
+  }
+
+
+  function unique3(arr) {
+    if (!Array.isArray(arr)) {
+      return
+    }
+    var array = []
+    for (var i = 0; i < arr.length; i++) {
+      if (array.indexOf(arr[i]) === -1) {
+        array.push(arr[i])
+      }
+    }
+    return array
+  }
+
+
+
+
+  function unique2(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      for (var j = i + 1; j < arr.length; j++) {
+        if (arr[i] == arr[j]) {
+          arr.splice(j, 1);
+          j--;
+        }
+      }
+    }
+  }
+
+  function unique1(arr) {
+    return Array.from(new Set(arr))
+  }
+
+
+
+  console.log(unique4(testArr))
+
+
+ 
+
+  let date = new Date('2019-03-02 09:20:12')
+  alert(date)
+
+</script>
+
+</html>
